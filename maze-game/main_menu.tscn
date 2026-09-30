@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://dghgdyl36ncdy"]
+
+[ext_resource type="Texture2D" uid="uid://b0m6c0m082ejq" path="res://backgrounds/SewerScurryMainArt.png" id="1_06t4h"]
+[ext_resource type="Script" uid="uid://cvcfyjsrpvbgv" path="res://main_menu.gd" id="1_7vrkn"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iaa7r"]
+texture = ExtResource("1_06t4h")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iaa7r"]
+bg_color = Color(0.12941177, 0.20784314, 0.10980392, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+corner_detail = 18
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_06t4h"]
+bg_color = Color(0.07630972, 0.13238543, 0.062288024, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+corner_detail = 18
+
+[node name="MainMenu" type="Control" unique_id=473531458]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7vrkn")
+
+[node name="Panel" type="Panel" parent="." unique_id=1123665752]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_iaa7r")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=912438959]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.047743056
+anchor_top = 0.49691358
+anchor_right = 0.2751736
+anchor_bottom = 0.85493827
+offset_left = 662.0
+offset_top = 45.0
+offset_right = 662.0
+offset_bottom = 45.0
+grow_horizontal = 2
+theme_override_constants/separation = 16
+metadata/_edit_use_anchors_ = true
+
+[node name="startButton" type="Button" parent="VBoxContainer" unique_id=1710006135]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_iaa7r")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_iaa7r")
+theme_override_styles/hover = SubResource("StyleBoxFlat_06t4h")
+text = "Start "
+
+[node name="Button2" type="Button" parent="VBoxContainer" unique_id=1069461010]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_iaa7r")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_iaa7r")
+theme_override_styles/hover = SubResource("StyleBoxFlat_06t4h")
+text = "Controls"
+
+[node name="exitButton" type="Button" parent="VBoxContainer" unique_id=1697081023]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_iaa7r")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_iaa7r")
+theme_override_styles/hover = SubResource("StyleBoxFlat_06t4h")
+text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/startButton" to="." method="startButtonPressed"]
+[connection signal="pressed" from="VBoxContainer/exitButton" to="." method="_on_exit_button_pressed"]

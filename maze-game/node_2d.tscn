@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://xg0prq5v7d8h" path="res://character_body_2d.gd" id="1_0e48y"]
 [ext_resource type="TileSet" uid="uid://bxv3uu86yyhik" path="res://new_tile_set.tres" id="1_epypp"]
-[ext_resource type="Texture2D" uid="uid://dd6ke58xlkla5" path="res://player.png" id="3_epypp"]
-[ext_resource type="AudioStream" uid="uid://dcb6kb5eta82u" path="res://rat_attack.mp3" id="4_0hol4"]
+[ext_resource type="Texture2D" uid="uid://dd6ke58xlkla5" path="res://temprary_Assets/player.png" id="3_epypp"]
+[ext_resource type="AudioStream" uid="uid://dcb6kb5eta82u" path="res://soundEffects/rat_attack.mp3" id="4_0hol4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b6l7d"]
 size = Vector2(32, 32)

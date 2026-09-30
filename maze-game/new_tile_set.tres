@@ -1,11 +1,11 @@
 [gd_resource type="TileSet" format=3 uid="uid://bxv3uu86yyhik"]
 
-[ext_resource type="Texture2D" uid="uid://dymukqgki1c6f" path="res://floor.png" id="1_ujgj0"]
-[ext_resource type="Texture2D" uid="uid://clumfuqoxlf7k" path="res://wall.png" id="2_02c43"]
-[ext_resource type="Texture2D" uid="uid://da3ix7b31pihj" path="res://obstacle.png" id="3_02c43"]
+[ext_resource type="Texture2D" uid="uid://dymukqgki1c6f" path="res://temprary_Assets/floor.png" id="1_02c43"]
+[ext_resource type="Texture2D" uid="uid://clumfuqoxlf7k" path="res://temprary_Assets/wall.png" id="2_02c43"]
+[ext_resource type="Texture2D" uid="uid://da3ix7b31pihj" path="res://temprary_Assets/obstacle.png" id="3_peyie"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0hol4"]
-texture = ExtResource("1_ujgj0")
+texture = ExtResource("1_02c43")
 2:0/0 = 0
 3:0/0 = 0
 0:1/0 = 0
@@ -59,7 +59,7 @@ texture = ExtResource("2_02c43")
 3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_peyie"]
-texture = ExtResource("3_02c43")
+texture = ExtResource("3_peyie")
 0:0/0 = 0
 0:0/0/custom_data_0 = 2
 1:0/0 = 0
