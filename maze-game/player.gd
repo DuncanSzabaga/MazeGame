@@ -74,12 +74,16 @@ func _move(dir: Vector2):
 	
 func _can_move(dir):
 	if dir == Vector2.UP:
+		$AnimatedSprite2D.play("forward_animation")
 		return !$up.is_colliding()
 	if dir == Vector2.DOWN:
+		$AnimatedSprite2D.play("back_animation")
 		return !$down.is_colliding()
 	if dir == Vector2.LEFT:
+		$AnimatedSprite2D.play("left_animation")
 		return !$left.is_colliding()
 	if dir == Vector2.RIGHT:
+		$AnimatedSprite2D.play("right_animation")
 		return !$right.is_colliding()
 	
 func _ready_attack():
