@@ -115,3 +115,20 @@ func _apply_tile_effect():
 				await _move(Vector2(1, 0))
 	else:
 		return
+
+
+# Animation Related Functions
+
+func _ready():
+	$AnimatedSprite2D.animation_finished.connect(_on_animation_finished)
+	
+func _on_animation_finished():
+	if $AnimatedSprite2D.animation == "forward_animation":
+		$AnimatedSprite2D.play("forward_idle")
+	elif $AnimatedSprite2D.animation == "back_animation":
+		$AnimatedSprite2D.play("back_idle")
+	elif $AnimatedSprite2D.animation == "left_animation":
+		$AnimatedSprite2D.play("left_idle")
+	elif $AnimatedSprite2D.animation == "right_animation":
+		$AnimatedSprite2D.play("right_idle")
+	
