@@ -120,6 +120,7 @@ func _apply_tile_effect():
 # Animation Related Functions
 
 func _ready():
+	$AnimatedSprite2D.play("back_idle")
 	$AnimatedSprite2D.animation_finished.connect(_on_animation_finished)
 	
 func _on_animation_finished():
