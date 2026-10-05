@@ -10,6 +10,8 @@
 [ext_resource type="Script" uid="uid://b4yenxqddehiw" path="res://enemy.gd" id="5_kdubu"]
 [ext_resource type="Texture2D" uid="uid://b8yae1usqa46t" path="res://temprary_Assets/enemy.png" id="6_d21ai"]
 [ext_resource type="Texture2D" uid="uid://d3vkl2c57r4q2" path="res://Assets/enemyRatSprites.png" id="10_ir8iy"]
+[ext_resource type="Texture2D" uid="uid://mubcg532orjy" path="res://Assets/enemyBatSprites.png" id="11_hqns4"]
+[ext_resource type="Script" uid="uid://da228w2yvu5sa" path="res://bat_enemy.gd" id="11_x0ka3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ir8iy"]
 texture = ExtResource("1_4d7sh")
@@ -261,9 +263,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b6l7d"]
 size = Vector2(32, 32)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_geerw"]
-size = Vector2(32, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_x0ka3"]
 atlas = ExtResource("10_ir8iy")
 region = Rect2(0, 0, 32, 32)
@@ -391,6 +390,46 @@ animations = [{
 "speed": 2.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_geerw"]
+size = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ornx7"]
+atlas = ExtResource("11_hqns4")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cnnru"]
+atlas = ExtResource("11_hqns4")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_540hr"]
+atlas = ExtResource("11_hqns4")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mj58m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ornx7")
+}],
+"loop": 1,
+"name": &"damage",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cnnru")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_540hr")
+}],
+"loop": 1,
+"name": &"fly_animation",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8jolu"]
+size = Vector2(20, 19)
+
 [node name="Node2D" type="Node2D" unique_id=1598750970]
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=577094384]
@@ -456,16 +495,16 @@ scale = Vector2(2, 2)
 script = ExtResource("5_kdubu")
 enemy_path = Array[Vector2]([Vector2(0, 1), Vector2(1, 0), Vector2(0, -1), Vector2(-1, 0)])
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="enemy" unique_id=1170101890]
+sprite_frames = SubResource("SpriteFrames_xo5bu")
+animation = &"down_animation"
+
 [node name="Sprite2D" type="Sprite2D" parent="enemy" unique_id=2119381011]
 visible = false
 texture = ExtResource("6_d21ai")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enemy" unique_id=398430331]
 shape = SubResource("RectangleShape2D_geerw")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="enemy" unique_id=1170101890]
-sprite_frames = SubResource("SpriteFrames_xo5bu")
-animation = &"down_animation"
 
 [node name="enemy2" type="CharacterBody2D" parent="." unique_id=2118300800 groups=["enemies"]]
 position = Vector2(352, 288)
@@ -488,3 +527,19 @@ texture = ExtResource("6_d21ai")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enemy3" unique_id=970974059]
 shape = SubResource("RectangleShape2D_geerw")
+
+[node name="bat enemy" type="CharacterBody2D" parent="." unique_id=1005849328]
+texture_filter = 1
+scale = Vector2(2, 2)
+script = ExtResource("11_x0ka3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="bat enemy" unique_id=327006327]
+sprite_frames = SubResource("SpriteFrames_mj58m")
+animation = &"fly_animation"
+
+[node name="Sprite2D" type="Sprite2D" parent="bat enemy" unique_id=1965947376]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bat enemy" unique_id=1731759649]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_8jolu")
