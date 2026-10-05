@@ -450,14 +450,11 @@ stream = ExtResource("4_0hol4")
 position_smoothing_enabled = true
 
 [node name="enemy" type="CharacterBody2D" parent="." unique_id=570666243 groups=["enemies"]]
-texture_filter = 1
 position = Vector2(544, 288)
-scale = Vector2(2, 2)
 script = ExtResource("5_kdubu")
 enemy_path = Array[Vector2]([Vector2(0, 1), Vector2(1, 0), Vector2(0, -1), Vector2(-1, 0)])
 
 [node name="Sprite2D" type="Sprite2D" parent="enemy" unique_id=2119381011]
-visible = false
 texture = ExtResource("6_d21ai")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enemy" unique_id=398430331]
