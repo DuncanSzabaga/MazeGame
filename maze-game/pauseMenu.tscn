@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://ho7lem5t8mcg"]
+
+[ext_resource type="Script" uid="uid://wm058oxs4y2g" path="res://pauseMenu.gd" id="1_hfklj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v270u"]
+bg_color = Color(0.6, 0.6, 0.6, 0.37254903)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hts4r"]
+bg_color = Color(0.72944707, 0.5715909, 0.30675006, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xps4r"]
+bg_color = Color(0.72226757, 0.57754624, 0.27019802, 1)
+
+[node name="Control" type="CanvasLayer" unique_id=1356374960]
+process_mode = 3
+script = ExtResource("1_hfklj")
+
+[node name="Panel" type="Panel" parent="." unique_id=1172803363]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 2.0
+offset_right = 4.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_v270u")
+
+[node name="mainMenu" type="Button" parent="." unique_id=906059002]
+offset_left = 473.0
+offset_top = 78.0
+offset_right = 716.0
+offset_bottom = 229.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_hts4r")
+text = "mainMenu"
+
+[node name="resume" type="Button" parent="." unique_id=965307561]
+offset_left = 471.0
+offset_top = 282.0
+offset_right = 714.0
+offset_bottom = 433.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_xps4r")
+text = "resume"
+
+[connection signal="pressed" from="mainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="resume" to="." method="_on_resume_pressed"]

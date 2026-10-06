@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://d3vso22scea34"]
 
 [ext_resource type="Texture2D" uid="uid://bapwek3f8v3ii" path="res://Assets/tileAsset.png" id="1_4d7sh"]
+[ext_resource type="PackedScene" uid="uid://ho7lem5t8mcg" path="res://pauseMenu.tscn" id="1_ir8iy"]
 [ext_resource type="PackedScene" uid="uid://clus6jx0c3qsp" path="res://Scenes/enemy_rat.tscn" id="1_k73cj"]
 [ext_resource type="PackedScene" uid="uid://b45wx2nog1t4w" path="res://Scenes/player.tscn" id="1_nr8wp"]
 [ext_resource type="Texture2D" uid="uid://ckaeperm2o4tj" path="res://Assets/walls/backwall.png" id="2_0h7mo"]
@@ -227,3 +228,5 @@ rendering_quadrant_size = 32
 
 [node name="enemyRat2" parent="." unique_id=1401697115 instance=ExtResource("1_k73cj")]
 position = Vector2(139, 150)
+
+[node name="pauseMenu" parent="." unique_id=1356374960 instance=ExtResource("1_ir8iy")]

@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b0m6c0m082ejq" path="res://backgrounds/SewerScurryMainArt.png" id="1_06t4h"]
 [ext_resource type="Script" uid="uid://cvcfyjsrpvbgv" path="res://main_menu.gd" id="1_7vrkn"]
+[ext_resource type="AudioStream" uid="uid://cal8vcipbhnyo" path="res://Music/rat_mainmenu.mp3" id="3_fu7sn"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iaa7r"]
 texture = ExtResource("1_06t4h")
@@ -34,6 +35,11 @@ offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7vrkn")
+
+[node name="background" type="AudioStreamPlayer2D" parent="." unique_id=1430306866]
+stream = ExtResource("3_fu7sn")
+autoplay = true
+parameters/looping = true
 
 [node name="Panel" type="Panel" parent="." unique_id=1123665752]
 layout_mode = 1
@@ -86,5 +92,5 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_iaa7r")
 theme_override_styles/hover = SubResource("StyleBoxFlat_06t4h")
 text = "Quit"
 
-[connection signal="pressed" from="VBoxContainer/startButton" to="." method="startButtonPressed"]
+[connection signal="pressed" from="VBoxContainer/startButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/exitButton" to="." method="_on_exit_button_pressed"]
