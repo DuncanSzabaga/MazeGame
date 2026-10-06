@@ -66,6 +66,7 @@ func _check_enemy_overlap():
 	for enemy in enemies:
 		if global_position.distance_to(enemy.global_position) < 32:
 			HealthManager.take_damage()
+
 			
 			if HealthManager.current_health <= 0:
 				set_global_position(start_pos)

@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://gj3ka7qsrt17"]
+
+[ext_resource type="Script" uid="uid://cbax8u5ytbmsm" path="res://player_stats.gd" id="1_3ynvb"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1148783031]
+script = ExtResource("1_3ynvb")
+
+[node name="Panel" type="Panel" parent="." unique_id=865683757]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -85.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+
+[node name="Hearts" type="HBoxContainer" parent="." unique_id=1328999617]
+offset_left = 7.0
+offset_top = 605.0
+offset_right = 148.0
+offset_bottom = 646.0
+
+[node name="Heart1" type="TextureRect" parent="Hearts" unique_id=625551731]
+layout_mode = 2
+
+[node name="Heart2" type="TextureRect" parent="Hearts" unique_id=459667158]
+layout_mode = 2
+
+[node name="Heart3" type="TextureRect" parent="Hearts" unique_id=436720612]
+layout_mode = 2
