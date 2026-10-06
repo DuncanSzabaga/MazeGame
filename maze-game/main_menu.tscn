@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dghgdyl36ncdy"]
 
 [ext_resource type="Texture2D" uid="uid://b0m6c0m082ejq" path="res://backgrounds/SewerScurryMainArt.png" id="1_06t4h"]
-[ext_resource type="Script" uid="uid://cvcfyjsrpvbgv" path="res://main_menu.gd" id="1_7vrkn"]
+[ext_resource type="Script" uid="uid://cvcfyjsrpvbgv" path="res://gd/main_menu.gd" id="1_7vrkn"]
 [ext_resource type="AudioStream" uid="uid://cal8vcipbhnyo" path="res://Music/rat_mainmenu.mp3" id="3_fu7sn"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iaa7r"]

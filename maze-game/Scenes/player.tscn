@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://b45wx2nog1t4w"]
 
-[ext_resource type="Script" uid="uid://xg0prq5v7d8h" path="res://player.gd" id="1_fkybt"]
+[ext_resource type="Script" uid="uid://xg0prq5v7d8h" path="res://gd/player.gd" id="1_fkybt"]
 [ext_resource type="Texture2D" uid="uid://bwdt74kqmunkf" path="res://Assets/ratSprites.png" id="2_x3wgy"]
 [ext_resource type="Texture2D" uid="uid://dd6ke58xlkla5" path="res://temprary_Assets/player.png" id="3_3smsa"]
-[ext_resource type="Script" uid="uid://txyuih578d7j" path="res://raycast.gd" id="4_8erm5"]
+[ext_resource type="Script" uid="uid://txyuih578d7j" path="res://gd/raycast.gd" id="4_8erm5"]
 [ext_resource type="AudioStream" uid="uid://dcb6kb5eta82u" path="res://soundEffects/rat_attack.mp3" id="5_f1ek2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hqns4"]

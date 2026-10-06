@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bw7t4lt5n1v2x"]
 
-[ext_resource type="Script" uid="uid://da228w2yvu5sa" path="res://bat_enemy.gd" id="1_nvv5w"]
+[ext_resource type="Script" uid="uid://da228w2yvu5sa" path="res://gd/bat_enemy.gd" id="1_nvv5w"]
 [ext_resource type="Texture2D" uid="uid://mubcg532orjy" path="res://Assets/enemyBatSprites.png" id="2_5m8x6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ornx7"]

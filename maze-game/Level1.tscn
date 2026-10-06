@@ -1,18 +1,18 @@
 [gd_scene format=4 uid="uid://d3vso22scea34"]
 
-[ext_resource type="Texture2D" uid="uid://bapwek3f8v3ii" path="res://Assets/tileAsset.png" id="1_4d7sh"]
-[ext_resource type="PackedScene" uid="uid://ho7lem5t8mcg" path="res://pauseMenu.tscn" id="1_ir8iy"]
-[ext_resource type="PackedScene" uid="uid://clus6jx0c3qsp" path="res://Scenes/enemy_rat.tscn" id="1_k73cj"]
-[ext_resource type="PackedScene" uid="uid://b45wx2nog1t4w" path="res://Scenes/player.tscn" id="1_nr8wp"]
-[ext_resource type="Texture2D" uid="uid://ckaeperm2o4tj" path="res://Assets/walls/backwall.png" id="2_0h7mo"]
-[ext_resource type="Texture2D" uid="uid://k6hwvbvr66y1" path="res://Assets/walls/rightSideWall.png" id="3_k73cj"]
-[ext_resource type="Texture2D" uid="uid://dsq363rc42ncj" path="res://Assets/walls/leftSideWall.png" id="4_rjqkl"]
-[ext_resource type="Texture2D" uid="uid://bdjiabqexweug" path="res://Assets/floors/floor.png" id="5_fs4d3"]
-[ext_resource type="Texture2D" uid="uid://nub71o3j511f" path="res://Assets/floors/mossFloor.png" id="6_7vxoj"]
-[ext_resource type="Texture2D" uid="uid://dotjvok3f88sg" path="res://Assets/walls/bottomWall.png" id="7_ei405"]
+[ext_resource type="PackedScene" uid="uid://b45wx2nog1t4w" path="res://Scenes/player.tscn" id="1_1bjei"]
+[ext_resource type="PackedScene" uid="uid://clus6jx0c3qsp" path="res://Scenes/enemy_rat.tscn" id="2_5g1s2"]
+[ext_resource type="Texture2D" uid="uid://bapwek3f8v3ii" path="res://Assets/tileAsset.png" id="3_aiv1b"]
+[ext_resource type="Texture2D" uid="uid://dsq363rc42ncj" path="res://Assets/walls/leftSideWall.png" id="4_wapi5"]
+[ext_resource type="Texture2D" uid="uid://k6hwvbvr66y1" path="res://Assets/walls/rightSideWall.png" id="5_a2cb0"]
+[ext_resource type="Texture2D" uid="uid://ckaeperm2o4tj" path="res://Assets/walls/backwall.png" id="6_3gjqj"]
+[ext_resource type="Texture2D" uid="uid://bdjiabqexweug" path="res://Assets/floors/floor.png" id="7_g56ap"]
+[ext_resource type="Texture2D" uid="uid://nub71o3j511f" path="res://Assets/floors/mossFloor.png" id="8_na6ls"]
+[ext_resource type="Texture2D" uid="uid://dotjvok3f88sg" path="res://Assets/walls/bottomWall.png" id="9_fjxbk"]
+[ext_resource type="PackedScene" uid="uid://ho7lem5t8mcg" path="res://pauseMenu.tscn" id="10_3jhf0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ir8iy"]
-texture = ExtResource("1_4d7sh")
+texture = ExtResource("3_aiv1b")
 2:0/0 = 0
 3:0/0 = 0
 5:0/0 = 0
@@ -129,7 +129,7 @@ texture = ExtResource("1_4d7sh")
 11:11/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_flf07"]
-texture = ExtResource("4_rjqkl")
+texture = ExtResource("4_wapi5")
 1:0/0 = 0
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(2.3381643, 5.036045, 8, 4.856186, 8, 8, 2.3381643, 8)
 1:1/0 = 0
@@ -144,7 +144,7 @@ texture = ExtResource("4_rjqkl")
 1:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(2.1583052, -8, 8, -8, 8, -3.2374573, 2.1583052, -3.5971746)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k73cj"]
-texture = ExtResource("3_k73cj")
+texture = ExtResource("5_a2cb0")
 0:2/0 = 0
 0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:3/0 = 0
@@ -160,7 +160,7 @@ texture = ExtResource("3_k73cj")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nr8wp"]
 resource_name = "backwall"
-texture = ExtResource("2_0h7mo")
+texture = ExtResource("6_3gjqj")
 0:2/next_alternative_id = 2
 0:2/0 = 0
 0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -181,21 +181,21 @@ texture = ExtResource("2_0h7mo")
 1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bjha6"]
-texture = ExtResource("5_fs4d3")
+texture = ExtResource("7_g56ap")
 0:0/0 = 0
 1:0/0 = 0
 0:1/0 = 0
 1:1/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gt76g"]
-texture = ExtResource("6_7vxoj")
+texture = ExtResource("8_na6ls")
 1:0/0 = 0
 0:0/0 = 0
 0:1/0 = 0
 1:1/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1fr6y"]
-texture = ExtResource("7_ei405")
+texture = ExtResource("9_fjxbk")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -3.8235683, -8, -3.5049381)
 1:0/0 = 0
@@ -213,10 +213,10 @@ sources/13 = SubResource("TileSetAtlasSource_k73cj")
 
 [node name="Node2D" type="Node2D" unique_id=1598750970]
 
-[node name="player" parent="." unique_id=515481656 instance=ExtResource("1_nr8wp")]
+[node name="player" parent="." unique_id=515481656 instance=ExtResource("1_1bjei")]
 z_index = 1
 
-[node name="enemyRat" parent="." unique_id=1207604234 instance=ExtResource("1_k73cj")]
+[node name="enemyRat" parent="." unique_id=1207604234 instance=ExtResource("2_5g1s2")]
 z_index = 1
 position = Vector2(437, 94)
 
@@ -226,7 +226,7 @@ tile_map_data = PackedByteArray("AAD7//z/CwABAAAAAAD7//3/CwABAAIAAAD7//7/CwABAAM
 tile_set = SubResource("TileSet_nv3ht")
 rendering_quadrant_size = 32
 
-[node name="enemyRat2" parent="." unique_id=1401697115 instance=ExtResource("1_k73cj")]
+[node name="enemyRat2" parent="." unique_id=1401697115 instance=ExtResource("2_5g1s2")]
 position = Vector2(139, 150)
 
-[node name="pauseMenu" parent="." unique_id=1356374960 instance=ExtResource("1_ir8iy")]
+[node name="pauseMenu" parent="." unique_id=1356374960 instance=ExtResource("10_3jhf0")]

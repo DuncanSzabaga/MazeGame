@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://clus6jx0c3qsp"]
 
-[ext_resource type="Script" uid="uid://b4yenxqddehiw" path="res://enemy.gd" id="1_u01s6"]
+[ext_resource type="Script" uid="uid://b4yenxqddehiw" path="res://gd/enemy.gd" id="1_u01s6"]
 [ext_resource type="Texture2D" uid="uid://d3vkl2c57r4q2" path="res://Assets/enemyRatSprites.png" id="2_nui2n"]
 [ext_resource type="Texture2D" uid="uid://b8yae1usqa46t" path="res://temprary_Assets/enemy.png" id="3_w4tas"]
 
