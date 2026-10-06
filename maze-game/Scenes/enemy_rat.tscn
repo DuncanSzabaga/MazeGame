@@ -136,14 +136,13 @@ size = Vector2(32, 32)
 
 [node name="enemyRat" type="CharacterBody2D" unique_id=1207604234 groups=["enemies"]]
 texture_filter = 1
-position = Vector2(544, 288)
 scale = Vector2(2, 2)
 script = ExtResource("1_u01s6")
 enemy_path = Array[Vector2]([Vector2(0, 1), Vector2(1, 0), Vector2(0, -1), Vector2(-1, 0)])
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=755946511]
 sprite_frames = SubResource("SpriteFrames_xo5bu")
-animation = &"down_animation"
+animation = &"left_idle"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2120428804]
 visible = false

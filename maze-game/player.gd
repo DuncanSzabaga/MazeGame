@@ -64,7 +64,7 @@ func _call_enemies():
 func _check_enemy_overlap():
 	var enemies = get_tree().get_nodes_in_group("enemies")
 	for enemy in enemies:
-		if (enemy.global_position == global_position):
+		if global_position.distance_to(enemy.global_position) < 32:
 			set_global_position(start_pos)
 	
 func _move(dir: Vector2):

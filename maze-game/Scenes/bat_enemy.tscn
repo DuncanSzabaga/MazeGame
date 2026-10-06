@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://bw7t4lt5n1v2x"]
+
+[ext_resource type="Script" uid="uid://da228w2yvu5sa" path="res://bat_enemy.gd" id="1_nvv5w"]
+[ext_resource type="Texture2D" uid="uid://mubcg532orjy" path="res://Assets/enemyBatSprites.png" id="2_5m8x6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ornx7"]
+atlas = ExtResource("2_5m8x6")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cnnru"]
+atlas = ExtResource("2_5m8x6")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_540hr"]
+atlas = ExtResource("2_5m8x6")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mj58m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ornx7")
+}],
+"loop": 1,
+"name": &"damage",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cnnru")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_540hr")
+}],
+"loop": 1,
+"name": &"fly_animation",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8jolu"]
+size = Vector2(20, 19)
+
+[node name="bat enemy" type="CharacterBody2D" unique_id=452160669]
+texture_filter = 1
+scale = Vector2(2, 2)
+script = ExtResource("1_nvv5w")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=954481392]
+sprite_frames = SubResource("SpriteFrames_mj58m")
+animation = &"fly_animation"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=279948663]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2061158108]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_8jolu")
