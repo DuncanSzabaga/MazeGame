@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://ho7lem5t8mcg" path="res://pauseMenu.tscn" id="10_3jhf0"]
 [ext_resource type="PackedScene" uid="uid://gj3ka7qsrt17" path="res://playerStats.tscn" id="11_5g1s2"]
 [ext_resource type="AudioStream" uid="uid://b8x5epfqqg5v6" path="res://Music/level_music.mp3" id="12_aiv1b"]
+[ext_resource type="PackedScene" uid="uid://bw7t4lt5n1v2x" path="res://Scenes/bat_enemy.tscn" id="13_wapi5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ir8iy"]
 texture = ExtResource("3_aiv1b")
@@ -240,3 +241,6 @@ stream = ExtResource("12_aiv1b")
 volume_db = -20.166
 autoplay = true
 parameters/looping = true
+
+[node name="bat enemy" parent="." unique_id=452160669 instance=ExtResource("13_wapi5")]
+position = Vector2(-32, -32)
