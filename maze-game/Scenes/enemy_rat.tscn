@@ -90,7 +90,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"left_idle",
-"speed": 5.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -142,7 +142,7 @@ enemy_path = Array[Vector2]([Vector2(0, 1), Vector2(1, 0), Vector2(0, -1), Vecto
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=755946511]
 sprite_frames = SubResource("SpriteFrames_xo5bu")
-animation = &"left_idle"
+animation = &"up_idle"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2120428804]
 visible = false
