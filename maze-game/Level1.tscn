@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dotjvok3f88sg" path="res://Assets/walls/bottomWall.png" id="9_fjxbk"]
 [ext_resource type="PackedScene" uid="uid://ho7lem5t8mcg" path="res://pauseMenu.tscn" id="10_3jhf0"]
 [ext_resource type="PackedScene" uid="uid://gj3ka7qsrt17" path="res://playerStats.tscn" id="11_5g1s2"]
-[ext_resource type="AudioStream" uid="uid://bqughnmd7vam4" path="res://Music/levelMusic.mp3" id="12_aiv1b"]
+[ext_resource type="AudioStream" uid="uid://b8x5epfqqg5v6" path="res://Music/level_music.mp3" id="12_aiv1b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ir8iy"]
 texture = ExtResource("3_aiv1b")
@@ -237,6 +237,6 @@ position = Vector2(139, 150)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=73792820]
 stream = ExtResource("12_aiv1b")
-volume_db = -24.166
+volume_db = -20.166
 autoplay = true
 parameters/looping = true

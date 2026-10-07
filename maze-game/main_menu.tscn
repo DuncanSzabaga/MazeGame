@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b0m6c0m082ejq" path="res://backgrounds/SewerScurryMainArt.png" id="1_06t4h"]
 [ext_resource type="Script" uid="uid://cvcfyjsrpvbgv" path="res://gd/main_menu.gd" id="1_7vrkn"]
-[ext_resource type="AudioStream" uid="uid://cal8vcipbhnyo" path="res://Music/rat_mainmenu.mp3" id="3_fu7sn"]
+[ext_resource type="AudioStream" uid="uid://7d551qdwkod2" path="res://Music/main_menu.mp3" id="2_fu7sn"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iaa7r"]
 texture = ExtResource("1_06t4h")
@@ -36,10 +36,10 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7vrkn")
 
-[node name="background" type="AudioStreamPlayer2D" parent="." unique_id=1430306866]
-stream = ExtResource("3_fu7sn")
+[node name="background" type="AudioStreamPlayer" parent="." unique_id=1425484959]
+stream = ExtResource("2_fu7sn")
+volume_db = -15.0
 autoplay = true
-parameters/looping = true
 
 [node name="Panel" type="Panel" parent="." unique_id=1123665752]
 layout_mode = 1
