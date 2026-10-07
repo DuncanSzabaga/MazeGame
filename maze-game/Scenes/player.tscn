@@ -134,7 +134,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b6l7d"]
-size = Vector2(24.5, 21.5)
+size = Vector2(32, 32)
 
 [node name="player" type="CharacterBody2D" unique_id=515481656 groups=["player"]]
 texture_filter = 1
@@ -152,7 +152,6 @@ texture_filter = 1
 texture = ExtResource("3_3smsa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1045567475]
-position = Vector2(-0.75, 5.25)
 shape = SubResource("RectangleShape2D_b6l7d")
 
 [node name="up" type="RayCast2D" parent="." unique_id=1455617696]
