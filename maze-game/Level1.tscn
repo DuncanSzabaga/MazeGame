@@ -214,6 +214,18 @@ sources/8 = SubResource("TileSetAtlasSource_1fr6y")
 sources/11 = SubResource("TileSetAtlasSource_flf07")
 sources/13 = SubResource("TileSetAtlasSource_k73cj")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xo5bu"]
+size = Vector2(1088, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mj58m"]
+size = Vector2(64, 704)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8jolu"]
+size = Vector2(1088, 66)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r00ft"]
+size = Vector2(64, 704)
+
 [node name="Node2D" type="Node2D" unique_id=1598750970]
 
 [node name="player" parent="." unique_id=515481656 instance=ExtResource("1_1bjei")]
@@ -230,7 +242,7 @@ tile_set = SubResource("TileSet_nv3ht")
 rendering_quadrant_size = 32
 
 [node name="enemyRat2" parent="." unique_id=1401697115 instance=ExtResource("2_5g1s2")]
-position = Vector2(160, 160)
+position = Vector2(224, 288)
 
 [node name="pauseMenu" parent="." unique_id=1356374960 instance=ExtResource("10_3jhf0")]
 
@@ -244,3 +256,24 @@ parameters/looping = true
 
 [node name="bat enemy" parent="." unique_id=452160669 instance=ExtResource("13_wapi5")]
 position = Vector2(288, 32)
+collision_layer = 32
+
+[node name="LevelBounds" type="StaticBody2D" parent="." unique_id=1031147245]
+collision_layer = 2
+collision_mask = 2
+
+[node name="Top" type="CollisionShape2D" parent="LevelBounds" unique_id=2059807445]
+position = Vector2(288, -224)
+shape = SubResource("RectangleShape2D_xo5bu")
+
+[node name="Left" type="CollisionShape2D" parent="LevelBounds" unique_id=1696201657]
+position = Vector2(-288, 160)
+shape = SubResource("RectangleShape2D_mj58m")
+
+[node name="Bottom" type="CollisionShape2D" parent="LevelBounds" unique_id=733865024]
+position = Vector2(288, 545)
+shape = SubResource("RectangleShape2D_8jolu")
+
+[node name="Right" type="CollisionShape2D" parent="LevelBounds" unique_id=225424292]
+position = Vector2(864, 160)
+shape = SubResource("RectangleShape2D_r00ft")

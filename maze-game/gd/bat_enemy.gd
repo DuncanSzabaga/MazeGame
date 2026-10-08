@@ -1,10 +1,10 @@
 extends CharacterBody2D
 
 const SPEED = 175.0
-const LEFT_X = -248
-const RIGHT_X = 848
-const TOP_Y = 552
-const BOTTOM_Y = -296
+const LEFT_X = -224
+const RIGHT_X = 800
+const TOP_Y = -160
+const BOTTOM_Y = 480
 const COOLDOWN = 10.0
 const CENTER = Vector2(288,160)
 const MAX_ANGLE_OFFSET = deg_to_rad(25.0)
@@ -18,10 +18,10 @@ func _physics_process(delta: float) -> void:
 	if collision:
 		collider = collision.get_collider()
 		# if bat hit level bounds
-		#if collider == $"../LevelBounds":
-		#	curr_speed = 0
-		#	$AnimatedSprite2D.visible = false
-		#	new_bat()
+		if collider == $"../LevelBounds":
+			curr_speed = 0
+			$AnimatedSprite2D.visible = false
+			new_bat()
 
 func _ready():
 	$AnimatedSprite2D.play("fly_animation")

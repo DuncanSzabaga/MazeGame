@@ -43,6 +43,8 @@ size = Vector2(20, 19)
 [node name="bat enemy" type="CharacterBody2D" unique_id=452160669]
 texture_filter = 1
 scale = Vector2(2, 2)
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_nvv5w")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=954481392]
