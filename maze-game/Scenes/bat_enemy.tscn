@@ -46,6 +46,7 @@ scale = Vector2(2, 2)
 script = ExtResource("1_nvv5w")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=954481392]
+visible = false
 sprite_frames = SubResource("SpriteFrames_mj58m")
 animation = &"fly_animation"
 
