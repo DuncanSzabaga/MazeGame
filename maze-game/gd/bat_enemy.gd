@@ -5,9 +5,10 @@ const LEFT_X = -224
 const RIGHT_X = 800
 const TOP_Y = -160
 const BOTTOM_Y = 480
-const COOLDOWN = 10.0
+const COOLDOWN = 15.0
 const CENTER = Vector2(288,160)
 const MAX_ANGLE_OFFSET = deg_to_rad(25.0)
+const SCALE_TIME = 1.0
 var health = 3
 var curr_speed = 0
 var dir : Vector2
@@ -20,19 +21,38 @@ func _physics_process(delta: float) -> void:
 		# if bat hit level bounds
 		if collider == $"../LevelBounds":
 			curr_speed = 0
+			await shrink_bat()
 			$AnimatedSprite2D.visible = false
 			new_bat()
 
 func _ready():
 	$AnimatedSprite2D.play("fly_animation")
 	new_bat()
+	
+func shrink_bat():
+	var tween = create_tween()
+	tween.tween_property(
+		$AnimatedSprite2D, "scale", Vector2(0.01, 0.01), SCALE_TIME
+	)
+	await tween.finished
+
+func grow_bat():
+	var tween = create_tween()
+	tween.tween_property(
+		$AnimatedSprite2D, "scale", Vector2.ONE, SCALE_TIME
+	)
+	await tween.finished
 
 func new_bat():
-	await get_tree().create_timer(COOLDOWN).timeout
-	$AnimatedSprite2D.visible = true
+	await get_tree().create_timer(COOLDOWN + randi_range(0,10)).timeout
 	# randomize position of bat
 	position = random_spawn()
 	dir = random_direction(position)
+	
+	$AnimatedSprite2D.scale = Vector2(0.01, 0.01)
+	$AnimatedSprite2D.visible = true
+	await grow_bat()
+	
 	curr_speed = SPEED
 	
 func random_spawn() -> Vector2:

@@ -230,6 +230,7 @@ size = Vector2(64, 704)
 
 [node name="player" parent="." unique_id=515481656 instance=ExtResource("1_1bjei")]
 z_index = 1
+collision_mask = 3
 
 [node name="enemyRat" parent="." unique_id=1207604234 instance=ExtResource("2_5g1s2")]
 z_index = 1
@@ -255,8 +256,8 @@ autoplay = true
 parameters/looping = true
 
 [node name="bat enemy" parent="." unique_id=452160669 instance=ExtResource("13_wapi5")]
+z_index = 1
 position = Vector2(288, 32)
-collision_layer = 32
 
 [node name="LevelBounds" type="StaticBody2D" parent="." unique_id=1031147245]
 collision_layer = 2
@@ -277,3 +278,5 @@ shape = SubResource("RectangleShape2D_8jolu")
 [node name="Right" type="CollisionShape2D" parent="LevelBounds" unique_id=225424292]
 position = Vector2(864, 160)
 shape = SubResource("RectangleShape2D_r00ft")
+
+[node name="bat enemy2" parent="." unique_id=994228303 instance=ExtResource("13_wapi5")]
