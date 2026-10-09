@@ -9,7 +9,14 @@ var move_num = 0
 const tile_size: Vector2 = Vector2(64, 64)
 var sprite_node_pos_tween = Tween
 var chase = false
+var facing = Vector2.DOWN
 
+enum FacingDirection {
+	UP,
+	DOWN,
+	LEFT,
+	RIGHT
+}
 
 func _move_enemy():
 	var dir
@@ -26,25 +33,37 @@ func _move_enemy():
 		$AnimatedSprite2D.play("left_animation")
 	elif dir == Vector2.RIGHT:
 		$AnimatedSprite2D.play("right_animation")
-	
-	global_position += dir * tile_size
-	$Sprite2D.global_position -= dir * tile_size
-	
-	sprite_node_pos_tween = create_tween()
-	sprite_node_pos_tween.set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
-	sprite_node_pos_tween.tween_property(
-		$Sprite2D,
-		"global_position",
-		global_position,
-		0.185
-	).set_trans(Tween.TRANS_SINE)
-	
-	await sprite_node_pos_tween.finished
-	
-	if not chase:
-		move_num += 1
-		if move_num >= enemy_path.size():
-			move_num = 0
+	if facing != dir:
+		facing = dir
+	else:
+		global_position += dir * tile_size
+		var player = get_tree().get_first_node_in_group("player")
+		if global_position.distance_to(player.global_position) < 32:
+			if !player.damaged_this_move:
+				global_position -= dir * tile_size
+				HealthManager.take_damage()
+				player.damaged_this_move = true
+				if HealthManager.current_health <= 0:
+					player.set_global_position(player.start_pos)
+					HealthManager.reset_health()
+		else:
+			$Sprite2D.global_position -= dir * tile_size
+			
+			sprite_node_pos_tween = create_tween()
+			sprite_node_pos_tween.set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
+			sprite_node_pos_tween.tween_property(
+				$Sprite2D,
+				"global_position",
+				global_position,
+				0.185
+			).set_trans(Tween.TRANS_SINE)
+			
+			await sprite_node_pos_tween.finished
+		
+		if not chase:
+			move_num += 1
+			if move_num >= enemy_path.size():
+				move_num = 0
 			
 func _process(_delta):
 	var distance = global_position.distance_to(player.global_position)

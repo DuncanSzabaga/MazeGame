@@ -6,7 +6,16 @@ enum TileEffects {
 	PUSH_RIGHT = 2
 }
 
+enum AttackDirection {
+	UP,
+	DOWN,
+	LEFT,
+	RIGHT
+}
+
+var attack_ready = false
 var waiting = true
+var damaged_this_move = false
 var start_pos: Vector2 = global_position
 const tile_size: Vector2 = Vector2(64, 64)
 var sprite_node_pos_tween: Tween
@@ -17,29 +26,46 @@ func _physics_process(delta: float) -> void:
 			return
 		if Input.is_action_just_pressed("move_up"):
 			waiting = false
-			await _move(Vector2.UP)
+			if attack_ready:
+				await _do_attack(AttackDirection.UP)
+			else:
+				await _move(Vector2.UP)
 			waiting = true
+			damaged_this_move = false
 		elif Input.is_action_just_pressed("move_down"):
 			waiting = false
-			await _move(Vector2.DOWN)
+			if attack_ready:
+				await _do_attack(AttackDirection.DOWN)
+			else:
+				await _move(Vector2.DOWN)
 			waiting = true
+			damaged_this_move = false
 		elif Input.is_action_just_pressed("move_left"):
 			waiting = false
-			await _move(Vector2.LEFT)
+			if attack_ready:
+				await _do_attack(AttackDirection.LEFT)
+			else:
+				await _move(Vector2.LEFT)
 			waiting = true
+			damaged_this_move = false
 		elif Input.is_action_just_pressed("move_right"):
 			waiting = false
-			await _move(Vector2.RIGHT)
+			if attack_ready:
+				await _do_attack(AttackDirection.RIGHT)
+			else:
+				await _move(Vector2.RIGHT)
 			waiting = true
+			damaged_this_move = false
 		elif Input.is_action_just_pressed("attack"):
 			waiting = false
 			await _ready_attack()
 			waiting = true
+			damaged_this_move = false
+		
 		
 func _perform_move(dir: Vector2):
-	_call_enemies()
-	
 	global_position += dir * tile_size
+	_call_enemies()
 	$Sprite2D.global_position -= dir * tile_size
 		
 	sprite_node_pos_tween = create_tween()
@@ -49,7 +75,7 @@ func _perform_move(dir: Vector2):
 	$AudioStreamPlayer2D.play()
 	
 	await sprite_node_pos_tween.finished
-	_check_enemy_overlap()
+	#_check_enemy_overlap()
 
 func _call_enemies():
 	var enemies = get_tree().get_nodes_in_group("enemies")
@@ -58,7 +84,8 @@ func _call_enemies():
 		enemy._move_enemy()
 
 	for enemy in enemies:
-		await enemy.sprite_node_pos_tween.finished
+		if enemy.sprite_node_pos_tween.is_running():
+			await enemy.sprite_node_pos_tween.finished
 		
 
 func _check_enemy_overlap():
@@ -93,8 +120,23 @@ func _can_move(dir):
 	
 func _ready_attack():
 	# Code for attack stuff will go here
+	attack_ready = true
 	await _call_enemies()
-	_check_enemy_overlap()
+	#_check_enemy_overlap()
+	
+func _do_attack(dir: AttackDirection):
+	await _call_enemies()
+	#_check_enemy_overlap()
+	match dir:
+		"AttackDirection.UP":
+			$AnimatedSprite2D.play("forward_idle")
+		"AttackDirection.DOWN":
+			$AnimatedSprite2D.play("back_idle")
+		"AttackDirection.LEFT":
+			$AnimatedSprite2D.play("left_idle")
+		"AttackDirection.RIGHT":
+			$AnimatedSprite2D.play("right_idle")
+	attack_ready = false
 	
 func _apply_tile_effect():
 	var tilemap: TileMapLayer = get_tree().get_first_node_in_group("tilemap")
