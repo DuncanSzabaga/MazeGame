@@ -39,8 +39,8 @@ func _move_enemy():
 		global_position += dir * tile_size
 		var player = get_tree().get_first_node_in_group("player")
 		if global_position.distance_to(player.global_position) < 32:
+			global_position -= dir * tile_size
 			if !player.damaged_this_move:
-				global_position -= dir * tile_size
 				HealthManager.take_damage()
 				player.damaged_this_move = true
 				if HealthManager.current_health <= 0:
