@@ -1,4 +1,5 @@
 extends CharacterBody2D
+@onready var player: CharacterBody2D = $"../player"
 
 const SPEED = 175.0
 const LEFT_X = -224
@@ -6,8 +7,7 @@ const RIGHT_X = 800
 const TOP_Y = -160
 const BOTTOM_Y = 480
 const COOLDOWN = 20.0
-const CENTER = Vector2(288,160)
-const MAX_ANGLE_OFFSET = deg_to_rad(40.0)
+const MAX_ANGLE_OFFSET = deg_to_rad(30.0)
 const SCALE_TIME = 1.0
 var health = 3
 var curr_speed = 0
@@ -95,7 +95,7 @@ func random_spawn() -> Vector2:
 		return Vector2(x,y)
 	
 func random_direction(pos: Vector2) -> Vector2:
-	var toward_center := (CENTER - pos).normalized()
+	var toward_center := (player.global_position - pos).normalized()
 	var random_angle := randf_range(-MAX_ANGLE_OFFSET, MAX_ANGLE_OFFSET)
 
 	return toward_center.rotated(random_angle)

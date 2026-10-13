@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://ccs7b3ysuc86a"]
+
+[ext_resource type="Texture2D" uid="uid://ej7inxw4vxd4" path="res://Assets/powerUps/attackUpPowerUp.png" id="1_66gc5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xo5bu"]
+size = Vector2(32, 32)
+
+[node name="AttackUp" type="StaticBody2D" unique_id=315045003]
+scale = Vector2(2, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1950511974]
+texture = ExtResource("1_66gc5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=914988806]
+shape = SubResource("RectangleShape2D_xo5bu")

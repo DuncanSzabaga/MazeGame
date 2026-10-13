@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://drri10ttyf80"]
+
+[ext_resource type="Texture2D" uid="uid://cu8iqgspjriko" path="res://Assets/powerUps/rangedPowerUp.png" id="1_nk858"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xo5bu"]
+size = Vector2(32, 32)
+
+[node name="RangeUp" type="StaticBody2D" unique_id=315045003]
+scale = Vector2(2, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1950511974]
+texture = ExtResource("1_nk858")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=914988806]
+shape = SubResource("RectangleShape2D_xo5bu")

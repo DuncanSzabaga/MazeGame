@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bow8640gf1mfq"]
+
+[ext_resource type="Texture2D" uid="uid://yhqcqodtysu5" path="res://Assets/powerUps/fullApplePowerUp.png" id="1_ltdim"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xo5bu"]
+size = Vector2(32, 32)
+
+[node name="FullHeal" type="StaticBody2D" unique_id=315045003]
+scale = Vector2(2, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1950511974]
+texture = ExtResource("1_ltdim")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=914988806]
+shape = SubResource("RectangleShape2D_xo5bu")
