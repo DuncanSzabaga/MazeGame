@@ -3,6 +3,8 @@ extends CharacterBody2D
 @export var enemy_path: Array[Vector2] = []
 @export var dectection_radius: float = 200
 @export var lose_radius: float = 200
+@export var health = 3
+
 var player : Node2D
 
 var move_num = 0
@@ -10,6 +12,7 @@ const tile_size: Vector2 = Vector2(64, 64)
 var sprite_node_pos_tween = Tween
 var chase = false
 var facing = Vector2.DOWN
+
 
 enum FacingDirection {
 	UP,
@@ -105,3 +108,8 @@ func direction_player():
 			return Vector2.DOWN
 		else:
 			return Vector2.UP
+
+func take_damage():
+	health -= 1
+	if health <= 0:
+		queue_free()

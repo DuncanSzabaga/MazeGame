@@ -18,6 +18,7 @@ var waiting = true
 var damaged_this_move = false
 var start_pos: Vector2 = global_position
 const tile_size: Vector2 = Vector2(64, 64)
+const ATTACK_DETECTOR = preload("res://Scenes/attack_detector.tscn")
 var sprite_node_pos_tween: Tween
 
 func _physics_process(delta: float) -> void:
@@ -126,17 +127,31 @@ func _ready_attack():
 	
 func _do_attack(dir: AttackDirection):
 	await _call_enemies()
-	#_check_enemy_overlap()
+	
+	var detector = ATTACK_DETECTOR.instantiate()
+	detector.global_position = global_position
+	
 	match dir:
-		"AttackDirection.UP":
+		AttackDirection.UP:
+			detector.global_position.y -= 64
 			$AnimatedSprite2D.play("forward_idle")
-		"AttackDirection.DOWN":
+		AttackDirection.DOWN:
+			detector.global_position.y += 64
 			$AnimatedSprite2D.play("back_idle")
-		"AttackDirection.LEFT":
+		AttackDirection.LEFT:
+			detector.global_position.x -= 64
 			$AnimatedSprite2D.play("left_idle")
-		"AttackDirection.RIGHT":
+		AttackDirection.RIGHT:
+			detector.global_position.x += 64
 			$AnimatedSprite2D.play("right_idle")
+			
+	get_tree().root.add_child(detector)
+	var enemies = get_tree().get_nodes_in_group("enemies")
+	for enemy in enemies:
+		if detector.global_position.distance_to(enemy.global_position) < 32:
+			enemy.take_damage()
 	attack_ready = false
+	detector.queue_free()
 	
 func _apply_tile_effect():
 	var tilemap: TileMapLayer = get_tree().get_first_node_in_group("tilemap")

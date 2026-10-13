@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://b6wu1djk6lohv"]
+
+[ext_resource type="Texture2D" uid="uid://dd6ke58xlkla5" path="res://temprary_Assets/player.png" id="1_yf74o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b6l7d"]
+size = Vector2(64, 64)
+
+[node name="attack_detector" type="CharacterBody2D" unique_id=379502235]
+position = Vector2(-32, -32)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1822896589]
+position = Vector2(32, 32)
+texture = ExtResource("1_yf74o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=968266190]
+position = Vector2(32, 32)
+shape = SubResource("RectangleShape2D_b6l7d")

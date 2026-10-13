@@ -236,6 +236,7 @@ size = Vector2(64, 704)
 
 [node name="player" parent="." unique_id=515481656 instance=ExtResource("1_1bjei")]
 z_index = 1
+position = Vector2(32, 32)
 
 [node name="enemyRat" parent="." unique_id=1207604234 instance=ExtResource("2_5g1s2")]
 z_index = 1
