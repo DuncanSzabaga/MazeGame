@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://0wlrkbxy1wa3"]
+
+[ext_resource type="Script" uid="uid://lptgsae1s5vh" path="res://gd/powerup.gd" id="1_5ydwi"]
+[ext_resource type="Texture2D" uid="uid://ej7inxw4vxd4" path="res://Assets/powerUps/attackUpPowerUp.png" id="2_yee3s"]
+[ext_resource type="Texture2D" uid="uid://yhqcqodtysu5" path="res://Assets/powerUps/fullApplePowerUp.png" id="3_jegj5"]
+[ext_resource type="Texture2D" uid="uid://cpje1ggxflh4l" path="res://Assets/powerUps/halfApplePowerUp.png" id="4_t650t"]
+[ext_resource type="Texture2D" uid="uid://cu8iqgspjriko" path="res://Assets/powerUps/rangedPowerUp.png" id="5_138je"]
+[ext_resource type="Texture2D" uid="uid://cbd2uvp2mdkg7" path="res://Assets/powerUps/shieldPowerUp.png" id="6_keoax"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_geerw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_yee3s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_jegj5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_t650t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_138je")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_keoax")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b6l7d"]
+size = Vector2(32, 32)
+
+[node name="Powerup" type="StaticBody2D" unique_id=146785696]
+script = ExtResource("1_5ydwi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=772073337]
+sprite_frames = SubResource("SpriteFrames_geerw")
+frame_progress = 0.46374518
+speed_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=111874416]
+shape = SubResource("RectangleShape2D_b6l7d")

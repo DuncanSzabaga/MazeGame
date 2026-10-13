@@ -106,18 +106,39 @@ func _move(dir: Vector2):
 		await _apply_tile_effect()
 	
 func _can_move(dir):
+	var is_colliding = null
 	if dir == Vector2.UP:
 		$AnimatedSprite2D.play("forward_animation")
-		return !$up.is_colliding()
+		is_colliding = $up.get_collider()
+		if is_colliding is not PowerUp:
+			return !$up.is_colliding()
+		else:
+			is_colliding.collect_powerup()
+			return true
 	if dir == Vector2.DOWN:
 		$AnimatedSprite2D.play("back_animation")
-		return !$down.is_colliding()
+		is_colliding = $down.get_collider()
+		if is_colliding is not PowerUp:
+			return !$down.is_colliding()
+		else:
+			is_colliding.collect_powerup()
+			return true
 	if dir == Vector2.LEFT:
 		$AnimatedSprite2D.play("left_animation")
-		return !$left.is_colliding()
+		is_colliding = $left.get_collider()
+		if is_colliding is not PowerUp:
+			return !$left.is_colliding()
+		else:
+			is_colliding.collect_powerup()
+			return true
 	if dir == Vector2.RIGHT:
 		$AnimatedSprite2D.play("right_animation")
-		return !$right.is_colliding()
+		is_colliding = $right.get_collider()
+		if is_colliding is not PowerUp:
+			return !$right.is_colliding()
+		else:
+			is_colliding.collect_powerup()
+			return true
 	
 func _ready_attack():
 	# Code for attack stuff will go here

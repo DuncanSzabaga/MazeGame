@@ -14,11 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://b8x5epfqqg5v6" path="res://Music/level_music.mp3" id="12_aiv1b"]
 [ext_resource type="PackedScene" uid="uid://bw7t4lt5n1v2x" path="res://Scenes/bat_enemy.tscn" id="13_wapi5"]
 [ext_resource type="PackedScene" uid="uid://c5a5t1bjh66ne" path="res://Scenes/projectile.tscn" id="14_a2cb0"]
-[ext_resource type="PackedScene" uid="uid://ccs7b3ysuc86a" path="res://Scenes/attack_up.tscn" id="15_3gjqj"]
-[ext_resource type="PackedScene" uid="uid://drri10ttyf80" path="res://Scenes/range_up.tscn" id="16_g56ap"]
-[ext_resource type="PackedScene" uid="uid://cu51r40pgxmrd" path="res://Scenes/shield.tscn" id="17_3jhf0"]
-[ext_resource type="PackedScene" uid="uid://bow8640gf1mfq" path="res://Scenes/full_heal.tscn" id="18_jl3d8"]
-[ext_resource type="PackedScene" uid="uid://dc31be7a6m06j" path="res://Scenes/partial_heal.tscn" id="19_58k54"]
+[ext_resource type="PackedScene" uid="uid://0wlrkbxy1wa3" path="res://Scenes/powerup.tscn" id="15_3gjqj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ir8iy"]
 texture = ExtResource("3_aiv1b")
@@ -291,19 +287,27 @@ shape = SubResource("RectangleShape2D_r00ft")
 visible = false
 position = Vector2(-192, -128)
 
-[node name="PowerUps" type="Node2D" parent="." unique_id=817123283]
+[node name="PowerUps" type="Node2D" parent="." unique_id=1243791661]
 
-[node name="AttackUp" parent="PowerUps" unique_id=315045003 instance=ExtResource("15_3gjqj")]
-position = Vector2(32, 224)
+[node name="Powerup" parent="PowerUps" unique_id=146785696 instance=ExtResource("15_3gjqj")]
+position = Vector2(32, 160)
+powerup_id = 1
 
-[node name="RangeUp" parent="PowerUps" unique_id=560216124 instance=ExtResource("16_g56ap")]
-position = Vector2(352, 288)
+[node name="Powerup2" parent="PowerUps" unique_id=22450924 instance=ExtResource("15_3gjqj")]
+position = Vector2(-32, 160)
 
-[node name="Shield" parent="PowerUps" unique_id=202676206 instance=ExtResource("17_3jhf0")]
-position = Vector2(224, 32)
+[node name="Powerup3" parent="PowerUps" unique_id=1430041322 instance=ExtResource("15_3gjqj")]
+position = Vector2(96, 160)
+powerup_id = 2
 
-[node name="FullHeal" parent="PowerUps" unique_id=104907567 instance=ExtResource("18_jl3d8")]
-position = Vector2(480, 224)
+[node name="Powerup4" parent="PowerUps" unique_id=2130214093 instance=ExtResource("15_3gjqj")]
+position = Vector2(160, 160)
+powerup_id = 3
 
-[node name="PartialHeal" parent="PowerUps" unique_id=1960400253 instance=ExtResource("19_58k54")]
-position = Vector2(608, 32)
+[node name="Powerup5" parent="PowerUps" unique_id=601875467 instance=ExtResource("15_3gjqj")]
+position = Vector2(224, 160)
+powerup_id = 4
+
+[node name="Powerup6" parent="PowerUps" unique_id=786235311 instance=ExtResource("15_3gjqj")]
+position = Vector2(288, 160)
+powerup_id = 5
