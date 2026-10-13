@@ -227,7 +227,7 @@ size = Vector2(1088, 64)
 size = Vector2(64, 704)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8jolu"]
-size = Vector2(1088, 66)
+size = Vector2(1091, 66)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r00ft"]
 size = Vector2(64, 704)
@@ -252,6 +252,7 @@ rendering_quadrant_size = 32
 position = Vector2(224, 288)
 
 [node name="pauseMenu" parent="." unique_id=1356374960 instance=ExtResource("10_3jhf0")]
+visible = false
 
 [node name="CanvasLayer" parent="." unique_id=1148783031 instance=ExtResource("11_5g1s2")]
 
@@ -278,7 +279,7 @@ position = Vector2(-288, 160)
 shape = SubResource("RectangleShape2D_mj58m")
 
 [node name="Bottom" type="CollisionShape2D" parent="LevelBounds" unique_id=733865024]
-position = Vector2(288, 545)
+position = Vector2(289.5, 545)
 shape = SubResource("RectangleShape2D_8jolu")
 
 [node name="Right" type="CollisionShape2D" parent="LevelBounds" unique_id=225424292]

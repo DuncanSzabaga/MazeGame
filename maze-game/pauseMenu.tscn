@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://ho7lem5t8mcg"]
 
 [ext_resource type="Script" uid="uid://wm058oxs4y2g" path="res://gd/pauseMenu.gd" id="1_hfklj"]
+[ext_resource type="Texture2D" uid="uid://b3hm7vwnqej68" path="res://backgrounds/paused.png" id="2_hts4r"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v270u"]
-bg_color = Color(0.6, 0.6, 0.6, 0.37254903)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xlnad"]
+texture = ExtResource("2_hts4r")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hts4r"]
 bg_color = Color(0.72944707, 0.5715909, 0.30675006, 1)
@@ -25,21 +26,21 @@ offset_right = 4.0
 offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_v270u")
+theme_override_styles/panel = SubResource("StyleBoxTexture_xlnad")
 
 [node name="mainMenu" type="Button" parent="." unique_id=906059002]
-offset_left = 473.0
-offset_top = 78.0
-offset_right = 716.0
-offset_bottom = 229.0
+offset_left = 499.0
+offset_top = 224.0
+offset_right = 742.0
+offset_bottom = 375.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_hts4r")
 text = "mainMenu"
 
 [node name="resume" type="Button" parent="." unique_id=965307561]
-offset_left = 471.0
-offset_top = 282.0
-offset_right = 714.0
-offset_bottom = 433.0
+offset_left = 497.0
+offset_top = 392.0
+offset_right = 740.0
+offset_bottom = 543.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_xps4r")
 text = "resume"
 
