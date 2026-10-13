@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://c5a5t1bjh66ne"]
+
+[ext_resource type="Texture2D" uid="uid://bjnew6dnwpteq" path="res://icon.svg" id="1_f8cdk"]
+[ext_resource type="Script" uid="uid://djccwxuwp6rix" path="res://gd/projectile.gd" id="1_yr2qt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yr2qt"]
+atlas = ExtResource("1_f8cdk")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yr2qt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yr2qt")
+}],
+"loop": 1,
+"name": &"fly_animation",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f8cdk"]
+size = Vector2(20, 19)
+
+[node name="Projectile" type="CharacterBody2D" unique_id=1704455875]
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("1_yr2qt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1956805623]
+sprite_frames = SubResource("SpriteFrames_yr2qt")
+animation = &"fly_animation"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1770895609]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1092150246]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_f8cdk")
