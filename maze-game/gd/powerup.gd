@@ -25,9 +25,9 @@ func collect_powerup():
 		0: #atkUP
 			pass
 		1: #Fullheal
-			pass
+			HealthManager.reset_health()
 		2: #partHeal
-			pass
+			HealthManager.heal()
 		3: #rangedattack
 			pass
 		4: #shield

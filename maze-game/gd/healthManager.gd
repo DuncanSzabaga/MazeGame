@@ -12,7 +12,9 @@ func take_damage():
 	current_health = max(current_health,0)
 	print("Player lost health! Current health: ", current_health)
 
-
+func heal():
+	current_health = min(current_health + 1, max_health)
+	
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	print("health loaded", current_health)
