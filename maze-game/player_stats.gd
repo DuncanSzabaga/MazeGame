@@ -22,7 +22,8 @@ func _process(delta):
 	if player.atkDmg == 2:
 		steps_text.text = "Steps: " + str(player.stepsTaken) + "/15"
 	elif player.stepsTaken == 0:
-		steps_text.text = "PowerUp Deactivated"
+		powerup_text.text = "PowerUp Activated: None"
+		steps_text.text = ""
 
 func _ready():
 	update_hearts()
