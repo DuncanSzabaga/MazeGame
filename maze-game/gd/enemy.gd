@@ -8,7 +8,7 @@ extends CharacterBody2D
 var player : Node2D
 
 var move_num = 0
-const tile_size: Vector2 = Vector2(32, 32)
+const tile_size: Vector2 = Vector2(64, 64)
 var sprite_node_pos_tween = Tween
 var chase = false
 var facing = Vector2.DOWN

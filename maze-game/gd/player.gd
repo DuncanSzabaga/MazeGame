@@ -18,7 +18,7 @@ var waiting = true
 var damaged_this_move = false
 var atkDmg = 1
 var start_pos: Vector2 = global_position
-const tile_size: Vector2 = Vector2(32, 32)
+const tile_size: Vector2 = Vector2(64, 64)
 const ATTACK_DETECTOR = preload("res://Scenes/attack_detector.tscn")
 var sprite_node_pos_tween: Tween
 
