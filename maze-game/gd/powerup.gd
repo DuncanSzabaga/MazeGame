@@ -23,7 +23,8 @@ func collect_powerup():
 		player_stats.show_powerup(powerup_id)
 	match powerup_id:
 		0: #atkUP
-			pass
+			var player = get_tree().current_scene.get_node("player")
+			player.atkDmg += 1
 		1: #Fullheal
 			HealthManager.reset_health()
 		2: #partHeal

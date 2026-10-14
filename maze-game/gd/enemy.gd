@@ -8,7 +8,7 @@ extends CharacterBody2D
 var player : Node2D
 
 var move_num = 0
-const tile_size: Vector2 = Vector2(64, 64)
+const tile_size: Vector2 = Vector2(32, 32)
 var sprite_node_pos_tween = Tween
 var chase = false
 var facing = Vector2.DOWN
@@ -109,7 +109,8 @@ func direction_player():
 		else:
 			return Vector2.UP
 
-func take_damage():
-	health -= 1
+func take_damage(damage):
+	health -= damage
+	print("taken damage: ", health)
 	if health <= 0:
 		queue_free()

@@ -16,8 +16,9 @@ enum AttackDirection {
 var attack_ready = false
 var waiting = true
 var damaged_this_move = false
+var atkDmg = 1
 var start_pos: Vector2 = global_position
-const tile_size: Vector2 = Vector2(64, 64)
+const tile_size: Vector2 = Vector2(32, 32)
 const ATTACK_DETECTOR = preload("res://Scenes/attack_detector.tscn")
 var sprite_node_pos_tween: Tween
 
@@ -170,7 +171,7 @@ func _do_attack(dir: AttackDirection):
 	var enemies = get_tree().get_nodes_in_group("enemies")
 	for enemy in enemies:
 		if detector.global_position.distance_to(enemy.global_position) < 32:
-			enemy.take_damage()
+			enemy.take_damage(atkDmg)
 	attack_ready = false
 	detector.queue_free()
 	
