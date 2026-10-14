@@ -38,7 +38,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8jolu"]
-size = Vector2(20, 19)
+size = Vector2(32, 32)
 
 [node name="bat enemy" type="CharacterBody2D" unique_id=452160669]
 z_index = 2
@@ -51,9 +51,10 @@ script = ExtResource("1_nvv5w")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=954481392]
 sprite_frames = SubResource("SpriteFrames_mj58m")
 animation = &"fly_animation"
+frame_progress = 0.28326458
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=279948663]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2061158108]
-position = Vector2(0, -1.5)
 shape = SubResource("RectangleShape2D_8jolu")

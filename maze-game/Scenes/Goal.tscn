@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ydwi"]
 size = Vector2(64, 64)
 
-[node name="Goal" type="Area2D" unique_id=1589472497]
+[node name="Goal" type="StaticBody2D" unique_id=2040475863]
 script = ExtResource("1_ugxcw")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2021375063]
@@ -14,5 +14,3 @@ texture = ExtResource("2_kmleq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=202196143]
 shape = SubResource("RectangleShape2D_5ydwi")
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]

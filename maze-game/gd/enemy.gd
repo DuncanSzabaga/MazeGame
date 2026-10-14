@@ -9,7 +9,7 @@ var player : Node2D
 
 var move_num = 0
 const tile_size: Vector2 = Vector2(64, 64)
-var sprite_node_pos_tween = Tween
+var sprite_node_pos_tween = create_tween()
 var chase = false
 var facing = Vector2.DOWN
 
@@ -26,7 +26,7 @@ func _move_enemy():
 	if chase:
 		dir = direction_player()
 	else:
-		dir =enemy_path[move_num]
+		dir = enemy_path[move_num]
 		
 	if dir == Vector2.UP:
 		$AnimatedSprite2D.play("up_animation")
