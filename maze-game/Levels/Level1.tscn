@@ -1,24 +1,24 @@
 [gd_scene format=4 uid="uid://d3vso22scea34"]
 
-[ext_resource type="PackedScene" uid="uid://b45wx2nog1t4w" path="res://Scenes/player.tscn" id="1_1bjei"]
-[ext_resource type="PackedScene" uid="uid://blt4430t34d2k" path="res://Scenes/Goal.tscn" id="1_g56ap"]
-[ext_resource type="PackedScene" uid="uid://clus6jx0c3qsp" path="res://Scenes/enemy_rat.tscn" id="2_5g1s2"]
-[ext_resource type="Texture2D" uid="uid://bapwek3f8v3ii" path="res://Assets/tileAsset.png" id="3_aiv1b"]
-[ext_resource type="Texture2D" uid="uid://dsq363rc42ncj" path="res://Assets/walls/leftSideWall.png" id="4_wapi5"]
-[ext_resource type="Texture2D" uid="uid://k6hwvbvr66y1" path="res://Assets/walls/rightSideWall.png" id="5_a2cb0"]
-[ext_resource type="Texture2D" uid="uid://ckaeperm2o4tj" path="res://Assets/walls/backwall.png" id="6_3gjqj"]
-[ext_resource type="Texture2D" uid="uid://bdjiabqexweug" path="res://Assets/floors/floor.png" id="7_g56ap"]
-[ext_resource type="Texture2D" uid="uid://nub71o3j511f" path="res://Assets/floors/mossFloor.png" id="8_na6ls"]
-[ext_resource type="Texture2D" uid="uid://dotjvok3f88sg" path="res://Assets/walls/bottomWall.png" id="9_fjxbk"]
-[ext_resource type="PackedScene" uid="uid://ho7lem5t8mcg" path="res://pauseMenu.tscn" id="10_3jhf0"]
-[ext_resource type="PackedScene" uid="uid://gj3ka7qsrt17" path="res://playerStats.tscn" id="11_5g1s2"]
-[ext_resource type="AudioStream" uid="uid://b8x5epfqqg5v6" path="res://Music/level_music.mp3" id="12_aiv1b"]
-[ext_resource type="PackedScene" uid="uid://bw7t4lt5n1v2x" path="res://Scenes/bat_enemy.tscn" id="13_wapi5"]
-[ext_resource type="PackedScene" uid="uid://c5a5t1bjh66ne" path="res://Scenes/projectile.tscn" id="14_a2cb0"]
-[ext_resource type="PackedScene" uid="uid://0wlrkbxy1wa3" path="res://Scenes/powerup.tscn" id="15_3gjqj"]
+[ext_resource type="PackedScene" uid="uid://blt4430t34d2k" path="res://Scenes/Goal.tscn" id="1_sbm5j"]
+[ext_resource type="PackedScene" uid="uid://b45wx2nog1t4w" path="res://Scenes/player.tscn" id="2_p2sgf"]
+[ext_resource type="PackedScene" uid="uid://gj3ka7qsrt17" path="res://playerStats.tscn" id="3_ufevr"]
+[ext_resource type="PackedScene" uid="uid://clus6jx0c3qsp" path="res://Scenes/enemy_rat.tscn" id="4_gmnjr"]
+[ext_resource type="Texture2D" uid="uid://bapwek3f8v3ii" path="res://Assets/tileAsset.png" id="5_qg0tc"]
+[ext_resource type="Texture2D" uid="uid://dsq363rc42ncj" path="res://Assets/walls/leftSideWall.png" id="6_13mt1"]
+[ext_resource type="Texture2D" uid="uid://k6hwvbvr66y1" path="res://Assets/walls/rightSideWall.png" id="7_pp47a"]
+[ext_resource type="Texture2D" uid="uid://ckaeperm2o4tj" path="res://Assets/walls/backwall.png" id="8_idi36"]
+[ext_resource type="Texture2D" uid="uid://bdjiabqexweug" path="res://Assets/floors/floor.png" id="9_8ubki"]
+[ext_resource type="Texture2D" uid="uid://nub71o3j511f" path="res://Assets/floors/mossFloor.png" id="10_d73st"]
+[ext_resource type="Texture2D" uid="uid://dotjvok3f88sg" path="res://Assets/walls/bottomWall.png" id="11_k7tvq"]
+[ext_resource type="PackedScene" uid="uid://ho7lem5t8mcg" path="res://pauseMenu.tscn" id="12_62xmr"]
+[ext_resource type="AudioStream" uid="uid://b8x5epfqqg5v6" path="res://Music/level_music.mp3" id="13_0cfxs"]
+[ext_resource type="PackedScene" uid="uid://bw7t4lt5n1v2x" path="res://Scenes/bat_enemy.tscn" id="14_2pfgx"]
+[ext_resource type="PackedScene" uid="uid://c5a5t1bjh66ne" path="res://Scenes/projectile.tscn" id="15_jd565"]
+[ext_resource type="PackedScene" uid="uid://0wlrkbxy1wa3" path="res://Scenes/powerup.tscn" id="16_ruoxf"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ir8iy"]
-texture = ExtResource("3_aiv1b")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sfcom"]
+texture = ExtResource("5_qg0tc")
 2:0/0 = 0
 3:0/0 = 0
 5:0/0 = 0
@@ -134,8 +134,8 @@ texture = ExtResource("3_aiv1b")
 10:11/0 = 0
 11:11/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_flf07"]
-texture = ExtResource("4_wapi5")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cmfp7"]
+texture = ExtResource("6_13mt1")
 1:0/0 = 0
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(2.3381643, 5.036045, 8, 4.856186, 8, 8, 2.3381643, 8)
 1:1/0 = 0
@@ -149,8 +149,8 @@ texture = ExtResource("4_wapi5")
 1:5/0 = 0
 1:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(2.1583052, -8, 8, -8, 8, -3.2374573, 2.1583052, -3.5971746)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k73cj"]
-texture = ExtResource("5_a2cb0")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dk0xa"]
+texture = ExtResource("7_pp47a")
 0:2/0 = 0
 0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:3/0 = 0
@@ -164,9 +164,9 @@ texture = ExtResource("5_a2cb0")
 0:1/0 = 0
 0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nr8wp"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2s4ma"]
 resource_name = "backwall"
-texture = ExtResource("6_3gjqj")
+texture = ExtResource("8_idi36")
 0:2/next_alternative_id = 2
 0:2/0 = 0
 0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -186,22 +186,22 @@ texture = ExtResource("6_3gjqj")
 1:2/0 = 0
 1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bjha6"]
-texture = ExtResource("7_g56ap")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vrgcg"]
+texture = ExtResource("9_8ubki")
 0:0/0 = 0
 1:0/0 = 0
 0:1/0 = 0
 1:1/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gt76g"]
-texture = ExtResource("8_na6ls")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jtsmk"]
+texture = ExtResource("10_d73st")
 1:0/0 = 0
 0:0/0 = 0
 0:1/0 = 0
 1:1/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1fr6y"]
-texture = ExtResource("9_fjxbk")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ih64f"]
+texture = ExtResource("11_k7tvq")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -3.8235683, -8, -3.5049381)
 1:0/0 = 0
@@ -209,13 +209,13 @@ texture = ExtResource("9_fjxbk")
 
 [sub_resource type="TileSet" id="TileSet_nv3ht"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_ir8iy")
-sources/2 = SubResource("TileSetAtlasSource_nr8wp")
-sources/6 = SubResource("TileSetAtlasSource_bjha6")
-sources/7 = SubResource("TileSetAtlasSource_gt76g")
-sources/8 = SubResource("TileSetAtlasSource_1fr6y")
-sources/11 = SubResource("TileSetAtlasSource_flf07")
-sources/13 = SubResource("TileSetAtlasSource_k73cj")
+sources/0 = SubResource("TileSetAtlasSource_sfcom")
+sources/2 = SubResource("TileSetAtlasSource_2s4ma")
+sources/6 = SubResource("TileSetAtlasSource_vrgcg")
+sources/7 = SubResource("TileSetAtlasSource_jtsmk")
+sources/8 = SubResource("TileSetAtlasSource_ih64f")
+sources/11 = SubResource("TileSetAtlasSource_cmfp7")
+sources/13 = SubResource("TileSetAtlasSource_dk0xa")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xo5bu"]
 size = Vector2(1088, 64)
@@ -231,17 +231,19 @@ size = Vector2(64, 704)
 
 [node name="Node2D" type="Node2D" unique_id=1598750970]
 
-[node name="cheese" parent="." unique_id=1589472497 instance=ExtResource("1_g56ap")]
+[node name="cheese" parent="." unique_id=1589472497 instance=ExtResource("1_sbm5j")]
 z_index = 1
 position = Vector2(285, 52)
 collision_layer = 2
 
-[node name="player" parent="." unique_id=515481656 instance=ExtResource("1_1bjei")]
+[node name="player" parent="." unique_id=515481656 instance=ExtResource("2_p2sgf")]
 z_index = 1
 position = Vector2(32, 32)
 collision_layer = 1
 
-[node name="enemyRat" parent="." unique_id=1207604234 instance=ExtResource("2_5g1s2")]
+[node name="playerstats" parent="." unique_id=1148783031 instance=ExtResource("3_ufevr")]
+
+[node name="enemyRat" parent="." unique_id=1207604234 instance=ExtResource("4_gmnjr")]
 z_index = 1
 position = Vector2(416, 96)
 
@@ -251,21 +253,19 @@ tile_map_data = PackedByteArray("AAD7//z/BgABAAAAAAD7//3/BgABAAEAAAD7//7/BgABAAA
 tile_set = SubResource("TileSet_nv3ht")
 rendering_quadrant_size = 32
 
-[node name="enemyRat2" parent="." unique_id=1401697115 instance=ExtResource("2_5g1s2")]
+[node name="enemyRat2" parent="." unique_id=1401697115 instance=ExtResource("4_gmnjr")]
 position = Vector2(224, 288)
 
-[node name="pauseMenu" parent="." unique_id=1356374960 instance=ExtResource("10_3jhf0")]
+[node name="pauseMenu" parent="." unique_id=1356374960 instance=ExtResource("12_62xmr")]
 visible = false
 
-[node name="CanvasLayer" parent="." unique_id=1148783031 instance=ExtResource("11_5g1s2")]
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=73792820]
-stream = ExtResource("12_aiv1b")
+stream = ExtResource("13_0cfxs")
 volume_db = -20.166
 autoplay = true
 parameters/looping = true
 
-[node name="bat enemy" parent="." unique_id=452160669 instance=ExtResource("13_wapi5")]
+[node name="bat enemy" parent="." unique_id=452160669 instance=ExtResource("14_2pfgx")]
 z_index = 1
 position = Vector2(88, -288)
 
@@ -290,31 +290,31 @@ shape = SubResource("RectangleShape2D_8jolu")
 position = Vector2(864, 160)
 shape = SubResource("RectangleShape2D_r00ft")
 
-[node name="Projectile" parent="." unique_id=1704455875 instance=ExtResource("14_a2cb0")]
+[node name="Projectile" parent="." unique_id=1704455875 instance=ExtResource("15_jd565")]
 visible = false
 position = Vector2(-192, -128)
 
 [node name="PowerUps" type="Node2D" parent="." unique_id=1243791661]
 
-[node name="Powerup" parent="PowerUps" unique_id=146785696 instance=ExtResource("15_3gjqj")]
+[node name="Powerup" parent="PowerUps" unique_id=146785696 instance=ExtResource("16_ruoxf")]
 position = Vector2(32, 160)
 powerup_id = 1
 
-[node name="Powerup2" parent="PowerUps" unique_id=22450924 instance=ExtResource("15_3gjqj")]
+[node name="Powerup2" parent="PowerUps" unique_id=22450924 instance=ExtResource("16_ruoxf")]
 position = Vector2(-32, 160)
 
-[node name="Powerup3" parent="PowerUps" unique_id=1430041322 instance=ExtResource("15_3gjqj")]
+[node name="Powerup3" parent="PowerUps" unique_id=1430041322 instance=ExtResource("16_ruoxf")]
 position = Vector2(96, 160)
 powerup_id = 2
 
-[node name="Powerup4" parent="PowerUps" unique_id=2130214093 instance=ExtResource("15_3gjqj")]
+[node name="Powerup4" parent="PowerUps" unique_id=2130214093 instance=ExtResource("16_ruoxf")]
 position = Vector2(160, 160)
 powerup_id = 3
 
-[node name="Powerup5" parent="PowerUps" unique_id=601875467 instance=ExtResource("15_3gjqj")]
+[node name="Powerup5" parent="PowerUps" unique_id=601875467 instance=ExtResource("16_ruoxf")]
 position = Vector2(224, 160)
 powerup_id = 4
 
-[node name="Powerup6" parent="PowerUps" unique_id=786235311 instance=ExtResource("15_3gjqj")]
+[node name="Powerup6" parent="PowerUps" unique_id=786235311 instance=ExtResource("16_ruoxf")]
 position = Vector2(288, 160)
 powerup_id = 5

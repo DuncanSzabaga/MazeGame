@@ -30,3 +30,10 @@ layout_mode = 2
 
 [node name="Heart3" type="TextureRect" parent="Hearts" unique_id=436720612]
 layout_mode = 2
+
+[node name="powerText" type="Label" parent="." unique_id=93152559]
+offset_left = 156.0
+offset_top = 614.0
+offset_right = 308.0
+offset_bottom = 637.0
+text = "PowerUp Activated:"

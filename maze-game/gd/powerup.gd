@@ -17,12 +17,16 @@ func _ready() -> void:
 	$AnimatedSprite2D.frame = powerup_id
 
 func collect_powerup():
+	var player_stats = get_tree().current_scene.get_node("playerstats")
+
+	if player_stats:
+		player_stats.show_powerup(powerup_id)
 	match powerup_id:
-		0: #fullheal
+		0: #atkUP
 			pass
-		1: #heal
+		1: #Fullheal
 			pass
-		2: #attackup
+		2: #partHeal
 			pass
 		3: #rangedattack
 			pass
