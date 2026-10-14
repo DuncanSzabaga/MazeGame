@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://byrqyyl0d50rf" path="res://Assets/itemsANDextras/cheese.png" id="2_kmleq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ydwi"]
-size = Vector2(64, 64)
+size = Vector2(32, 26)
 
 [node name="Goal" type="Area2D" unique_id=1589472497]
 script = ExtResource("1_ugxcw")
@@ -13,6 +13,7 @@ script = ExtResource("1_ugxcw")
 texture = ExtResource("2_kmleq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=202196143]
+position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_5ydwi")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
