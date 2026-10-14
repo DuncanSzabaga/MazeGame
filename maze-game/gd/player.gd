@@ -206,6 +206,7 @@ func _apply_tile_effect():
 func _ready():
 	$AnimatedSprite2D.play("back_idle")
 	$AnimatedSprite2D.animation_finished.connect(_on_animation_finished)
+	start_pos = global_position
 	
 func _on_animation_finished():
 	if $AnimatedSprite2D.animation == "forward_animation":

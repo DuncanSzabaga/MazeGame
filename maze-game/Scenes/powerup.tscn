@@ -31,7 +31,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b6l7d"]
-size = Vector2(32, 32)
+size = Vector2(64, 64)
 
 [node name="Powerup" type="StaticBody2D" unique_id=146785696]
 script = ExtResource("1_5ydwi")
