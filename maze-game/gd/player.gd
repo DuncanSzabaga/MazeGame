@@ -17,6 +17,7 @@ var attack_ready = false
 var waiting = true
 var damaged_this_move = false
 var atkDmg = 1
+var stepsTaken = 0
 var start_pos: Vector2 = global_position
 const tile_size: Vector2 = Vector2(64, 64)
 const ATTACK_DETECTOR = preload("res://Scenes/attack_detector.tscn")
@@ -67,6 +68,9 @@ func _physics_process(delta: float) -> void:
 		
 func _perform_move(dir: Vector2):
 	global_position += dir * tile_size
+	
+	countSteps()
+	
 	_call_enemies()
 	$Sprite2D.global_position -= dir * tile_size
 		
@@ -146,7 +150,19 @@ func _ready_attack():
 	attack_ready = true
 	await _call_enemies()
 	#_check_enemy_overlap()
-	
+
+func atkPowerUp():
+	atkDmg = 2;
+	stepsTaken = 0;
+
+func countSteps():
+	if atkDmg == 2:
+		stepsTaken += 1
+	if stepsTaken == 15:
+		atkDmg = 1;
+		stepsTaken = 0
+
+
 func _do_attack(dir: AttackDirection):
 	await _call_enemies()
 	
