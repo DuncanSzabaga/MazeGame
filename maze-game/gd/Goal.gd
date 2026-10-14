@@ -1,5 +1,2 @@
-extends Area2D
-
-func _on_body_entered(body):
-	if body.name == "player":
-		LevelManager.complete_level()
+extends StaticBody2D
+class_name GoalObject

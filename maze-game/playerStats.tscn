@@ -37,3 +37,9 @@ offset_top = 614.0
 offset_right = 308.0
 offset_bottom = 637.0
 text = "PowerUp Activated:"
+
+[node name="steps" type="Label" parent="." unique_id=1003906927]
+offset_left = 559.0
+offset_top = 616.0
+offset_right = 587.0
+offset_bottom = 639.0

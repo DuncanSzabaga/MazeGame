@@ -17,7 +17,9 @@ var attack_ready = false
 var waiting = true
 var damaged_this_move = false
 var atkDmg = 1
+var stepsTaken = 0
 var start_pos: Vector2 = global_position
+var level_finished = false
 const tile_size: Vector2 = Vector2(64, 64)
 const ATTACK_DETECTOR = preload("res://Scenes/attack_detector.tscn")
 var sprite_node_pos_tween: Tween
@@ -67,6 +69,9 @@ func _physics_process(delta: float) -> void:
 		
 func _perform_move(dir: Vector2):
 	global_position += dir * tile_size
+	
+	countSteps()
+	
 	_call_enemies()
 	$Sprite2D.global_position -= dir * tile_size
 		
@@ -96,7 +101,6 @@ func _check_enemy_overlap():
 		if global_position.distance_to(enemy.global_position) < 32:
 			HealthManager.take_damage()
 
-			
 			if HealthManager.current_health <= 0:
 				set_global_position(start_pos)
 				HealthManager.reset_health()
@@ -105,48 +109,75 @@ func _move(dir: Vector2):
 	if _can_move(dir):
 		await _perform_move(dir)
 		await _apply_tile_effect()
+	if level_finished:
+		LevelManager.complete_level()
 	
 func _can_move(dir):
 	var is_colliding = null
 	if dir == Vector2.UP:
 		$AnimatedSprite2D.play("forward_animation")
 		is_colliding = $up.get_collider()
-		if is_colliding is not PowerUp:
-			return !$up.is_colliding()
-		else:
+		if is_colliding is GoalObject:
+			level_finished = true
+			return true
+		elif is_colliding is PowerUp:
 			is_colliding.collect_powerup()
 			return true
+		else:
+			return !$up.is_colliding()
 	if dir == Vector2.DOWN:
 		$AnimatedSprite2D.play("back_animation")
 		is_colliding = $down.get_collider()
-		if is_colliding is not PowerUp:
-			return !$down.is_colliding()
-		else:
+		if is_colliding is GoalObject:
+			level_finished = true
+			return true
+		elif is_colliding is PowerUp:
 			is_colliding.collect_powerup()
 			return true
+		else:
+			return !$down.is_colliding()
 	if dir == Vector2.LEFT:
 		$AnimatedSprite2D.play("left_animation")
 		is_colliding = $left.get_collider()
-		if is_colliding is not PowerUp:
-			return !$left.is_colliding()
-		else:
+		if is_colliding is GoalObject:
+			level_finished = true
+			return true
+		elif is_colliding is PowerUp:
 			is_colliding.collect_powerup()
 			return true
+		else:
+			return !$left.is_colliding()
 	if dir == Vector2.RIGHT:
 		$AnimatedSprite2D.play("right_animation")
 		is_colliding = $right.get_collider()
-		if is_colliding is not PowerUp:
-			return !$right.is_colliding()
-		else:
+		if is_colliding is GoalObject:
+			level_finished = true
+			return true
+		elif is_colliding is PowerUp:
 			is_colliding.collect_powerup()
 			return true
+		else:
+			var check_collide = $right.is_colliding()
+			return !$right.is_colliding()
 	
 func _ready_attack():
 	# Code for attack stuff will go here
 	attack_ready = true
 	await _call_enemies()
 	#_check_enemy_overlap()
-	
+
+func atkPowerUp():
+	atkDmg = 2;
+	stepsTaken = 0;
+
+func countSteps():
+	if atkDmg == 2:
+		stepsTaken += 1
+	if stepsTaken == 15:
+		atkDmg = 1;
+		stepsTaken = 0
+
+
 func _do_attack(dir: AttackDirection):
 	await _call_enemies()
 	

@@ -4,6 +4,7 @@ extends CanvasLayer
 @onready var heart2 = $Hearts/Heart2
 @onready var heart3 = $Hearts/Heart3
 @onready var powerup_text = $powerText
+@onready var steps_text = $steps
 var last_health = 3
 
 
@@ -15,7 +16,15 @@ func _process(delta):
 	if HealthManager.current_health != last_health:
 		update_hearts()
 		last_health = HealthManager.current_health
-		
+	
+	var player = get_tree().current_scene.get_node("player")
+	
+	if player.atkDmg == 2:
+		steps_text.text = "Steps: " + str(player.stepsTaken) + "/15"
+	elif player.stepsTaken == 0:
+		powerup_text.text = "PowerUp Activated: None"
+		steps_text.text = ""
+
 func _ready():
 	update_hearts()
 
