@@ -6,5 +6,7 @@ func reset_game():
 	
 func complete_level():
 	current_level += 1
+	TransitionScreen.transition()
+	await TransitionScreen.on_transition_finished
 	if current_level == 2:
 		get_tree().change_scene_to_file("res://Levels/Level2.tscn")
