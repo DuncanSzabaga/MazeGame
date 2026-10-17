@@ -150,5 +150,3 @@ texture = ExtResource("3_w4tas")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1341978388]
 shape = SubResource("RectangleShape2D_geerw")
-
-[node name="RayCast2D" type="RayCast2D" parent="." unique_id=896354672]

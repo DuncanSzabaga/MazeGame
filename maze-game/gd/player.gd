@@ -157,7 +157,6 @@ func _can_move(dir):
 			is_colliding.collect_powerup()
 			return true
 		else:
-			var check_collide = $right.is_colliding()
 			return !$right.is_colliding()
 	
 func _ready_attack():
@@ -201,6 +200,8 @@ func _do_attack(dir: AttackDirection):
 	get_tree().root.add_child(detector)
 	var enemies = get_tree().get_nodes_in_group("enemies")
 	for enemy in enemies:
+		var detector_pos = detector.global_position
+		var enemy_pos = enemy.global_position
 		if detector.global_position.distance_to(enemy.global_position) < 32:
 			enemy.take_damage(atkDmg)
 	attack_ready = false

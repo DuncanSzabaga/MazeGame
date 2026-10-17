@@ -254,7 +254,7 @@ collision_layer = 1
 collision_mask = 1
 
 [node name="bat enemy" parent="." unique_id=452160669 groups=["enemies"] instance=ExtResource("14_2pfgx")]
-position = Vector2(162, 30)
+position = Vector2(674, 30)
 
 [node name="playerstats" parent="." unique_id=1148783031 instance=ExtResource("3_ufevr")]
 
@@ -269,7 +269,7 @@ tile_set = SubResource("TileSet_nv3ht")
 rendering_quadrant_size = 64
 
 [node name="enemyRat2" parent="." unique_id=1401697115 instance=ExtResource("4_gmnjr")]
-position = Vector2(226, 285)
+position = Vector2(226, 286)
 
 [node name="pauseMenu" parent="." unique_id=1356374960 instance=ExtResource("12_62xmr")]
 visible = false

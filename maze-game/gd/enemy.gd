@@ -84,6 +84,11 @@ func _ready():
 	player = get_tree().get_first_node_in_group("player")
 	$AnimatedSprite2D.play("down_idle")
 	$AnimatedSprite2D.animation_finished.connect(_on_animation_finished)
+	print("Enemy: ", name)
+	print("Collision layer: ", collision_layer)
+	print("Collision mask: ", collision_mask)
+	print("Collision shape disabled: ", $CollisionShape2D.disabled)
+	print("Collision shape: ", $CollisionShape2D.shape)
 
 
 func _on_animation_finished():

@@ -6,39 +6,43 @@ extends CharacterBody2D
 
 var player : Node2D
 
-var move_num = 0
+var move_turn = false
 const tile_size: Vector2 = Vector2(64, 64)
 var sprite_node_pos_tween = create_tween()
 var chase = true
 
 func _move_enemy():
-	var dir
-	if chase:
-		dir = direction_player()
-		
-	global_position += dir * tile_size
-	var player = get_tree().get_first_node_in_group("player")
-	if global_position.distance_to(player.global_position) < 32:
-		global_position -= dir * tile_size
-		if !player.damaged_this_move:
-			HealthManager.take_damage()
-			player.damaged_this_move = true
-			if HealthManager.current_health <= 0:
-				player.set_global_position(player.start_pos)
-				HealthManager.reset_health()
+	if not move_turn:
+		move_turn = true
 	else:
-		$Sprite2D.global_position -= dir * tile_size
-		
-		sprite_node_pos_tween = create_tween()
-		sprite_node_pos_tween.set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
-		sprite_node_pos_tween.tween_property(
-			$Sprite2D,
-			"global_position",
-			global_position,
-			0.185
-		).set_trans(Tween.TRANS_SINE)
-		
-		await sprite_node_pos_tween.finished
+		var dir
+		if chase:
+			dir = direction_player()
+			
+		global_position += dir * tile_size
+		var player = get_tree().get_first_node_in_group("player")
+		if global_position.distance_to(player.global_position) < 32:
+			global_position -= dir * tile_size
+			if !player.damaged_this_move:
+				HealthManager.take_damage()
+				player.damaged_this_move = true
+				if HealthManager.current_health <= 0:
+					player.set_global_position(player.start_pos)
+					HealthManager.reset_health()
+		else:
+			$Sprite2D.global_position -= dir * tile_size
+			
+			sprite_node_pos_tween = create_tween()
+			sprite_node_pos_tween.set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
+			sprite_node_pos_tween.tween_property(
+				$Sprite2D,
+				"global_position",
+				global_position,
+				0.185
+			).set_trans(Tween.TRANS_SINE)
+			
+			await sprite_node_pos_tween.finished
+			move_turn = false
 		
 func _process(_delta):
 	var distance = global_position.distance_to(player.global_position)
