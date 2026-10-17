@@ -21,8 +21,9 @@ func _process(delta):
 	
 	if player.atkDmg == 2:
 		steps_text.text = "Steps: " + str(player.stepsTaken) + "/15"
-	elif player.stepsTaken == 0:
-		powerup_text.text = "PowerUp Activated: None"
+	elif player.shield:
+		steps_text.text = "Steps: " + str(player.stepsTaken) + "/5"
+	else:
 		steps_text.text = ""
 
 func _ready():

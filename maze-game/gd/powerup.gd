@@ -10,7 +10,6 @@ enum POWERUP_TYPE {
 }
 
 @export var powerup_id = 0
-
 func _ready() -> void:
 	if powerup_id > 4 or powerup_id < 0:
 		powerup_id = 0
@@ -30,7 +29,9 @@ func collect_powerup():
 		2: #partHeal
 			HealthManager.heal()
 		3: #rangedattack
-			pass
+			var player = get_tree().current_scene.get_node("player")
+			player.activateRangedAtk()
 		4: #shield
-			pass
+			var player = get_tree().current_scene.get_node("player")
+			player.activateShield()
 	queue_free()

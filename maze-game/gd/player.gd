@@ -18,6 +18,8 @@ var waiting = true
 var damaged_this_move = false
 var atkDmg = 1
 var stepsTaken = 0
+var rangedAtk = false
+var shield = false
 var start_pos: Vector2 = global_position
 var level_finished = false
 const tile_size: Vector2 = Vector2(64, 64)
@@ -99,7 +101,8 @@ func _check_enemy_overlap():
 	var enemies = get_tree().get_nodes_in_group("enemies")
 	for enemy in enemies:
 		if global_position.distance_to(enemy.global_position) < 32:
-			HealthManager.take_damage()
+			if not shield and not attack_ready:
+				HealthManager.take_damage()
 
 			if HealthManager.current_health <= 0:
 				set_global_position(start_pos)
@@ -164,19 +167,36 @@ func _ready_attack():
 	attack_ready = true
 	await _call_enemies()
 	#_check_enemy_overlap()
+	
 
 func atkPowerUp():
 	atkDmg = 2;
 	stepsTaken = 0;
+	shield = false
+	rangedAtk = false
 
 func countSteps():
-	if atkDmg == 2:
-		stepsTaken += 1
-	if stepsTaken == 15:
-		atkDmg = 1;
+	stepsTaken +=1
+	
+	if atkDmg == 2 and stepsTaken == 15:
+		atkDmg = 1
+		stepsTaken = 0
+	if shield and stepsTaken == 5:
+		shield = false
 		stepsTaken = 0
 
-
+func activateRangedAtk():
+	rangedAtk = true
+	atkDmg = 1
+	shield = false
+	
+func activateShield():
+	shield = true
+	atkDmg = 1
+	rangedAtk = false
+	stepsTaken = 0
+	
+	
 func _do_attack(dir: AttackDirection):
 	await _call_enemies()
 	
