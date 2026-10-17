@@ -1,13 +1,15 @@
 extends Node
 
+signal on_take_damage
+
 var max_health: int = 3
 var current_health: int = 3
 func reset_health():
 	current_health = max_health
 	print("player reset health ", current_health)
 	
-
 func take_damage():
+	on_take_damage.emit()
 	current_health -= 1
 	current_health = max(current_health,0)
 	print("Player lost health! Current health: ", current_health)

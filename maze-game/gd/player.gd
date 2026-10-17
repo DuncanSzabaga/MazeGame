@@ -184,19 +184,17 @@ func _check_enemy_overlap():
 				
 func _flash_red():
 	var tween = create_tween()
-
-	for i in range(3):
-		tween.tween_property(
-			$AnimatedSprite2D,
-			"modulate",
-			Color.RED,
-			0.01
-		)
-		tween.tween_property(
-			$AnimatedSprite2D,
-			"modulate",
-			Color.WHITE,
-			0.01
+	tween.tween_property(
+		$AnimatedSprite2D,
+		"modulate",
+		Color.RED,
+		0.1
+	)
+	tween.tween_property(
+		$AnimatedSprite2D,
+		"modulate",
+		Color.WHITE,
+		0.1
 		)
 	
 func _move(dir: Vector2):
@@ -259,7 +257,6 @@ func _ready_attack():
 	await _call_enemies()
 	#_check_enemy_overlap()
 	
-
 func atkPowerUp():
 	atkDmg = 2;
 	stepsTaken = 0;
@@ -352,6 +349,10 @@ func _ready():
 	$AnimatedSprite2D.play("back_idle")
 	$AnimatedSprite2D.animation_finished.connect(_on_animation_finished)
 	start_pos = global_position
+	HealthManager.on_take_damage.connect(on_take_damage)
+	
+func on_take_damage():
+	_flash_red()
 	
 func _on_animation_finished():
 	if $AnimatedSprite2D.animation == "forward_animation":
