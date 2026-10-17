@@ -25,12 +25,14 @@ var level_finished = false
 const tile_size: Vector2 = Vector2(64, 64)
 const ATTACK_DETECTOR = preload("res://Scenes/attack_detector.tscn")
 var sprite_node_pos_tween: Tween
+var last_move = AttackDirection.DOWN
 
 func _physics_process(delta: float) -> void:
 	if !sprite_node_pos_tween or !sprite_node_pos_tween.is_running():
 		if not waiting:
 			return
 		if Input.is_action_just_pressed("move_up"):
+			last_move = AttackDirection.UP
 			waiting = false
 			if attack_ready:
 				await _do_attack(AttackDirection.UP)
@@ -39,6 +41,7 @@ func _physics_process(delta: float) -> void:
 			waiting = true
 			damaged_this_move = false
 		elif Input.is_action_just_pressed("move_down"):
+			last_move = AttackDirection.DOWN
 			waiting = false
 			if attack_ready:
 				await _do_attack(AttackDirection.DOWN)
@@ -47,6 +50,7 @@ func _physics_process(delta: float) -> void:
 			waiting = true
 			damaged_this_move = false
 		elif Input.is_action_just_pressed("move_left"):
+			last_move = AttackDirection.LEFT
 			waiting = false
 			if attack_ready:
 				await _do_attack(AttackDirection.LEFT)
@@ -55,6 +59,7 @@ func _physics_process(delta: float) -> void:
 			waiting = true
 			damaged_this_move = false
 		elif Input.is_action_just_pressed("move_right"):
+			last_move = AttackDirection.RIGHT
 			waiting = false
 			if attack_ready:
 				await _do_attack(AttackDirection.RIGHT)
@@ -63,11 +68,81 @@ func _physics_process(delta: float) -> void:
 			waiting = true
 			damaged_this_move = false
 		elif Input.is_action_just_pressed("attack"):
+			_readyAttackAnimation(last_move)
 			waiting = false
 			await _ready_attack()
 			waiting = true
 			damaged_this_move = false
 		
+func _readyAttackAnimation(last_move: AttackDirection):
+	if last_move == AttackDirection.DOWN:
+		$AnimatedSprite2D.play("back_attack")
+	elif last_move == AttackDirection.UP:
+		$AnimatedSprite2D.play("forward_attack")
+	elif last_move == AttackDirection.LEFT:
+		$AnimatedSprite2D.play("left_attack")
+	elif last_move == AttackDirection.RIGHT:
+		$AnimatedSprite2D.play("right_attack")
+		
+func _attackAnimation(last_move: AttackDirection):
+	var tween = create_tween()
+	var start_position = $AnimatedSprite2D.position
+	if last_move == AttackDirection.DOWN:
+		$AnimatedSprite2D.play("back_attack")
+		tween.tween_property(
+			$AnimatedSprite2D,
+			"position",
+			start_position + Vector2(0, 6),
+			0.05
+		)
+		tween.tween_property(
+			$AnimatedSprite2D,
+			"position",
+			start_position,
+			0.1
+		)
+	elif last_move == AttackDirection.UP:
+		$AnimatedSprite2D.play("forward_attack")
+		tween.tween_property(
+			$AnimatedSprite2D,
+			"position",
+			start_position + Vector2(0, -6),
+			0.05
+		)
+		tween.tween_property(
+			$AnimatedSprite2D,
+			"position",
+			start_position,
+			0.1
+		)
+	elif last_move == AttackDirection.LEFT:
+		$AnimatedSprite2D.play("left_attack")
+		tween.tween_property(
+			$AnimatedSprite2D,
+			"position",
+			start_position + Vector2(-6, 0),
+			0.05
+		)
+		tween.tween_property(
+			$AnimatedSprite2D,
+			"position",
+			start_position,
+			0.1
+		)
+	elif last_move == AttackDirection.RIGHT:
+		$AnimatedSprite2D.play("right_attack")
+		tween.tween_property(
+			$AnimatedSprite2D,
+			"position",
+			start_position + Vector2(6, 0),
+			0.05
+		)
+		tween.tween_property(
+			$AnimatedSprite2D,
+			"position",
+			start_position,
+			0.1
+		)
 		
 func _perform_move(dir: Vector2):
 	global_position += dir * tile_size
@@ -96,7 +171,6 @@ func _call_enemies():
 		if enemy.sprite_node_pos_tween.is_running():
 			await enemy.sprite_node_pos_tween.finished
 		
-
 func _check_enemy_overlap():
 	var enemies = get_tree().get_nodes_in_group("enemies")
 	for enemy in enemies:
@@ -107,6 +181,23 @@ func _check_enemy_overlap():
 			if HealthManager.current_health <= 0:
 				set_global_position(start_pos)
 				HealthManager.reset_health()
+				
+func _flash_red():
+	var tween = create_tween()
+
+	for i in range(3):
+		tween.tween_property(
+			$AnimatedSprite2D,
+			"modulate",
+			Color.RED,
+			0.01
+		)
+		tween.tween_property(
+			$AnimatedSprite2D,
+			"modulate",
+			Color.WHITE,
+			0.01
+		)
 	
 func _move(dir: Vector2):
 	if _can_move(dir):
@@ -203,13 +294,15 @@ func _do_attack(dir: AttackDirection):
 	var detector = ATTACK_DETECTOR.instantiate()
 	detector.global_position = global_position
 	
+	_attackAnimation(dir)
+	
 	match dir:
 		AttackDirection.UP:
 			detector.global_position.y -= 64
 			$AnimatedSprite2D.play("forward_idle")
 		AttackDirection.DOWN:
 			detector.global_position.y += 64
-			$AnimatedSprite2D.play("back_idle")
+			$AnimatedSprite2D.play("back_animation")
 		AttackDirection.LEFT:
 			detector.global_position.x -= 64
 			$AnimatedSprite2D.play("left_idle")

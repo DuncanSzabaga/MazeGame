@@ -12,7 +12,7 @@ func _input(event: InputEvent) -> void:
 			TransitionScreen.transition()
 			await TransitionScreen.on_transition_finished
 			visible = true
-			await get_tree().create_timer(0.51).timeout
+			await get_tree().create_timer(0.60).timeout
 			get_tree().paused = true
 
 func _ready() -> void:
