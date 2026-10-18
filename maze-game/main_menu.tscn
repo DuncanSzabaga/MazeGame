@@ -62,7 +62,7 @@ offset_top = 45.0
 offset_right = 662.0
 offset_bottom = 45.0
 grow_horizontal = 2
-theme_override_constants/separation = 16
+theme_override_constants/separation = 4
 metadata/_edit_use_anchors_ = true
 
 [node name="startButton" type="Button" parent="VBoxContainer" unique_id=1710006135]
@@ -74,14 +74,14 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_iaa7r")
 theme_override_styles/hover = SubResource("StyleBoxFlat_06t4h")
 text = "Start "
 
-[node name="Button2" type="Button" parent="VBoxContainer" unique_id=1069461010]
+[node name="settingsButton" type="Button" parent="VBoxContainer" unique_id=1069461010]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 16
 theme_override_styles/normal = SubResource("StyleBoxFlat_iaa7r")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_iaa7r")
 theme_override_styles/hover = SubResource("StyleBoxFlat_06t4h")
-text = "Controls"
+text = "Settings"
 
 [node name="exitButton" type="Button" parent="VBoxContainer" unique_id=1697081023]
 layout_mode = 2
@@ -93,4 +93,5 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_06t4h")
 text = "Quit"
 
 [connection signal="pressed" from="VBoxContainer/startButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/settingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/exitButton" to="." method="_on_exit_button_pressed"]

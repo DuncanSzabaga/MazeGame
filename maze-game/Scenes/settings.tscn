@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://dpv5grrxgf7pi"]
+
+[ext_resource type="Script" uid="uid://c4m51hrjf0ms2" path="res://gd/settings.gd" id="1_i44u3"]
+[ext_resource type="Texture2D" uid="uid://dsfu8e7dmo2ii" path="res://backgrounds/settings.png" id="2_lhmql"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xlnad"]
+texture = ExtResource("2_lhmql")
+
+[sub_resource type="FontVariation" id="FontVariation_xgmdk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xps4r"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_i44u3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lhmql"]
+bg_color = Color(0.72944707, 0.5715909, 0.30675006, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_xo5bu"]
+font_size = 30
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_mj58m"]
+font_size = 30
+font_color = Color(0, 0, 0, 1)
+
+[node name="Control" type="CanvasLayer" unique_id=1356374960]
+process_mode = 3
+script = ExtResource("1_i44u3")
+
+[node name="Panel" type="Panel" parent="." unique_id=1172803363]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 2.0
+offset_right = 4.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_xlnad")
+
+[node name="arrowKeys" type="Button" parent="." unique_id=643134627]
+offset_left = 360.0
+offset_top = 304.0
+offset_right = 607.0
+offset_bottom = 389.0
+theme_override_fonts/font = SubResource("FontVariation_xgmdk")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_xps4r")
+text = "Arrow keys
+"
+
+[node name="awsdKeys" type="Button" parent="." unique_id=1692311726]
+offset_left = 632.0
+offset_top = 304.0
+offset_right = 879.0
+offset_bottom = 389.0
+theme_override_fonts/font = SubResource("FontVariation_xgmdk")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_xps4r")
+text = "AWSD keys
+"
+
+[node name="musicSlider" type="HSlider" parent="." unique_id=1715695649]
+offset_left = 360.0
+offset_top = 448.0
+offset_right = 880.0
+offset_bottom = 531.0
+
+[node name="back" type="Button" parent="." unique_id=790276084]
+offset_left = 32.0
+offset_top = 536.0
+offset_right = 245.0
+offset_bottom = 616.0
+theme_override_fonts/font = SubResource("FontVariation_i44u3")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_lhmql")
+text = "Back"
+
+[node name="Label" type="Label" parent="." unique_id=1187138598]
+anchors_preset = -1
+anchor_right = 0.29000002
+anchor_bottom = 0.296
+offset_left = 384.0
+offset_top = 416.0
+offset_right = 252.91998
+offset_bottom = 266.19202
+text = "Volume"
+label_settings = SubResource("LabelSettings_xo5bu")
+
+[node name="Label2" type="Label" parent="." unique_id=1931812385]
+offset_left = 384.0
+offset_top = 256.0
+offset_right = 568.0
+offset_bottom = 298.0
+text = "Key Bindings"
+label_settings = SubResource("LabelSettings_mj58m")
+
+[connection signal="pressed" from="awsdKeys" to="." method="_on_awsd_button_pressed"]
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]
