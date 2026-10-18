@@ -6,12 +6,14 @@ extends CharacterBody2D
 @export var health = 3
 
 var player : Node2D
-
+var tilemap
 var move_num = 0
 const tile_size: Vector2 = Vector2(64, 64)
 var sprite_node_pos_tween = create_tween()
 var chase = false
+var chase_path = []
 var facing = Vector2.DOWN
+var dir: Vector2
 
 
 enum FacingDirection {
@@ -22,12 +24,24 @@ enum FacingDirection {
 }
 
 func _move_enemy():
-	var dir
+	var new_tile = null
 	if chase:
 		dir = direction_player()
+		while new_tile == null:
+			new_tile = global_position + dir * tile_size
+			var coords = tilemap.local_to_map(new_tile)
+			var tile_data = tilemap.get_cell_tile_data(coords)
+			if tile_data.get_custom_data("TileValue") != 0:
+				new_tile = null
+				var directions = [Vector2.UP, Vector2.DOWN, Vector2.LEFT, Vector2.RIGHT]
+				directions.shuffle()
+				dir = directions[0]
+		chase_path.append(dir)
+	elif not chase_path.is_empty():
+		dir = chase_path.pop_back()
+		dir *= -1
 	else:
 		dir = enemy_path[move_num]
-		
 	if dir == Vector2.UP:
 		$AnimatedSprite2D.play("up_animation")
 	elif dir == Vector2.DOWN:
@@ -40,7 +54,7 @@ func _move_enemy():
 		facing = dir
 	else:
 		global_position += dir * tile_size
-		var player = get_tree().get_first_node_in_group("player")
+		player = get_tree().get_first_node_in_group("player")
 		if global_position.distance_to(player.global_position) < 32:
 			global_position -= dir * tile_size
 			if !player.damaged_this_move:
@@ -63,7 +77,7 @@ func _move_enemy():
 			
 			await sprite_node_pos_tween.finished
 		
-		if not chase:
+		if not chase and chase_path.is_empty():
 			move_num += 1
 			if move_num >= enemy_path.size():
 				move_num = 0
@@ -73,6 +87,7 @@ func _process(_delta):
 	
 	if not chase and distance <= dectection_radius:
 		chase = true
+		chase_path.append(dir)
 		print("chasing!")
 	
 	elif chase and distance >= lose_radius:
@@ -84,12 +99,7 @@ func _ready():
 	player = get_tree().get_first_node_in_group("player")
 	$AnimatedSprite2D.play("down_idle")
 	$AnimatedSprite2D.animation_finished.connect(_on_animation_finished)
-	print("Enemy: ", name)
-	print("Collision layer: ", collision_layer)
-	print("Collision mask: ", collision_mask)
-	print("Collision shape disabled: ", $CollisionShape2D.disabled)
-	print("Collision shape: ", $CollisionShape2D.shape)
-
+	tilemap = get_parent()
 
 func _on_animation_finished():
 	if $AnimatedSprite2D.animation == "up_animation":

@@ -220,6 +220,8 @@ func _can_move(dir):
 			is_colliding.collect_powerup()
 			return true
 		else:
+			if tile_data == null:
+				return !$up.is_colliding()
 			if tile_data.get_custom_data("TileValue") != 0:
 				return false
 			return !$up.is_colliding()
@@ -233,6 +235,8 @@ func _can_move(dir):
 			is_colliding.collect_powerup()
 			return true
 		else:
+			if tile_data == null:
+				return !$down.is_colliding()
 			if tile_data.get_custom_data("TileValue") != 0:
 				return false
 			return !$down.is_colliding()
@@ -246,6 +250,8 @@ func _can_move(dir):
 			is_colliding.collect_powerup()
 			return true
 		else:
+			if tile_data == null:
+				return !$left.is_colliding()
 			if tile_data.get_custom_data("TileValue") != 0:
 				return false
 			return !$left.is_colliding()
@@ -259,6 +265,8 @@ func _can_move(dir):
 			is_colliding.collect_powerup()
 			return true
 		else:
+			if tile_data == null:
+				return !$right.is_colliding()
 			if tile_data.get_custom_data("TileValue") != 0:
 				return false
 			return !$right.is_colliding()

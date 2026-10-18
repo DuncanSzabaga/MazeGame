@@ -48,6 +48,7 @@ func _ready():
 	generate_tiles()
 	depth_first_search(Vector2i(0, 0))
 	update_tiles()
+	add_walls()
 	
 	var distances = find_distances(Vector2i(0, 0))
 	var goal_cell = find_farthest_node(distances)
@@ -70,7 +71,6 @@ func generate_tiles():
 				#value = 0
 			column.append(value)
 		tile_values.append(column)
-	print("All done!")
 
 func update_tiles():
 	for x in range(GRID_SIZE):
@@ -79,6 +79,19 @@ func update_tiles():
 			var value = tile_values[x][y]
 			var source_id = 6 if value == 0 else 1
 			set_cell(cell, source_id, Vector2i.ZERO)
+			
+func add_walls():
+	for y in range(GRID_SIZE+2):
+		var cell = Vector2i(-1, y-1)
+		set_cell(cell, 1, Vector2i.ZERO)
+		cell = Vector2i(GRID_SIZE, y-1)
+		set_cell(cell, 1, Vector2i.ZERO)
+	for x in range(GRID_SIZE):
+		var cell = Vector2i(x, -1)
+		set_cell(cell, 1, Vector2i.ZERO)
+		cell = Vector2i(x, GRID_SIZE)
+		set_cell(cell, 1, Vector2i.ZERO)
+	
 
 func depth_first_search(current: Vector2i, previous_direction: Vector2i = Vector2i.ZERO):
 	
@@ -163,8 +176,8 @@ func place_goal(cell: Vector2i):
 	var goal = goal_scene.instantiate()
 	add_child(goal)
 	goal.position = map_to_local(cell)
-	print("Goal placed at: ", cell)
-	print("Distance from start: ", find_distances(Vector2i(0, 0))[cell])
+	occupied[cell] = true
+	pass
 
 
 func get_available_cells() -> Array[Vector2i]:
@@ -175,7 +188,8 @@ func get_available_cells() -> Array[Vector2i]:
 			var cell = Vector2i(x, y)
 
 			if tile_values[x][y] == 0 and not occupied.has(cell):
-				cells.append(cell)
+				if x >= 3 or y >= 3:
+					cells.append(cell)
 
 	cells.shuffle()
 	return cells

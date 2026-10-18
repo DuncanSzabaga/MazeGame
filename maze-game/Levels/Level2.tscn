@@ -128,18 +128,26 @@ texture = ExtResource("2_vd23k")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8wk15"]
 texture = ExtResource("3_x7rwe")
-1:0/0 = 0
-1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(2.3381643, 5.036045, 8, 4.856186, 8, 8, 2.3381643, 8)
-1:1/0 = 0
-1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-1:2/0 = 0
-1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-1:3/0 = 0
-1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-1:4/0 = 0
-1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-1:5/0 = 0
-1:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(2.1583052, -8, 8, -8, 8, -3.2374573, 2.1583052, -3.5971746)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:3/0 = 0
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:4/0 = 0
+3:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:5/0 = 0
+3:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:6/0 = 0
+3:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:7/0 = 0
+3:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:8/0 = 0
+3:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:9/0 = 0
+3:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:10/0 = 0
+3:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bgqvi"]
 texture = ExtResource("4_lf2mf")
@@ -181,37 +189,21 @@ texture = ExtResource("5_80cou")
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s6bta"]
 texture = ExtResource("6_xosfc")
 0:0/0 = 0
-0:0/0/custom_data_0 = 1
 1:0/0 = 0
-1:0/0/custom_data_0 = 1
 0:1/0 = 0
-0:1/0/custom_data_0 = 1
 1:1/0 = 0
-1:1/0/custom_data_0 = 1
 2:1/0 = 0
-2:1/0/custom_data_0 = 1
 3:2/0 = 0
-3:2/0/custom_data_0 = 1
 3:3/0 = 0
-3:3/0/custom_data_0 = 1
 2:2/0 = 0
-2:2/0/custom_data_0 = 1
 1:2/0 = 0
-1:2/0/custom_data_0 = 1
 2:0/0 = 0
-2:0/0/custom_data_0 = 1
 3:0/0 = 0
-3:0/0/custom_data_0 = 1
 1:3/0 = 0
-1:3/0/custom_data_0 = 1
 2:3/0 = 0
-2:3/0/custom_data_0 = 1
 3:1/0 = 0
-3:1/0/custom_data_0 = 1
 0:2/0 = 0
-0:2/0/custom_data_0 = 1
 0:3/0 = 0
-0:3/0/custom_data_0 = 1
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lt7tp"]
 texture = ExtResource("7_mbiy8")
