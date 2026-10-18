@@ -72,7 +72,16 @@ theme_override_font_sizes/font_size = 16
 theme_override_styles/normal = SubResource("StyleBoxFlat_iaa7r")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_iaa7r")
 theme_override_styles/hover = SubResource("StyleBoxFlat_06t4h")
-text = "Start "
+text = "Start Normal Mode"
+
+[node name="startButton2" type="Button" parent="VBoxContainer" unique_id=2037350808]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_iaa7r")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_iaa7r")
+theme_override_styles/hover = SubResource("StyleBoxFlat_06t4h")
+text = "Start Endless Mode"
 
 [node name="settingsButton" type="Button" parent="VBoxContainer" unique_id=1069461010]
 layout_mode = 2
@@ -93,5 +102,6 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_06t4h")
 text = "Quit"
 
 [connection signal="pressed" from="VBoxContainer/startButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/startButton2" to="." method="_on_endless_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/settingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/exitButton" to="." method="_on_exit_button_pressed"]

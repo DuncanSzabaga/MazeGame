@@ -26,6 +26,11 @@ TransitionScreen="*uid://btiuxwur5qxcb"
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[global_group]
+
+enemies=""
+player=""
+
 [input]
 
 move_up={

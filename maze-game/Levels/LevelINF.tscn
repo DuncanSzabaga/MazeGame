@@ -1,0 +1,283 @@
+[gd_scene format=3 uid="uid://bw0tu73d6dlbi"]
+
+[ext_resource type="Texture2D" uid="uid://bapwek3f8v3ii" path="res://Assets/tileAsset.png" id="1_5i400"]
+[ext_resource type="Texture2D" uid="uid://cgphqvkqyn524" path="res://Assets/floors/wall_test.png" id="2_xx6x8"]
+[ext_resource type="Texture2D" uid="uid://dsq363rc42ncj" path="res://Assets/walls/leftSideWall.png" id="3_s6l42"]
+[ext_resource type="Texture2D" uid="uid://k6hwvbvr66y1" path="res://Assets/walls/rightSideWall.png" id="4_83ic0"]
+[ext_resource type="Texture2D" uid="uid://ckaeperm2o4tj" path="res://Assets/walls/backwall.png" id="5_wkfee"]
+[ext_resource type="Texture2D" uid="uid://bdjiabqexweug" path="res://Assets/floors/floor.png" id="6_toa7x"]
+[ext_resource type="Texture2D" uid="uid://nub71o3j511f" path="res://Assets/floors/mossFloor.png" id="7_mnp8s"]
+[ext_resource type="Texture2D" uid="uid://dotjvok3f88sg" path="res://Assets/walls/bottomWall.png" id="8_mbfhx"]
+[ext_resource type="Script" uid="uid://2c2h5q16mpke" path="res://Levels/maze_layout.gd" id="9_hvmoy"]
+[ext_resource type="PackedScene" uid="uid://b45wx2nog1t4w" path="res://Scenes/player.tscn" id="10_kwei5"]
+[ext_resource type="PackedScene" uid="uid://blt4430t34d2k" path="res://Scenes/Goal.tscn" id="10_xx6x8"]
+[ext_resource type="PackedScene" uid="uid://0wlrkbxy1wa3" path="res://Scenes/powerup.tscn" id="11_wkfee"]
+[ext_resource type="PackedScene" uid="uid://clus6jx0c3qsp" path="res://Scenes/enemy_rat.tscn" id="12_toa7x"]
+[ext_resource type="PackedScene" uid="uid://bw7t4lt5n1v2x" path="res://Scenes/bat_enemy.tscn" id="13_mnp8s"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_scpfx"]
+texture = ExtResource("1_5i400")
+2:0/0 = 0
+3:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+11:3/0 = 0
+12:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+11:4/0 = 0
+12:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+10:5/0 = 0
+12:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+10:6/0 = 0
+12:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+10:7/0 = 0
+12:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+7:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+6:9/0 = 0
+7:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+2:10/0 = 0
+3:10/0 = 0
+4:10/0 = 0
+5:10/0 = 0
+6:10/0 = 0
+7:10/0 = 0
+0:11/0 = 0
+1:11/0 = 0
+2:11/0 = 0
+3:11/0 = 0
+4:11/0 = 0
+5:11/0 = 0
+6:11/0 = 0
+7:11/0 = 0
+12:9/0 = 0
+12:8/0 = 0
+10:9/0 = 0
+10:8/0 = 0
+10:10/0 = 0
+12:10/0 = 0
+10:11/0 = 0
+11:11/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sx5ts"]
+texture = ExtResource("2_xx6x8")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/custom_data_0 = 1
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wypxx"]
+texture = ExtResource("3_s6l42")
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(2.3381643, 5.036045, 8, 4.856186, 8, 8, 2.3381643, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:3/0 = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:4/0 = 0
+1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:5/0 = 0
+1:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(2.1583052, -8, 8, -8, 8, -3.2374573, 2.1583052, -3.5971746)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ecoit"]
+texture = ExtResource("4_83ic0")
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:4/0 = 0
+0:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:5/0 = 0
+0:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -1.4388695, -8, -1.978446, 8, -8, 8)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -1.4388695, -8, -1.978446, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ng508"]
+resource_name = "backwall"
+texture = ExtResource("5_wkfee")
+0:2/next_alternative_id = 2
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/next_alternative_id = 2
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 5.4167213, 0.63726044, 5.4167213, 8, 4.4608307, 8, 8, -8, 8)
+0:0/next_alternative_id = 2
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 5.4167213, 0.63726044, 5.4167213, 8, 4.4608307, 8, 8, -8, 8)
+0:1/next_alternative_id = 3
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/next_alternative_id = 2
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:2/next_alternative_id = 2
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3nhtb"]
+texture = ExtResource("6_toa7x")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+3:1/0 = 0
+3:2/0 = 0
+3:3/0 = 0
+2:3/0 = 0
+1:3/0 = 0
+2:2/0 = 0
+2:1/0 = 0
+1:2/0 = 0
+0:2/0 = 0
+0:3/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jg4me"]
+texture = ExtResource("7_mnp8s")
+texture_region_size = Vector2i(64, 64)
+1:0/0 = 0
+1:0/0/custom_data_0 = 1
+0:0/0 = 0
+0:0/0/custom_data_0 = 1
+0:1/0 = 0
+0:1/0/custom_data_0 = 1
+1:1/0 = 0
+1:1/0/custom_data_0 = 1
+2:0/0 = 0
+2:0/0/custom_data_0 = 1
+3:0/0 = 0
+3:0/0/custom_data_0 = 1
+3:1/0 = 0
+3:1/0/custom_data_0 = 1
+3:2/0 = 0
+3:2/0/custom_data_0 = 1
+3:3/0 = 0
+3:3/0/custom_data_0 = 1
+2:3/0 = 0
+2:3/0/custom_data_0 = 1
+2:2/0 = 0
+2:2/0/custom_data_0 = 1
+2:1/0 = 0
+2:1/0/custom_data_0 = 1
+1:2/0 = 0
+1:2/0/custom_data_0 = 1
+1:3/0 = 0
+1:3/0/custom_data_0 = 1
+0:2/0 = 0
+0:2/0/custom_data_0 = 1
+0:3/0 = 0
+0:3/0/custom_data_0 = 1
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_krml5"]
+texture = ExtResource("8_mbfhx")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -3.8235683, -8, -3.5049381)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -4.1421986, -8, -4.4608307)
+
+[sub_resource type="TileSet" id="TileSet_juxkg"]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
+custom_data_layer_0/name = "TileValue"
+custom_data_layer_0/type = 2
+sources/0 = SubResource("TileSetAtlasSource_scpfx")
+sources/2 = SubResource("TileSetAtlasSource_ng508")
+sources/6 = SubResource("TileSetAtlasSource_3nhtb")
+sources/7 = SubResource("TileSetAtlasSource_jg4me")
+sources/8 = SubResource("TileSetAtlasSource_krml5")
+sources/11 = SubResource("TileSetAtlasSource_wypxx")
+sources/13 = SubResource("TileSetAtlasSource_ecoit")
+sources/1 = SubResource("TileSetAtlasSource_sx5ts")
+
+[node name="LevelInf" type="Node2D" unique_id=1789397483]
+
+[node name="MazeLayout" type="TileMapLayer" parent="." unique_id=592470672]
+tile_set = SubResource("TileSet_juxkg")
+rendering_quadrant_size = 32
+physics_quadrant_size = 1
+script = ExtResource("9_hvmoy")
+goal_scene = ExtResource("10_xx6x8")
+powerup_scene = ExtResource("11_wkfee")
+rat_scene = ExtResource("12_toa7x")
+bat_scene = ExtResource("13_mnp8s")
+
+[node name="player" parent="." unique_id=515481656 instance=ExtResource("10_kwei5")]
+position = Vector2(32, 32)

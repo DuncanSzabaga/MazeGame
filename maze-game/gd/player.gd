@@ -26,6 +26,7 @@ const tile_size: Vector2 = Vector2(64, 64)
 const ATTACK_DETECTOR = preload("res://Scenes/attack_detector.tscn")
 var sprite_node_pos_tween: Tween
 var last_move = AttackDirection.DOWN
+var sibling
 
 func _physics_process(delta: float) -> void:
 	if !sprite_node_pos_tween or !sprite_node_pos_tween.is_running():
@@ -206,6 +207,9 @@ func _move(dir: Vector2):
 	
 func _can_move(dir):
 	var is_colliding = null
+	var target_position = global_position + dir * tile_size
+	var target_cell = sibling.local_to_map(sibling.to_local(target_position))
+	var tile_data = sibling.get_cell_tile_data(target_cell)
 	if dir == Vector2.UP:
 		$AnimatedSprite2D.play("forward_animation")
 		is_colliding = $up.get_collider()
@@ -216,6 +220,8 @@ func _can_move(dir):
 			is_colliding.collect_powerup()
 			return true
 		else:
+			if tile_data.get_custom_data("TileValue") != 0:
+				return false
 			return !$up.is_colliding()
 	if dir == Vector2.DOWN:
 		$AnimatedSprite2D.play("back_animation")
@@ -227,6 +233,8 @@ func _can_move(dir):
 			is_colliding.collect_powerup()
 			return true
 		else:
+			if tile_data.get_custom_data("TileValue") != 0:
+				return false
 			return !$down.is_colliding()
 	if dir == Vector2.LEFT:
 		$AnimatedSprite2D.play("left_animation")
@@ -238,6 +246,8 @@ func _can_move(dir):
 			is_colliding.collect_powerup()
 			return true
 		else:
+			if tile_data.get_custom_data("TileValue") != 0:
+				return false
 			return !$left.is_colliding()
 	if dir == Vector2.RIGHT:
 		$AnimatedSprite2D.play("right_animation")
@@ -249,6 +259,8 @@ func _can_move(dir):
 			is_colliding.collect_powerup()
 			return true
 		else:
+			if tile_data.get_custom_data("TileValue") != 0:
+				return false
 			return !$right.is_colliding()
 	
 func _ready_attack():
@@ -350,6 +362,7 @@ func _ready():
 	$AnimatedSprite2D.animation_finished.connect(_on_animation_finished)
 	start_pos = global_position
 	HealthManager.on_take_damage.connect(on_take_damage)
+	sibling = $"../MazeLayout"
 	
 func on_take_damage():
 	_flash_red()
