@@ -150,3 +150,9 @@ texture = ExtResource("3_w4tas")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1341978388]
 shape = SubResource("RectangleShape2D_geerw")
+
+[node name="path_label" type="Label" parent="." unique_id=2101742295]
+offset_left = 16.0
+offset_top = -16.0
+offset_right = 56.0
+offset_bottom = 7.0

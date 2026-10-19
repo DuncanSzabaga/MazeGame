@@ -12,6 +12,8 @@ const tile_size: Vector2 = Vector2(64, 64)
 var sprite_node_pos_tween = create_tween()
 var chase = false
 var chase_path = []
+var was_chasing = false
+var moved = false
 var facing = Vector2.DOWN
 var dir: Vector2
 
@@ -37,9 +39,13 @@ func _move_enemy():
 				directions.shuffle()
 				dir = directions[0]
 		chase_path.append(dir)
+		$path_label.text = $path_label.text + "\n" + str(dir)
 	elif not chase_path.is_empty():
 		dir = chase_path.pop_back()
 		dir *= -1
+		$path_label.text = ""
+		for x in chase_path.size():
+			$path_label.text = $path_label.text + "\n" + str(chase_path[x])
 	else:
 		dir = enemy_path[move_num]
 	if dir == Vector2.UP:
@@ -50,13 +56,21 @@ func _move_enemy():
 		$AnimatedSprite2D.play("left_animation")
 	elif dir == Vector2.RIGHT:
 		$AnimatedSprite2D.play("right_animation")
-	if facing != dir:
+	if facing != dir and chase:
 		facing = dir
+		moved = false
+		chase_path.pop_back()
+	elif facing != dir and not chase and not was_chasing:
+		facing = dir
+		moved = false
 	else:
 		global_position += dir * tile_size
+		moved = true
 		player = get_tree().get_first_node_in_group("player")
 		if global_position.distance_to(player.global_position) < 32:
 			global_position -= dir * tile_size
+			if not chase_path.is_empty():
+				chase_path.pop_back()
 			if !player.damaged_this_move:
 				HealthManager.take_damage()
 				player.damaged_this_move = true
@@ -75,25 +89,31 @@ func _move_enemy():
 				0.185
 			).set_trans(Tween.TRANS_SINE)
 			
-			await sprite_node_pos_tween.finished
+			#await sprite_node_pos_tween.finished
 		
 		if not chase and chase_path.is_empty():
-			move_num += 1
-			if move_num >= enemy_path.size():
-				move_num = 0
-			
+			if not was_chasing:
+				move_num += 1
+				if move_num >= enemy_path.size():
+					move_num = 0
+	print("The rat's move_num value is: " + str(move_num))
+		
 func _process(_delta):
 	var distance = global_position.distance_to(player.global_position)
 	
 	if not chase and distance <= dectection_radius:
 		chase = true
-		chase_path.append(dir)
+		if not was_chasing:
+			#chase_path.append(dir)
+			$path_label.text = $path_label.text + "\n" + str(dir)
 		print("chasing!")
 	
 	elif chase and distance >= lose_radius:
 		chase = false
+		was_chasing = true
 		print("not chasing.")
-
+	elif not chase and chase_path.is_empty():
+			was_chasing = false
 		
 func _ready():
 	player = get_tree().get_first_node_in_group("player")
