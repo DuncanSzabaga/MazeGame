@@ -39,13 +39,9 @@ func _move_enemy():
 				directions.shuffle()
 				dir = directions[0]
 		chase_path.append(dir)
-		$path_label.text = $path_label.text + "\n" + str(dir)
 	elif not chase_path.is_empty():
 		dir = chase_path.pop_back()
 		dir *= -1
-		$path_label.text = ""
-		for x in chase_path.size():
-			$path_label.text = $path_label.text + "\n" + str(chase_path[x])
 	else:
 		dir = enemy_path[move_num]
 	if dir == Vector2.UP:
@@ -103,9 +99,6 @@ func _process(_delta):
 	
 	if not chase and distance <= dectection_radius:
 		chase = true
-		if not was_chasing:
-			#chase_path.append(dir)
-			$path_label.text = $path_label.text + "\n" + str(dir)
 		print("chasing!")
 	
 	elif chase and distance >= lose_radius:
