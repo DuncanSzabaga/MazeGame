@@ -289,7 +289,7 @@ func countSteps():
 	if atkDmg == 2 and stepsTaken == 15:
 		atkDmg = 1
 		stepsTaken = 0
-	if shield and stepsTaken == 5:
+	if shield and stepsTaken == 10:
 		shield = false
 		stepsTaken = 0
 
