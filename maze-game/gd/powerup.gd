@@ -16,6 +16,7 @@ func _ready() -> void:
 	$AnimatedSprite2D.frame = powerup_id
 
 func collect_powerup():
+	print("Collected powerup ID: ", powerup_id)
 	var player_stats = get_tree().current_scene.get_node("playerstats")
 
 	if player_stats:

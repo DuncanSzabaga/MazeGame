@@ -297,6 +297,7 @@ func activateRangedAtk():
 	rangedAtk = true
 	atkDmg = 1
 	shield = false
+	print("rangedACTIVE")
 	
 func activateShield():
 	shield = true
@@ -304,10 +305,53 @@ func activateShield():
 	rangedAtk = false
 	stepsTaken = 0
 	
-	
+func _ranged_attack(dir: AttackDirection):
+	var direction := Vector2.ZERO
+
+	match dir:
+		AttackDirection.UP:
+			direction = Vector2.UP
+		AttackDirection.DOWN:
+			direction = Vector2.DOWN
+		AttackDirection.LEFT:
+			direction = Vector2.LEFT
+		AttackDirection.RIGHT:
+			direction = Vector2.RIGHT
+		_:
+			return
+
+	print("Ranged attack fired!")
+
+	var closest_enemy = null
+	var closest_distance: float = INF
+
+	for enemy in get_tree().get_nodes_in_group("enemies"):
+		var offset: Vector2 = enemy.global_position - global_position
+		var forward_distance: float = offset.dot(direction)
+		var sideways_distance: float = absf(offset.cross(direction))
+
+		# Only consider enemies ahead, in the same row or column.
+		if forward_distance <= 0 or sideways_distance >= 32:
+			continue
+
+		if forward_distance < closest_distance:
+			closest_distance = forward_distance
+			closest_enemy = enemy
+
+	if closest_enemy != null:
+		closest_enemy.take_damage(atkDmg)
+		print("Hit enemy: ", closest_enemy.name)
+	else:
+		print("No enemy in that direction.")
+
 func _do_attack(dir: AttackDirection):
 	await _call_enemies()
 	
+	if rangedAtk:
+		_attackAnimation(dir)
+		_ranged_attack(dir)
+		attack_ready = false
+		return
 	var detector = ATTACK_DETECTOR.instantiate()
 	detector.global_position = global_position
 	
