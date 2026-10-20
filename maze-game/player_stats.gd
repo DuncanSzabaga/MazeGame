@@ -22,7 +22,7 @@ func _process(delta):
 	if player.atkDmg == 2:
 		steps_text.text = "Steps: " + str(player.stepsTaken) + "/15"
 	elif player.shield:
-		steps_text.text = "Steps: " + str(player.stepsTaken) + "/5"
+		steps_text.text = "Steps: " + str(player.stepsTaken) + "/10"
 	else:
 		steps_text.text = ""
 
