@@ -136,9 +136,24 @@ func direction_player():
 			return Vector2.DOWN
 		else:
 			return Vector2.UP
-
+func _flash_red():
+	var tween = create_tween()
+	tween.tween_property(
+		$AnimatedSprite2D,
+		"modulate",
+		Color.RED,
+		0.1
+	)
+	tween.tween_property(
+		$AnimatedSprite2D,
+		"modulate",
+		Color.WHITE,
+		0.1
+	)
+	
 func take_damage(damage):
 	health -= damage
+	_flash_red()
 	print("taken damage: ", health)
 	if health <= 0:
 		queue_free()
