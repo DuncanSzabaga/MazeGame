@@ -32,7 +32,7 @@ func _physics_process(delta: float) -> void:
 	if !sprite_node_pos_tween or !sprite_node_pos_tween.is_running():
 		if not waiting:
 			return
-		if Input.is_action_just_pressed("move_up"):
+		if (Input.is_action_just_pressed("move_up") and Settings._awsd_keys_active) or (Input.is_action_just_pressed("move_up_arrow") and Settings._arrow_keys_active):
 			last_move = AttackDirection.UP
 			waiting = false
 			if attack_ready:
@@ -41,7 +41,7 @@ func _physics_process(delta: float) -> void:
 				await _move(Vector2.UP)
 			waiting = true
 			damaged_this_move = false
-		elif Input.is_action_just_pressed("move_down"):
+		elif (Input.is_action_just_pressed("move_down") and Settings._awsd_keys_active) or (Input.is_action_just_pressed("move_down_arrow") and Settings._arrow_keys_active):
 			last_move = AttackDirection.DOWN
 			waiting = false
 			if attack_ready:
@@ -50,7 +50,7 @@ func _physics_process(delta: float) -> void:
 				await _move(Vector2.DOWN)
 			waiting = true
 			damaged_this_move = false
-		elif Input.is_action_just_pressed("move_left"):
+		elif (Input.is_action_just_pressed("move_left") and Settings._awsd_keys_active) or (Input.is_action_just_pressed("move_left_arrow") and Settings._arrow_keys_active):
 			last_move = AttackDirection.LEFT
 			waiting = false
 			if attack_ready:
@@ -59,7 +59,7 @@ func _physics_process(delta: float) -> void:
 				await _move(Vector2.LEFT)
 			waiting = true
 			damaged_this_move = false
-		elif Input.is_action_just_pressed("move_right"):
+		elif (Input.is_action_just_pressed("move_right") and Settings._awsd_keys_active) or (Input.is_action_just_pressed("move_right_arrow") and Settings._arrow_keys_active):
 			last_move = AttackDirection.RIGHT
 			waiting = false
 			if attack_ready:

@@ -24,6 +24,10 @@ font_color = Color(0, 0, 0, 1)
 font_size = 30
 font_color = Color(0, 0, 0, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_8jolu"]
+font_size = 36
+font_color = Color(0.3062311, 0.2696692, 0.24682471, 1)
+
 [node name="Control" type="CanvasLayer" unique_id=1356374960]
 process_mode = 3
 script = ExtResource("1_i44u3")
@@ -41,10 +45,11 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_xlnad")
 
 [node name="arrowKeys" type="Button" parent="." unique_id=643134627]
+z_index = 1
 offset_left = 360.0
 offset_top = 304.0
-offset_right = 607.0
-offset_bottom = 389.0
+offset_right = 608.0
+offset_bottom = 392.0
 theme_override_fonts/font = SubResource("FontVariation_xgmdk")
 theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = SubResource("StyleBoxFlat_xps4r")
@@ -52,10 +57,11 @@ text = "Arrow keys
 "
 
 [node name="awsdKeys" type="Button" parent="." unique_id=1692311726]
+z_index = 1
 offset_left = 632.0
 offset_top = 304.0
-offset_right = 879.0
-offset_bottom = 389.0
+offset_right = 880.0
+offset_bottom = 392.0
 theme_override_fonts/font = SubResource("FontVariation_xgmdk")
 theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = SubResource("StyleBoxFlat_xps4r")
@@ -95,12 +101,39 @@ label_settings = SubResource("LabelSettings_xo5bu")
 
 [node name="Label2" type="Label" parent="." unique_id=1931812385]
 offset_left = 384.0
-offset_top = 256.0
+offset_top = 251.0
 offset_right = 568.0
-offset_bottom = 298.0
+offset_bottom = 293.0
 text = "Key Bindings"
 label_settings = SubResource("LabelSettings_mj58m")
 
+[node name="ArrowKeysText" type="Label" parent="." unique_id=1971454937]
+z_index = 2
+offset_left = 387.0
+offset_top = 323.0
+offset_right = 597.0
+offset_bottom = 379.0
+text = "Arrow keys"
+label_settings = SubResource("LabelSettings_8jolu")
+
+[node name="AwsdKeysText" type="Label" parent="." unique_id=1010773052]
+z_index = 2
+offset_left = 660.0
+offset_top = 323.0
+offset_right = 870.0
+offset_bottom = 379.0
+text = "AWSD keys"
+label_settings = SubResource("LabelSettings_8jolu")
+
+[node name="ArrowSelected" type="Polygon2D" parent="." unique_id=1554243134]
+position = Vector2(352, 296)
+polygon = PackedVector2Array(0, 0, 264, 0, 264, 104, 0, 104)
+
+[node name="AwsdSelected" type="Polygon2D" parent="." unique_id=208547989]
+position = Vector2(352, 296)
+polygon = PackedVector2Array(272, 0, 536, 0, 536, 104, 272, 104)
+
+[connection signal="pressed" from="arrowKeys" to="." method="_on_arrow_keys_pressed"]
 [connection signal="pressed" from="awsdKeys" to="." method="_on_awsd_button_pressed"]
 [connection signal="value_changed" from="musicSlider" to="." method="_on_music_slider_value_changed"]
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]

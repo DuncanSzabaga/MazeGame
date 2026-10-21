@@ -1,6 +1,6 @@
 extends CanvasLayer
-signal arrow_keys_active
-signal awsd_keys_active
+
+class_name Settings
 
 static var music_volume = 1.5
 
@@ -14,11 +14,13 @@ var bus_index: int
 @onready var arrow_keys: Button = $arrowKeys
 @onready var awsd_keys: Button = $awsdKeys
 @onready var music_slider: HSlider = $musicSlider
+@onready var arrow_keys_text: Label = $ArrowKeysText
+@onready var awsd_keys_text: Label = $AwsdKeysText
+@onready var arrow_selected: Polygon2D = $ArrowSelected
+@onready var awsd_selected: Polygon2D = $AwsdSelected
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	arrow_keys.modulate = Color(0.722, 0.576, 0.271, 1.0)
-	awsd_keys.modulate = Color(0.722, 0.576, 0.271, 1.0)
 	bus_index = AudioServer.get_bus_index(bus_name)
 	music_slider.set_value_no_signal(music_volume)
 	AudioServer.set_bus_volume_db(
@@ -29,7 +31,16 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if _awsd_keys_active:
+		awsd_selected.visible = true
+		arrow_selected.visible = false
+		awsd_keys.modulate = Color(0.926, 0.739, 0.274, 1.0)
+		arrow_keys.modulate = Color(0.539, 0.488, 0.388, 1.0)
+	elif _arrow_keys_active:
+		awsd_selected.visible = false
+		arrow_selected.visible = true
+		arrow_keys.modulate = Color(0.926, 0.739, 0.274, 1.0)
+		awsd_keys.modulate = Color(0.651, 0.615, 0.536, 1.0)
 
 
 func _on_back_pressed() -> void:
@@ -39,13 +50,9 @@ func _on_back_pressed() -> void:
 
 
 func _on_awsd_button_pressed() -> void:
-	awsd_keys_active.emit()
-	arrow_keys.modulate = Color(0.722, 0.576, 0.271, 1.0)
-
-
-func _on_arrow_button_pressed() -> void:
-	arrow_keys_active.emit()
-
+	print("awsd active")
+	_awsd_keys_active = true
+	_arrow_keys_active = false
 
 func _on_music_slider_value_changed(value: float) -> void:
 	music_volume = value
@@ -53,3 +60,9 @@ func _on_music_slider_value_changed(value: float) -> void:
 		bus_index,
 		linear_to_db(music_volume)
 	)
+
+
+func _on_arrow_keys_pressed() -> void:
+	print("arrows active")
+	_awsd_keys_active = false
+	_arrow_keys_active = true
