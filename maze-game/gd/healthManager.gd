@@ -10,9 +10,14 @@ func reset_health():
 	
 func take_damage():
 	on_take_damage.emit()
+	SFXManager.play_sound(preload("res://soundEffects/rat_hurt.mp3"))
 	current_health -= 1
 	current_health = max(current_health,0)
 	print("Player lost health! Current health: ", current_health)
+	if current_health == 0:
+		reset_health()
+		get_tree().reload_current_scene()
+		pass
 
 func heal():
 	current_health = min(current_health + 1, max_health)

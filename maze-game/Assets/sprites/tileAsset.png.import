@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mubcg532orjy"
-path="res://.godot/imported/enemyBatSprites.png-26339b1f93200ad40c70d541973fb868.ctex"
+uid="uid://bapwek3f8v3ii"
+path="res://.godot/imported/tileAsset.png-ca6afeb52c2b53390555236758386536.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/enemyBatSprites.png"
-dest_files=["res://.godot/imported/enemyBatSprites.png-26339b1f93200ad40c70d541973fb868.ctex"]
+source_file="res://Assets/sprites/tileAsset.png"
+dest_files=["res://.godot/imported/tileAsset.png-ca6afeb52c2b53390555236758386536.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bapwek3f8v3ii"
-path="res://.godot/imported/tileAsset.png-de006a96e38597783ee41d7e123e49da.ctex"
+uid="uid://bwdt74kqmunkf"
+path="res://.godot/imported/ratSprites.png-7a13ed3098b532cf3122370717116c38.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/tileAsset.png"
-dest_files=["res://.godot/imported/tileAsset.png-de006a96e38597783ee41d7e123e49da.ctex"]
+source_file="res://Assets/sprites/ratSprites.png"
+dest_files=["res://.godot/imported/ratSprites.png-7a13ed3098b532cf3122370717116c38.ctex"]
 
 [params]
 

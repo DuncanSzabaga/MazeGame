@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bw0tu73d6dlbi"]
 
-[ext_resource type="Texture2D" uid="uid://bapwek3f8v3ii" path="res://Assets/tileAsset.png" id="1_5i400"]
+[ext_resource type="Texture2D" uid="uid://bapwek3f8v3ii" path="res://Assets/sprites/tileAsset.png" id="1_5i400"]
 [ext_resource type="Texture2D" uid="uid://cgphqvkqyn524" path="res://Assets/floors/wall_test.png" id="2_xx6x8"]
 [ext_resource type="Texture2D" uid="uid://dsq363rc42ncj" path="res://Assets/walls/leftSideWall.png" id="3_s6l42"]
 [ext_resource type="Texture2D" uid="uid://k6hwvbvr66y1" path="res://Assets/walls/rightSideWall.png" id="4_83ic0"]

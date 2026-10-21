@@ -354,7 +354,7 @@ func _do_attack(dir: AttackDirection):
 		return
 	var detector = ATTACK_DETECTOR.instantiate()
 	detector.global_position = global_position
-	
+	SFXManager.play_sound(preload("res://soundEffects/rat_attack.mp3"), 0.0)
 	_attackAnimation(dir)
 	
 	match dir:

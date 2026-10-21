@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cpje1ggxflh4l" path="res://Assets/powerUps/halfApplePowerUp.png" id="4_t650t"]
 [ext_resource type="Texture2D" uid="uid://cu8iqgspjriko" path="res://Assets/powerUps/rangedPowerUp.png" id="5_138je"]
 [ext_resource type="Texture2D" uid="uid://cbd2uvp2mdkg7" path="res://Assets/powerUps/shieldPowerUp.png" id="6_keoax"]
+[ext_resource type="AudioStream" uid="uid://dy8k35bp46tqv" path="res://soundEffects/powerup.mp3" id="7_yee3s"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_geerw"]
 animations = [{
@@ -35,6 +36,7 @@ size = Vector2(64, 64)
 
 [node name="Powerup" type="StaticBody2D" unique_id=146785696]
 script = ExtResource("1_5ydwi")
+collect_sfx = ExtResource("7_yee3s")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=772073337]
 sprite_frames = SubResource("SpriteFrames_geerw")

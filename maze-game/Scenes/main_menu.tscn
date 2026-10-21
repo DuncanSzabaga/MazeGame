@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://dghgdyl36ncdy"]
 
-[ext_resource type="Texture2D" uid="uid://b0m6c0m082ejq" path="res://backgrounds/SewerScurryMainArt.png" id="1_06t4h"]
-[ext_resource type="Script" uid="uid://cvcfyjsrpvbgv" path="res://gd/main_menu.gd" id="1_7vrkn"]
-[ext_resource type="AudioStream" uid="uid://7d551qdwkod2" path="res://Music/main_menu.mp3" id="2_fu7sn"]
+[ext_resource type="Script" uid="uid://cvcfyjsrpvbgv" path="res://gd/main_menu.gd" id="1_1ehe0"]
+[ext_resource type="AudioStream" uid="uid://7d551qdwkod2" path="res://Music/main_menu.mp3" id="2_ce3w2"]
+[ext_resource type="Texture2D" uid="uid://b0m6c0m082ejq" path="res://backgrounds/SewerScurryMainArt.png" id="3_n45e2"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iaa7r"]
-texture = ExtResource("1_06t4h")
+texture = ExtResource("3_n45e2")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iaa7r"]
 bg_color = Color(0.12941177, 0.20784314, 0.10980392, 1)
@@ -34,10 +34,10 @@ offset_right = 2.0
 offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_7vrkn")
+script = ExtResource("1_1ehe0")
 
 [node name="background" type="AudioStreamPlayer" parent="." unique_id=1425484959]
-stream = ExtResource("2_fu7sn")
+stream = ExtResource("2_ce3w2")
 volume_db = -15.0
 autoplay = true
 

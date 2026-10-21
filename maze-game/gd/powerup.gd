@@ -1,6 +1,8 @@
 extends StaticBody2D
 class_name PowerUp
 
+const collect_sfx: AudioStream = preload("res://soundEffects/powerup.mp3")
+
 enum POWERUP_TYPE {
 	FULLHEAL,
 	HEAL,
@@ -18,7 +20,8 @@ func _ready() -> void:
 func collect_powerup():
 	print("Collected powerup ID: ", powerup_id)
 	var player_stats = get_tree().current_scene.get_node("playerstats")
-
+	SFXManager.play_sound(collect_sfx)
+	
 	if player_stats:
 		player_stats.show_powerup(powerup_id)
 	match powerup_id:

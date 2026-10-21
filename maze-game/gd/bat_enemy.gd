@@ -69,4 +69,5 @@ func take_damage(damage):
 	health -= damage
 	print("taken damage: ", health)
 	if health <= 0:
+		SFXManager.play_sound(preload("res://soundEffects/enemydie.mp3"), -14.0)
 		queue_free()

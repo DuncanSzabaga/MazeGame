@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 HealthManager="*uid://yl0upcis305t"
 LevelManager="*uid://dv3ciq2m5imfa"
 TransitionScreen="*uid://btiuxwur5qxcb"
+SFXManager="*uid://djpd02q005lo"
 
 [display]
 
