@@ -11,6 +11,7 @@ extends Node2D
 @onready var sprite_4: Sprite2D = $Screen4/Sprite4
 @onready var sprite_5: Sprite2D = $Screen5/Sprite5
 @onready var captions: Label = $Captions
+@onready var background: AudioStreamPlayer = $background
 
 
 var skip: bool = false
@@ -60,6 +61,7 @@ func skip_to_level() -> void:
 	await TransitionScreen.on_transition_finished
 
 	if is_inside_tree():
+		MainMenu.playback_pos = background.get_playback_position()
 		get_tree().change_scene_to_file("res://Levels/Level1.tscn")
 	
 func play_cutscene() -> void:

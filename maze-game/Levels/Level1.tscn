@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://ho7lem5t8mcg" path="res://Scenes/pauseMenu.tscn" id="12_62xmr"]
 [ext_resource type="AudioStream" uid="uid://b8x5epfqqg5v6" path="res://Music/level_music.mp3" id="13_0cfxs"]
 [ext_resource type="PackedScene" uid="uid://c5a5t1bjh66ne" path="res://Scenes/projectile.tscn" id="15_jd565"]
+[ext_resource type="Script" uid="uid://dhyaewul7q1bn" path="res://gd/audio_stream_player.gd" id="15_p2sgf"]
 [ext_resource type="PackedScene" uid="uid://0wlrkbxy1wa3" path="res://Scenes/powerup.tscn" id="16_ruoxf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sfcom"]
@@ -358,6 +359,7 @@ stream = ExtResource("13_0cfxs")
 volume_db = -20.166
 autoplay = true
 parameters/looping = true
+script = ExtResource("15_p2sgf")
 
 [node name="LevelBounds" type="StaticBody2D" parent="." unique_id=1031147245]
 visible = false

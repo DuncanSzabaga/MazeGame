@@ -1,5 +1,6 @@
 extends Node2D
 var current_level: int = 1
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 func reset_game():
 	current_level = 1

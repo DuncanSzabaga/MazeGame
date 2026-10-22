@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://do6vl8ny25qtj" path="res://Assets/cutsceneScreens/slide-4-extra.png" id="9_018oa"]
 [ext_resource type="Texture2D" uid="uid://d08utwoaqvll5" path="res://Assets/cutsceneScreens/slide-5.png" id="10_a71v6"]
 [ext_resource type="Texture2D" uid="uid://vnmqfei5t4h1" path="res://Assets/cutsceneScreens/slide-5-extra.png" id="11_p2od8"]
+[ext_resource type="AudioStream" uid="uid://b8x5epfqqg5v6" path="res://Music/level_music.mp3" id="12_ufppo"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xo5bu"]
 font_size = 40
@@ -111,5 +112,10 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_hffke")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_hffke")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ufppo")
 text = "Skip"
+
+[node name="background" type="AudioStreamPlayer" parent="." unique_id=470969919]
+stream = ExtResource("12_ufppo")
+volume_db = -20.0
+autoplay = true
 
 [connection signal="pressed" from="startButton" to="." method="_on_skip_pressed"]

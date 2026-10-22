@@ -18,9 +18,11 @@ var bus_index: int
 @onready var awsd_keys_text: Label = $AwsdKeysText
 @onready var arrow_selected: Polygon2D = $ArrowSelected
 @onready var awsd_selected: Polygon2D = $AwsdSelected
+@onready var background: AudioStreamPlayer = $background
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	background.play(MainMenu.playback_pos)
 	bus_index = AudioServer.get_bus_index(bus_name)
 	music_slider.set_value_no_signal(music_volume)
 	AudioServer.set_bus_volume_db(
@@ -46,7 +48,9 @@ func _process(delta: float) -> void:
 func _on_back_pressed() -> void:
 	TransitionScreen.transition()
 	await TransitionScreen.on_transition_finished
-	get_tree().change_scene_to_file("res://main_menu.tscn")
+	background.get_playback_position()
+	MainMenu.playback_pos = background.get_playback_position()
+	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
 
 
 func _on_awsd_button_pressed() -> void:
