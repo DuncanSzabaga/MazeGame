@@ -27,7 +27,7 @@ func _process(delta):
 		steps_text.text = "Shots: " + str(player.num_attacks) + "/2"
 	else:
 		steps_text.text = ""
-		powerup_text.text = "PowerUp Activated: none"
+		powerup_text.text = "PowerUp Activated: None"
 
 func _ready():
 	update_hearts()

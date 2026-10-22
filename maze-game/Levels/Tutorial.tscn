@@ -340,10 +340,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -12.0
-offset_top = -57.12
-offset_right = 241.0
-offset_bottom = 57.119995
+offset_left = -126.0
+offset_top = -56.0
+offset_right = 127.0
+offset_bottom = 58.23999
 grow_horizontal = 2
 grow_vertical = 2
 text = "hiii"
@@ -377,10 +377,10 @@ z_index = 1
 position = Vector2(-160, 96)
 
 [node name="player" parent="." unique_id=515481656 instance=ExtResource("10_b3owm")]
+z_index = 1
 position = Vector2(-221, -99)
 
 [node name="cheese" parent="." unique_id=2040475863 instance=ExtResource("12_8lhii")]
-z_index = 1
 position = Vector2(162, 159)
 
 [node name="Control" parent="." unique_id=1356374960 instance=ExtResource("13_uwq88")]
