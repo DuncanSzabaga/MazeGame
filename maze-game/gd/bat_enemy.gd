@@ -10,6 +10,7 @@ var move_turn = false
 const tile_size: Vector2 = Vector2(64, 64)
 var sprite_node_pos_tween = create_tween()
 var chase = true
+var tutorialMode = false
 
 func _move_enemy():
 	if not move_turn:
