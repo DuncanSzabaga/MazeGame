@@ -23,8 +23,11 @@ func _process(delta):
 		steps_text.text = "Steps: " + str(player.stepsTaken) + "/15"
 	elif player.shield:
 		steps_text.text = "Steps: " + str(player.stepsTaken) + "/10"
+	elif player.rangedAtk:
+		steps_text.text = "Shots: " + str(player.num_attacks) + "/2"
 	else:
 		steps_text.text = ""
+		powerup_text.text = "PowerUp Activated: none"
 
 func _ready():
 	update_hearts()
@@ -37,11 +40,11 @@ func update_hearts():
 func show_powerup(powerup_id):
 	match powerup_id:
 		0:
-			powerup_text.text = "PowerUp Activated: attack Up"
+			powerup_text.text = "PowerUp Activated: Attack Up"
 		1:
 			powerup_text.text = "PowerUp Activated: Full heal"
 		2:
-			powerup_text.text = "PowerUp Activated: partial heal"
+			powerup_text.text = "PowerUp Activated: Partial heal"
 		3:
 			powerup_text.text = "PowerUp Activated: Ranged Attack"
 		4:

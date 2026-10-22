@@ -21,6 +21,7 @@ var waiting = true
 var damaged_this_move = false
 var atkDmg = 1
 var stepsTaken = 0
+var num_attacks = 0
 var atkUp = false
 var rangedAtk = false
 var shield = false
@@ -328,6 +329,7 @@ func activateShield():
 	stepsTaken = 0
 	
 func _ranged_attack(dir: AttackDirection):
+	num_attacks += 1
 	var direction := Vector2.ZERO
 
 	match dir:
@@ -375,6 +377,9 @@ func _ranged_attack(dir: AttackDirection):
 		print("Hit enemy: ", closest_enemy.name)
 	else:
 		print("No enemy in that direction.")
+	if num_attacks >= 2:
+		rangedAtk = false
+		num_attacks = 0
 
 func _do_attack(dir: AttackDirection):
 	await _call_enemies()
