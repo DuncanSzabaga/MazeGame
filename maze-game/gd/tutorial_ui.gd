@@ -43,5 +43,8 @@ func _process(_delta: float) -> void:
 			tutorialSteps = 3
 			instruction_label.text = "See how the enemy changed color? That's how you know it hit! Now go to the cheese to go to the next level"
 		
-			
-			
+
+func _on_skip_pressed() -> void:
+	TransitionScreen.transition()
+	await TransitionScreen.on_transition_finished
+	get_tree().change_scene_to_file("res://Levels/Level1.tscn")

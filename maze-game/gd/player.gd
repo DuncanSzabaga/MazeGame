@@ -13,11 +13,15 @@ enum AttackDirection {
 	RIGHT
 }
 
+@onready var laser_h: ColorRect = $LaserH
+@onready var laser_v: ColorRect = $LaserV
+
 var attack_ready = false
 var waiting = true
 var damaged_this_move = false
 var atkDmg = 1
 var stepsTaken = 0
+var atkUp = false
 var rangedAtk = false
 var shield = false
 var start_pos: Vector2 = global_position
@@ -29,6 +33,14 @@ var last_move = AttackDirection.DOWN
 var sibling
 
 func _physics_process(delta: float) -> void:
+	if rangedAtk:
+		$AnimatedSprite2D.modulate = Color(0.743, 0.973, 0.0, 1.0)
+	elif shield:
+		$AnimatedSprite2D.modulate = Color(0.627, 0.637, 0.627, 1.0)
+	elif atkUp:
+		$AnimatedSprite2D.modulate = Color(1.0, 0.468, 0.486, 1.0)
+	else:
+		$AnimatedSprite2D.modulate = Color(1,1,1,1)
 	if !sprite_node_pos_tween or !sprite_node_pos_tween.is_running():
 		if not waiting:
 			return
@@ -286,6 +298,7 @@ func _ready_attack():
 	#_check_enemy_overlap()
 	
 func atkPowerUp():
+	atkUp = true
 	atkDmg = 2;
 	stepsTaken = 0;
 	shield = false
@@ -295,6 +308,7 @@ func countSteps():
 	stepsTaken +=1
 	
 	if atkDmg == 2 and stepsTaken == 15:
+		atkUp = false
 		atkDmg = 1
 		stepsTaken = 0
 	if shield and stepsTaken == 10:
@@ -328,6 +342,16 @@ func _ranged_attack(dir: AttackDirection):
 		_:
 			return
 
+	if direction == Vector2.UP or direction == Vector2.DOWN:
+		print("firing vertically")
+		laser_v.visible = true
+		await get_tree().create_timer(0.30).timeout
+		laser_v.visible = false
+	elif direction == Vector2.LEFT or direction == Vector2.RIGHT:
+		print("firing horizontally")
+		laser_h.visible = true
+		await get_tree().create_timer(0.30).timeout
+		laser_h.visible = false
 	print("Ranged attack fired!")
 
 	var closest_enemy = null
@@ -355,16 +379,32 @@ func _ranged_attack(dir: AttackDirection):
 func _do_attack(dir: AttackDirection):
 	await _call_enemies()
 	
+	var detector = ATTACK_DETECTOR.instantiate()
+	detector.global_position = global_position
+	
 	if rangedAtk:
 		_attackAnimation(dir)
 		_ranged_attack(dir)
 		attack_ready = false
+		_set_idle_animation(dir, detector)
 		return
-	var detector = ATTACK_DETECTOR.instantiate()
-	detector.global_position = global_position
+		
 	SFXManager.play_sound(preload("res://soundEffects/rat_attack.mp3"), 0.0)
 	_attackAnimation(dir)
 	
+	_set_idle_animation(dir, detector)
+			
+	get_tree().root.add_child(detector)
+	var enemies = get_tree().get_nodes_in_group("enemies")
+	for enemy in enemies:
+		var detector_pos = detector.global_position
+		var enemy_pos = enemy.global_position
+		if detector.global_position.distance_to(enemy.global_position) < 32:
+			enemy.take_damage(atkDmg)
+	attack_ready = false
+	detector.queue_free()
+	
+func _set_idle_animation(dir: AttackDirection, detector) -> void:
 	match dir:
 		AttackDirection.UP:
 			detector.global_position.y -= 64
@@ -378,16 +418,6 @@ func _do_attack(dir: AttackDirection):
 		AttackDirection.RIGHT:
 			detector.global_position.x += 64
 			$AnimatedSprite2D.play("right_idle")
-			
-	get_tree().root.add_child(detector)
-	var enemies = get_tree().get_nodes_in_group("enemies")
-	for enemy in enemies:
-		var detector_pos = detector.global_position
-		var enemy_pos = enemy.global_position
-		if detector.global_position.distance_to(enemy.global_position) < 32:
-			enemy.take_damage(atkDmg)
-	attack_ready = false
-	detector.queue_free()
 	
 func _apply_tile_effect():
 	var tilemap: TileMapLayer = get_tree().get_first_node_in_group("tilemap")
@@ -423,6 +453,8 @@ func _ready():
 	start_pos = global_position
 	HealthManager.on_take_damage.connect(on_take_damage)
 	sibling = $"../MazeLayout"
+	laser_v.visible = false
+	laser_h.visible = false
 	
 func on_take_damage():
 	_flash_red()

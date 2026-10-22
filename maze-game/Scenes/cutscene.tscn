@@ -100,7 +100,7 @@ text = "You were sleeping peacefully..."
 label_settings = SubResource("LabelSettings_xo5bu")
 horizontal_alignment = 1
 
-[node name="startButton" type="Button" parent="." unique_id=743443886]
+[node name="skipButton" type="Button" parent="." unique_id=743443886]
 z_index = 4
 offset_left = 964.7436
 offset_top = 24.572649
@@ -118,4 +118,4 @@ stream = ExtResource("12_ufppo")
 volume_db = -20.0
 autoplay = true
 
-[connection signal="pressed" from="startButton" to="." method="_on_skip_pressed"]
+[connection signal="pressed" from="skipButton" to="." method="_on_skip_pressed"]
