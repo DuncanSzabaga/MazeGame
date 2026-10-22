@@ -68,7 +68,23 @@ func direction_player():
 
 func take_damage(damage):
 	health -= damage
+	_flash_red()
 	print("taken damage: ", health)
 	if health <= 0:
 		SFXManager.play_sound(preload("res://soundEffects/enemydie.mp3"), -14.0)
 		queue_free()
+
+func _flash_red():
+	var tween = create_tween()
+	tween.tween_property(
+		$AnimatedSprite2D,
+		"modulate",
+		Color.RED,
+		0.1
+	)
+	tween.tween_property(
+		$AnimatedSprite2D,
+		"modulate",
+		Color.WHITE,
+		0.1
+	)

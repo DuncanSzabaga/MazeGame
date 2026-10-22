@@ -223,19 +223,19 @@ hit_from_inside = true
 stream = ExtResource("5_f1ek2")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1397340333]
-zoom = Vector2(2, 2)
+zoom = Vector2(1.75, 1.75)
 position_smoothing_enabled = true
 
 [node name="LaserH" type="ColorRect" parent="." unique_id=1828315250]
 offset_left = -750.0
 offset_top = -4.0
-offset_right = 752.0
+offset_right = 750.0
 offset_bottom = 4.0
 color = Color(0.5176471, 1, 0, 1)
 
 [node name="LaserV" type="ColorRect" parent="." unique_id=463957225]
 offset_left = -4.0
-offset_top = -300.0
+offset_top = -752.0
 offset_right = 4.0
-offset_bottom = 300.0
+offset_bottom = 748.0
 color = Color(0.5176471, 1, 0, 1)

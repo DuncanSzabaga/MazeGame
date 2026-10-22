@@ -139,6 +139,7 @@ func direction_player():
 			return Vector2.DOWN
 		else:
 			return Vector2.UP
+			
 func _flash_red():
 	var tween = create_tween()
 	tween.tween_property(
