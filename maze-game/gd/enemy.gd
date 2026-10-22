@@ -94,7 +94,6 @@ func _move_enemy():
 				move_num += 1
 				if move_num >= enemy_path.size():
 					move_num = 0
-	print("The rat's move_num value is: " + str(move_num))
 		
 func _process(_delta):
 	if tutorialMode:

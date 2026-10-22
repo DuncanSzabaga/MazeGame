@@ -223,6 +223,7 @@ hit_from_inside = true
 stream = ExtResource("5_f1ek2")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1397340333]
+zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 
 [node name="LaserH" type="ColorRect" parent="." unique_id=1828315250]
