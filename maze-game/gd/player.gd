@@ -74,6 +74,10 @@ func _physics_process(delta: float) -> void:
 			await _ready_attack()
 			waiting = true
 			damaged_this_move = false
+	if HealthManager.current_health == 0:
+		HealthManager.reset_health()
+		get_tree().reload_current_scene()
+		pass
 		
 func _readyAttackAnimation(last_move: AttackDirection):
 	if last_move == AttackDirection.DOWN:
