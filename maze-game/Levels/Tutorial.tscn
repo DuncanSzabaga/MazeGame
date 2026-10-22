@@ -383,6 +383,6 @@ position = Vector2(-221, -99)
 [node name="cheese" parent="." unique_id=2040475863 instance=ExtResource("12_8lhii")]
 position = Vector2(162, 159)
 
-[node name="Control" parent="." unique_id=1356374960 instance=ExtResource("13_uwq88")]
+[node name="PauseMenu" parent="." unique_id=1356374960 instance=ExtResource("13_uwq88")]
 
 [connection signal="pressed" from="tutorialUI/Panel/skipButton" to="tutorialUI" method="_on_skip_pressed"]

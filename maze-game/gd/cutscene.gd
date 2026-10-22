@@ -62,7 +62,10 @@ func skip_to_level() -> void:
 
 	if is_inside_tree():
 		MainMenu.playback_pos = background.get_playback_position()
-		get_tree().change_scene_to_file("res://Levels/Tutorial.tscn")
+		if Settings.show_tutorial:
+			get_tree().change_scene_to_file("res://Levels/Tutorial.tscn")
+		else:
+			get_tree().change_scene_to_file("res://Levels/Level1.tscn")
 	
 func play_cutscene() -> void:
 	captions.text = "You were sleeping peacefully..."

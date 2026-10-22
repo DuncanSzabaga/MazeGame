@@ -23,7 +23,13 @@ func _on_exit_button_pressed() -> void:
 func _on_start_button_pressed() -> void:
 	TransitionScreen.transition()
 	await TransitionScreen.on_transition_finished
-	get_tree().change_scene_to_file("res://Scenes/cutscene.tscn")
+	if Settings.show_cutscene:
+		get_tree().change_scene_to_file("res://Scenes/cutscene.tscn")
+	elif Settings.show_tutorial:
+		get_tree().change_scene_to_file("res://Levels/tutorial.tscn")
+	else:
+		get_tree().change_scene_to_file("res://Levels/Level1.tscn")
+		
 	
 func _on_endless_button_pressed() -> void:
 	LevelManager.current_level = 2

@@ -29,6 +29,12 @@ font_color = Color(0, 0, 0, 1)
 font_size = 36
 font_color = Color(0.3062311, 0.2696692, 0.24682471, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_fhitt"]
+font_color = Color(0.07058824, 0.07058824, 0.07058824, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_r00ft"]
+font_color = Color(0.07058824, 0.07058824, 0.07058824, 1)
+
 [node name="Control" type="CanvasLayer" unique_id=1356374960]
 process_mode = 3
 script = ExtResource("1_i44u3")
@@ -72,7 +78,7 @@ text = "AWSD keys
 [node name="musicSlider" type="HSlider" parent="." unique_id=1715695649]
 offset_left = 360.0
 offset_top = 448.0
-offset_right = 880.0
+offset_right = 616.0
 offset_bottom = 531.0
 min_value = 0.01
 max_value = 1.5
@@ -89,7 +95,7 @@ theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = SubResource("StyleBoxFlat_lhmql")
 text = "Back"
 
-[node name="Label" type="Label" parent="." unique_id=1187138598]
+[node name="VolumeLabel" type="Label" parent="." unique_id=1187138598]
 anchors_preset = -1
 anchor_right = 0.29000002
 anchor_bottom = 0.296
@@ -100,7 +106,7 @@ offset_bottom = 266.19202
 text = "Volume"
 label_settings = SubResource("LabelSettings_xo5bu")
 
-[node name="Label2" type="Label" parent="." unique_id=1931812385]
+[node name="KeyBindingsLabel" type="Label" parent="." unique_id=1931812385]
 offset_left = 384.0
 offset_top = 251.0
 offset_right = 568.0
@@ -138,6 +144,36 @@ polygon = PackedVector2Array(272, 0, 536, 0, 536, 104, 272, 104)
 stream = ExtResource("3_lhmql")
 volume_db = -15.0
 autoplay = true
+
+[node name="Tutorial" type="CheckBox" parent="." unique_id=897069228]
+offset_left = 848.0
+offset_top = 416.0
+offset_right = 872.0
+offset_bottom = 440.0
+scale = Vector2(1.6, 1.6)
+
+[node name="Label" type="Label" parent="Tutorial" unique_id=1751893820]
+layout_mode = 0
+offset_left = -99.999985
+offset_right = -4.9999847
+offset_bottom = 23.0
+text = "Play tutorial"
+label_settings = SubResource("LabelSettings_fhitt")
+
+[node name="Cutscene" type="CheckBox" parent="." unique_id=628919131]
+offset_left = 848.0
+offset_top = 464.0
+offset_right = 872.0
+offset_bottom = 488.0
+scale = Vector2(1.6, 1.6)
+
+[node name="Label" type="Label" parent="Cutscene" unique_id=253772537]
+layout_mode = 0
+offset_left = -124.999985
+offset_right = -1.9999847
+offset_bottom = 23.0
+text = "Show cutscenes"
+label_settings = SubResource("LabelSettings_r00ft")
 
 [connection signal="pressed" from="arrowKeys" to="." method="_on_arrow_keys_pressed"]
 [connection signal="pressed" from="awsdKeys" to="." method="_on_awsd_button_pressed"]

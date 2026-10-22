@@ -7,6 +7,9 @@ static var music_volume = 1.0
 static var _arrow_keys_active = false
 static var _awsd_keys_active = true
 
+static var show_tutorial = true
+static var show_cutscene = true
+
 @export
 var bus_name: String = "Master"
 var bus_index: int
@@ -19,9 +22,13 @@ var bus_index: int
 @onready var arrow_selected: Polygon2D = $ArrowSelected
 @onready var awsd_selected: Polygon2D = $AwsdSelected
 @onready var background: AudioStreamPlayer = $background
+@onready var tutorial: CheckBox = $Tutorial
+@onready var cutscene: CheckBox = $Cutscene
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	tutorial.button_pressed = show_tutorial
+	cutscene.button_pressed = show_cutscene
 	bus_index = AudioServer.get_bus_index(bus_name)
 	music_slider.set_value_no_signal(music_volume)
 	AudioServer.set_bus_volume_db(
@@ -43,6 +50,16 @@ func _process(delta: float) -> void:
 		arrow_selected.visible = true
 		arrow_keys.modulate = Color(0.926, 0.739, 0.274, 1.0)
 		awsd_keys.modulate = Color(0.651, 0.615, 0.536, 1.0)
+	
+	if tutorial.button_pressed:
+		show_tutorial = true
+	else:
+		show_tutorial = false
+		
+	if cutscene.button_pressed:
+		show_cutscene = true
+	else:
+		show_cutscene = false
 
 
 func _on_back_pressed() -> void:
