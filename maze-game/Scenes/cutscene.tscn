@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://dlvk75xf06ek3"]
+
+[ext_resource type="Script" uid="uid://nrcvivw208bk" path="res://gd/cutscene.gd" id="1_hffke"]
+[ext_resource type="Texture2D" uid="uid://d2jooenqp1ts8" path="res://Assets/cutsceneScreens/slide-1.png" id="2_ufppo"]
+[ext_resource type="Texture2D" uid="uid://fqjxsl3pol0u" path="res://Assets/cutsceneScreens/slide-1-extra.png" id="3_ipiwr"]
+[ext_resource type="Texture2D" uid="uid://ugpxek2e5j6l" path="res://Assets/cutsceneScreens/slide-2.png" id="4_eholo"]
+[ext_resource type="Texture2D" uid="uid://fx7cded36c33" path="res://Assets/cutsceneScreens/slide-2-extra.png" id="5_f5nhl"]
+[ext_resource type="Texture2D" uid="uid://brpbxvc6okwju" path="res://Assets/cutsceneScreens/slide-3.png" id="6_bq2bh"]
+[ext_resource type="Texture2D" uid="uid://b58v5rtygu3el" path="res://Assets/cutsceneScreens/slide-3-extra.png" id="7_whp1e"]
+[ext_resource type="Texture2D" uid="uid://dc317aayx2dnp" path="res://Assets/cutsceneScreens/slide-4.png" id="8_ixjyl"]
+[ext_resource type="Texture2D" uid="uid://do6vl8ny25qtj" path="res://Assets/cutsceneScreens/slide-4-extra.png" id="9_018oa"]
+[ext_resource type="Texture2D" uid="uid://d08utwoaqvll5" path="res://Assets/cutsceneScreens/slide-5.png" id="10_a71v6"]
+[ext_resource type="Texture2D" uid="uid://vnmqfei5t4h1" path="res://Assets/cutsceneScreens/slide-5-extra.png" id="11_p2od8"]
+
+[node name="Cutscene" type="Node2D" unique_id=1711388686]
+scale = Vector2(0.936, 0.936)
+script = ExtResource("1_hffke")
+
+[node name="Screen1" type="TextureRect" parent="." unique_id=1271533180]
+z_index = 4
+offset_right = 1232.0
+offset_bottom = 706.0
+texture = ExtResource("2_ufppo")
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite1" type="Sprite2D" parent="Screen1" unique_id=906811950]
+position = Vector2(615, 350)
+texture = ExtResource("3_ipiwr")
+
+[node name="Screen2" type="TextureRect" parent="." unique_id=473529547]
+z_index = 3
+offset_right = 1232.0
+offset_bottom = 706.0
+texture = ExtResource("4_eholo")
+
+[node name="Sprite2" type="Sprite2D" parent="Screen2" unique_id=1288197555]
+position = Vector2(615, 350)
+texture = ExtResource("5_f5nhl")
+
+[node name="Screen3" type="TextureRect" parent="." unique_id=24325798]
+z_index = 2
+offset_right = 1232.0
+offset_bottom = 706.0
+texture = ExtResource("6_bq2bh")
+
+[node name="Sprite3" type="Sprite2D" parent="Screen3" unique_id=675566283]
+position = Vector2(615, 350)
+texture = ExtResource("7_whp1e")
+
+[node name="Screen4" type="TextureRect" parent="." unique_id=790999384]
+z_index = 1
+offset_right = 1232.0
+offset_bottom = 706.0
+texture = ExtResource("8_ixjyl")
+
+[node name="Sprite4" type="Sprite2D" parent="Screen4" unique_id=1002831142]
+position = Vector2(615, 350)
+texture = ExtResource("9_018oa")
+
+[node name="Screen5" type="TextureRect" parent="." unique_id=906079909]
+offset_right = 1232.0
+offset_bottom = 706.0
+texture = ExtResource("10_a71v6")
+
+[node name="Sprite5" type="Sprite2D" parent="Screen5" unique_id=1972204028]
+position = Vector2(615, 350)
+texture = ExtResource("11_p2od8")
+
+[node name="SkipButton" type="Button" parent="." unique_id=138081783]
+z_index = 5
+offset_left = 938.03424
+offset_top = 598.2906
+offset_right = 1209.4016
+offset_bottom = 667.7349
+text = "Skip"
+
+[connection signal="pressed" from="SkipButton" to="." method="_on_skip_pressed"]
