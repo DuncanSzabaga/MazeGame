@@ -2,7 +2,7 @@ extends CanvasLayer
 
 class_name Settings
 
-static var music_volume = 1.5
+static var music_volume = 1.0
 
 static var _arrow_keys_active = false
 static var _awsd_keys_active = true
@@ -22,7 +22,6 @@ var bus_index: int
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	background.play(MainMenu.playback_pos)
 	bus_index = AudioServer.get_bus_index(bus_name)
 	music_slider.set_value_no_signal(music_volume)
 	AudioServer.set_bus_volume_db(
@@ -30,6 +29,7 @@ func _ready() -> void:
 		linear_to_db(music_volume)
 	)
 	music_slider.value_changed.connect(_on_music_slider_value_changed)
+	background.play(MainMenu.playback_pos+.11)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
