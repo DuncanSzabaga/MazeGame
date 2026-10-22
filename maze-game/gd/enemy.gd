@@ -16,8 +16,8 @@ var was_chasing = false
 var moved = false
 var facing = Vector2.DOWN
 var dir: Vector2
-var tutorialMode := true
-
+var tutorialMode := false
+var tutorialTakenDMG = false
 
 enum FacingDirection {
 	UP,
@@ -159,6 +159,7 @@ func take_damage(damage):
 	health -= damage
 	_flash_red()
 	print("taken damage: ", health)
+	tutorialTakenDMG = true
 	if health <= 0:
 		SFXManager.play_sound(preload("res://soundEffects/enemydie.mp3"), -14.0)
 		queue_free()

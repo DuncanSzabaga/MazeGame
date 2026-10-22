@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://b45wx2nog1t4w" path="res://Scenes/player.tscn" id="10_b3owm"]
 [ext_resource type="Script" uid="uid://b3nvmrdhst738" path="res://gd/tutorial_ui.gd" id="11_kopkk"]
 [ext_resource type="PackedScene" uid="uid://blt4430t34d2k" path="res://Scenes/Goal.tscn" id="12_8lhii"]
+[ext_resource type="PackedScene" uid="uid://ho7lem5t8mcg" path="res://Scenes/pauseMenu.tscn" id="13_uwq88"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_li5ak"]
 texture = ExtResource("1_4w4cy")
@@ -350,3 +351,5 @@ position = Vector2(-221, -99)
 [node name="cheese" parent="." unique_id=2040475863 instance=ExtResource("12_8lhii")]
 z_index = 1
 position = Vector2(162, 159)
+
+[node name="Control" parent="." unique_id=1356374960 instance=ExtResource("13_uwq88")]
