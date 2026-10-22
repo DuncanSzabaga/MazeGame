@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://bw6f2upu1wykx"]
+
+[ext_resource type="Script" uid="uid://wm058oxs4y2g" path="res://gd/pauseMenu.gd" id="1_hfklj"]
+[ext_resource type="Texture2D" uid="uid://b3hm7vwnqej68" path="res://backgrounds/paused.png" id="2_hts4r"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xlnad"]
+texture = ExtResource("2_hts4r")
+
+[sub_resource type="FontVariation" id="FontVariation_ib7xr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hts4r"]
+bg_color = Color(0.72944707, 0.5715909, 0.30675006, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_xgmdk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xps4r"]
+bg_color = Color(0.72226757, 0.57754624, 0.27019802, 1)
+
+[node name="Control" type="CanvasLayer" unique_id=1356374960]
+process_mode = 3
+script = ExtResource("1_hfklj")
+
+[node name="Panel" type="Panel" parent="." unique_id=1172803363]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 2.0
+offset_right = 4.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_xlnad")
+
+[node name="mainMenu" type="Button" parent="." unique_id=906059002]
+offset_left = 499.0
+offset_top = 401.0
+offset_right = 742.0
+offset_bottom = 552.0
+theme_override_fonts/font = SubResource("FontVariation_ib7xr")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_hts4r")
+text = "Main Menu"
+
+[node name="resume" type="Button" parent="." unique_id=965307561]
+offset_left = 499.0
+offset_top = 229.0
+offset_right = 742.0
+offset_bottom = 380.0
+theme_override_fonts/font = SubResource("FontVariation_xgmdk")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_xps4r")
+text = "Resume"
+
+[connection signal="pressed" from="mainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="resume" to="." method="_on_resume_pressed"]

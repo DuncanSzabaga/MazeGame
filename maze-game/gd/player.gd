@@ -166,9 +166,13 @@ func _call_enemies():
 	var enemies = get_tree().get_nodes_in_group("enemies")
 
 	for enemy in enemies:
+		if enemy.tutorialMode:
+			continue
 		enemy._move_enemy()
 
 	for enemy in enemies:
+		if enemy.tutorialMode:
+			continue
 		if enemy.sprite_node_pos_tween.is_running():
 			await enemy.sprite_node_pos_tween.finished
 		

@@ -16,6 +16,7 @@ var was_chasing = false
 var moved = false
 var facing = Vector2.DOWN
 var dir: Vector2
+var tutorialMode := true
 
 
 enum FacingDirection {
@@ -27,6 +28,9 @@ enum FacingDirection {
 
 func _move_enemy():
 	var new_tile = null
+	
+	if tutorialMode :
+		return
 	if chase:
 		dir = direction_player()
 		while new_tile == null:
@@ -93,6 +97,8 @@ func _move_enemy():
 	print("The rat's move_num value is: " + str(move_num))
 		
 func _process(_delta):
+	if tutorialMode:
+		return
 	var distance = global_position.distance_to(player.global_position)
 	
 	if not chase and distance <= dectection_radius:
@@ -156,3 +162,6 @@ func take_damage(damage):
 	if health <= 0:
 		SFXManager.play_sound(preload("res://soundEffects/enemydie.mp3"), -14.0)
 		queue_free()
+
+func notTutorialMode():
+	tutorialMode = false

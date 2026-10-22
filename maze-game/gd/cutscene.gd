@@ -59,7 +59,7 @@ func skip_to_level() -> void:
 	await TransitionScreen.on_transition_finished
 
 	if is_inside_tree():
-		get_tree().change_scene_to_file("res://Levels/Level1.tscn")
+		get_tree().change_scene_to_file("res://Levels/Tutorial.tscn")
 	
 func play_cutscene() -> void:
 	await play_screen(screen_1, sprite_1)
