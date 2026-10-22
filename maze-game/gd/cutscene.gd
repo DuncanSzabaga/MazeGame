@@ -10,6 +10,8 @@ extends Node2D
 @onready var sprite_3: Sprite2D = $Screen3/Sprite3
 @onready var sprite_4: Sprite2D = $Screen4/Sprite4
 @onready var sprite_5: Sprite2D = $Screen5/Sprite5
+@onready var captions: Label = $Captions
+@onready var background: AudioStreamPlayer = $background
 
 
 var skip: bool = false
@@ -59,25 +61,27 @@ func skip_to_level() -> void:
 	await TransitionScreen.on_transition_finished
 
 	if is_inside_tree():
-		get_tree().change_scene_to_file("res://Levels/Tutorial.tscn")
+		MainMenu.playback_pos = background.get_playback_position()
+		get_tree().change_scene_to_file("res://Levels/Level1.tscn")
 	
 func play_cutscene() -> void:
+	captions.text = "You were sleeping peacefully..."
 	await play_screen(screen_1, sprite_1)
 	if is_ending:
 		return
-		
+	captions.text = "When someone sneaky..."
 	await play_screen(screen_2, sprite_2)
 	if is_ending:
 		return
-
+	captions.text = "Spotted your most prized possesion."
 	await play_screen(screen_3, sprite_3)
 	if is_ending:
 		return
-
+	captions.text = "When you awoke, it was too late..."
 	await play_screen(screen_4, sprite_4)
 	if is_ending:
 		return
-
+	captions.text = "You must find your cheese."
 	await play_screen(screen_5, sprite_5)
 
 	if not is_ending:

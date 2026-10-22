@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c4m51hrjf0ms2" path="res://gd/settings.gd" id="1_i44u3"]
 [ext_resource type="Texture2D" uid="uid://dsfu8e7dmo2ii" path="res://backgrounds/settings.png" id="2_lhmql"]
+[ext_resource type="AudioStream" uid="uid://7d551qdwkod2" path="res://Music/main_menu.mp3" id="3_lhmql"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xlnad"]
 texture = ExtResource("2_lhmql")
@@ -132,6 +133,11 @@ polygon = PackedVector2Array(0, 0, 264, 0, 264, 104, 0, 104)
 [node name="AwsdSelected" type="Polygon2D" parent="." unique_id=208547989]
 position = Vector2(352, 296)
 polygon = PackedVector2Array(272, 0, 536, 0, 536, 104, 272, 104)
+
+[node name="background" type="AudioStreamPlayer" parent="." unique_id=1300919217]
+stream = ExtResource("3_lhmql")
+volume_db = -15.0
+autoplay = true
 
 [connection signal="pressed" from="arrowKeys" to="." method="_on_arrow_keys_pressed"]
 [connection signal="pressed" from="awsdKeys" to="." method="_on_awsd_button_pressed"]

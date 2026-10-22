@@ -11,6 +11,30 @@
 [ext_resource type="Texture2D" uid="uid://do6vl8ny25qtj" path="res://Assets/cutsceneScreens/slide-4-extra.png" id="9_018oa"]
 [ext_resource type="Texture2D" uid="uid://d08utwoaqvll5" path="res://Assets/cutsceneScreens/slide-5.png" id="10_a71v6"]
 [ext_resource type="Texture2D" uid="uid://vnmqfei5t4h1" path="res://Assets/cutsceneScreens/slide-5-extra.png" id="11_p2od8"]
+[ext_resource type="AudioStream" uid="uid://b8x5epfqqg5v6" path="res://Music/level_music.mp3" id="12_ufppo"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xo5bu"]
+font_size = 40
+font_color = Color(0.89942354, 0.8744405, 0.8856975, 1)
+outline_size = 16
+outline_color = Color(0.14509805, 0.02745098, 0.078431375, 1)
+shadow_size = 0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hffke"]
+bg_color = Color(0.12941177, 0.20784314, 0.10980392, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+corner_detail = 18
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ufppo"]
+bg_color = Color(0.07630972, 0.13238543, 0.062288024, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+corner_detail = 18
 
 [node name="Cutscene" type="Node2D" unique_id=1711388686]
 scale = Vector2(0.936, 0.936)
@@ -66,12 +90,32 @@ texture = ExtResource("10_a71v6")
 position = Vector2(615, 350)
 texture = ExtResource("11_p2od8")
 
-[node name="SkipButton" type="Button" parent="." unique_id=138081783]
-z_index = 5
-offset_left = 938.03424
-offset_top = 598.2906
-offset_right = 1209.4016
-offset_bottom = 667.7349
+[node name="Captions" type="Label" parent="." unique_id=1470535108]
+z_index = 4
+offset_left = 1.0683765
+offset_top = 608.97437
+offset_right = 1233.9745
+offset_bottom = 663.97437
+text = "You were sleeping peacefully..."
+label_settings = SubResource("LabelSettings_xo5bu")
+horizontal_alignment = 1
+
+[node name="startButton" type="Button" parent="." unique_id=743443886]
+z_index = 4
+offset_left = 964.7436
+offset_top = 24.572649
+offset_right = 1196.0769
+offset_bottom = 65.170944
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_hffke")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hffke")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ufppo")
 text = "Skip"
 
-[connection signal="pressed" from="SkipButton" to="." method="_on_skip_pressed"]
+[node name="background" type="AudioStreamPlayer" parent="." unique_id=470969919]
+stream = ExtResource("12_ufppo")
+volume_db = -20.0
+autoplay = true
+
+[connection signal="pressed" from="startButton" to="." method="_on_skip_pressed"]

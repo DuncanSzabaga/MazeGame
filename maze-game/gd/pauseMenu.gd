@@ -35,4 +35,4 @@ func _on_main_menu_pressed() -> void:
 	TransitionScreen.transition()
 	await TransitionScreen.on_transition_finished
 	visible = false
-	get_tree().change_scene_to_file("res://main_menu.tscn")
+	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")

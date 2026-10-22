@@ -14,10 +14,6 @@ func take_damage():
 	current_health -= 1
 	current_health = max(current_health,0)
 	print("Player lost health! Current health: ", current_health)
-	if current_health == 0:
-		reset_health()
-		get_tree().reload_current_scene()
-		pass
 
 func heal():
 	current_health = min(current_health + 1, max_health)
