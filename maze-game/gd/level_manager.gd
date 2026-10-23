@@ -10,8 +10,7 @@ func _ready():
 	
 func complete_level():
 	current_level += 1
-	audio_stream_player.stream = lvlComplete
-	audio_stream_player.play()
+	SFXManager.play_sound(preload("res://Music/levelwin.mp3"))
 	TransitionScreen.transition()
 	await TransitionScreen.on_transition_finished
 	var scene = get_tree().current_scene.name
