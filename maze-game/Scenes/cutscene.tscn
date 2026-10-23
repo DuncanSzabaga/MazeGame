@@ -37,7 +37,6 @@ corner_radius_bottom_left = 50
 corner_detail = 18
 
 [node name="Cutscene" type="Node2D" unique_id=1711388686]
-scale = Vector2(0.95, 0.95)
 script = ExtResource("1_hffke")
 
 [node name="Screen1" type="TextureRect" parent="." unique_id=1271533180]

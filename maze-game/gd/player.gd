@@ -177,7 +177,7 @@ func _perform_move(dir: Vector2):
 	$AudioStreamPlayer2D.play()
 	
 	await sprite_node_pos_tween.finished
-	_check_enemy_overlap()
+	#_check_enemy_overlap()
 
 func _call_enemies():
 	var enemies = get_tree().get_nodes_in_group("enemies")
@@ -199,7 +199,6 @@ func _check_enemy_overlap():
 		if global_position.distance_to(enemy.global_position) < 32:
 			if not shield and not attack_ready:
 				HealthManager.take_damage()
-				print("taking damage")
 
 			if HealthManager.current_health <= 0:
 				set_global_position(start_pos)
@@ -297,7 +296,7 @@ func _ready_attack():
 	# Code for attack stuff will go here
 	attack_ready = true
 	await _call_enemies()
-	_check_enemy_overlap()
+	#_check_enemy_overlap()
 	
 func atkPowerUp():
 	atkUp = true
