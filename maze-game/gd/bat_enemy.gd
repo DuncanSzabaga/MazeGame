@@ -27,9 +27,7 @@ func _move_enemy():
 			if !player.damaged_this_move:
 				HealthManager.take_damage()
 				player.damaged_this_move = true
-				if HealthManager.current_health <= 0:
-					player.set_global_position(player.start_pos)
-					HealthManager.reset_health()
+				
 		else:
 			$Sprite2D.global_position -= dir * tile_size
 			

@@ -4,6 +4,7 @@ signal on_take_damage
 
 var max_health: int = 3
 var current_health: int = 3
+
 func reset_health():
 	current_health = max_health
 	print("player reset health ", current_health)
@@ -14,6 +15,8 @@ func take_damage():
 	current_health -= 1
 	current_health = max(current_health,0)
 	print("Player lost health! Current health: ", current_health)
+	if current_health <= 0:
+		lose_level()
 
 func heal():
 	current_health = min(current_health + 1, max_health)
@@ -25,4 +28,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	pass
+
+func lose_level():
+	TransitionScreen.transition()
+	get_tree().paused = false
+	await TransitionScreen.on_transition_finished
+	get_tree().change_scene_to_file("res://Scenes/loseScreen.tscn")
 	pass

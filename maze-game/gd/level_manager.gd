@@ -2,6 +2,7 @@ extends Node2D
 
 var level_complete: bool = false
 var current_level: int = 1
+var endless_mode: bool = false
 var audio_stream_player = AudioStreamPlayer.new()
 var lvlComplete = preload("res://Music/levelwin.mp3")
 
