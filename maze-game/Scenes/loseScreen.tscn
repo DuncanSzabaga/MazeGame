@@ -5,16 +5,27 @@
 [ext_resource type="AudioStream" uid="uid://6wn3y1hrvnyn" path="res://Music/gameover.mp3" id="3_f6fyu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xo5bu"]
-bg_color = Color(0.72156864, 0.5764706, 0.27058825, 1)
+bg_color = Color(0.75686276, 0.54901963, 0.03137255, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8jolu"]
-bg_color = Color(0.54901963, 0.38431373, 0.09803922, 1)
+bg_color = Color(0.42352942, 0.3019608, 0.011764706, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
-[node name="Control" type="Control" unique_id=786839701]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lav5v"]
+bg_color = Color(0.42352942, 0.3019608, 0.011764706, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="Control2" type="Control" unique_id=786839701]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -31,6 +42,7 @@ texture = ExtResource("1_25afs")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=483363757]
 stream = ExtResource("3_f6fyu")
+autoplay = true
 
 [node name="playAgain" type="Button" parent="." unique_id=1096676689]
 layout_mode = 0
@@ -41,6 +53,7 @@ offset_bottom = 576.0
 theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_xo5bu")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_8jolu")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lav5v")
 text = "Play Again"
 
 [node name="mainMenu" type="Button" parent="." unique_id=685899050]

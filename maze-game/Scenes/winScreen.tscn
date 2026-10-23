@@ -2,19 +2,45 @@
 
 [ext_resource type="Texture2D" uid="uid://bhjnjbsqxetlu" path="res://backgrounds/winScreen.png" id="1_6lw6h"]
 [ext_resource type="Script" uid="uid://cqlidkqhnrkq4" path="res://gd/win_screen.gd" id="2_q3g0u"]
+[ext_resource type="AudioStream" uid="uid://cdfjywtbo0j8p" path="res://Music/gamewin.mp3" id="3_1lape"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1lape"]
-bg_color = Color(0.72156864, 0.5764706, 0.27058825, 1)
+bg_color = Color(0.75686276, 0.54901963, 0.03137255, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o76b5"]
-bg_color = Color(0.54901963, 0.38431373, 0.09803922, 1)
+bg_color = Color(0.42352942, 0.3019608, 0.011764706, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lav5v"]
+bg_color = Color(0.42352942, 0.3019608, 0.011764706, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2yg6a"]
-bg_color = Color(0.72156864, 0.5764706, 0.27058825, 1)
+bg_color = Color(0.75686276, 0.54901963, 0.03137255, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_efbdn"]
+bg_color = Color(0.42352942, 0.3019608, 0.011764706, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c5wfb"]
+bg_color = Color(0.42352942, 0.3019608, 0.011764706, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
@@ -46,6 +72,7 @@ offset_bottom = 808.0
 theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_1lape")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_o76b5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lav5v")
 text = "Play Again"
 
 [node name="mainMenu" type="Button" parent="Buttons" unique_id=2060967717]
@@ -56,7 +83,13 @@ offset_right = 1800.0
 offset_bottom = 968.0
 theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_2yg6a")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_efbdn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_c5wfb")
 text = "Return to Main Menu"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1809963362]
+stream = ExtResource("3_1lape")
+autoplay = true
 
 [connection signal="pressed" from="Buttons/playAgain" to="Buttons" method="_on_play_again_pressed"]
 [connection signal="pressed" from="Buttons/mainMenu" to="Buttons" method="_on_main_menu_pressed"]

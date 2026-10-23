@@ -661,3 +661,6 @@ volume_db = -20.166
 autoplay = true
 parameters/looping = true
 script = ExtResource("17_biamp")
+
+[node name="pauseMenu" parent="." unique_id=1072783901 instance=ExtResource("9_vd23k")]
+visible = false
