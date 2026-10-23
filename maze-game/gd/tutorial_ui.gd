@@ -16,6 +16,15 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
+	var tilemap = get_tree().get_first_node_in_group("tilemap")
+	if tilemap == null or player == null:
+		return
+
+	var player_tile = tilemap.local_to_map(
+		tilemap.to_local(player.global_position)
+	)
+
+	print(player_tile)
 	if tutorialSteps == 0:
 		if (
 			Input.is_action_just_pressed("move_left")
@@ -41,7 +50,15 @@ func _process(_delta: float) -> void:
 	elif tutorialSteps == 2:
 		if enemy.tutorialTakenDMG:
 			tutorialSteps = 3
-			instruction_label.text = "See how the enemy changed color? That's how you know it hit! Now go to the cheese to go to the next level"
+			instruction_label.text = "See how the enemy changed color? That's how you know it hit! Now go
+			to the next room"
+	elif tutorialSteps == 3:
+		#var tilemap = get_tree().get_first_node_in_group("tilemap")
+		#var player_tile = tilemap.local_to_map()
+		tilemap.to_local(player.global_position)
+		if player_tile == Vector2i(10, 5):
+			tutorialSteps = 4
+			instruction_label.text = "Great! You reached the next room!"
 		
 
 func _on_skip_pressed() -> void:
