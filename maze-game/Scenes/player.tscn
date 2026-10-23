@@ -252,3 +252,11 @@ color = Color(0.5176471, 1, 0, 1)
 
 [node name="playerstats" parent="." unique_id=1148783031 instance=ExtResource("6_x3wgy")]
 layer = 3
+
+[node name="Background2" type="ColorRect" parent="." unique_id=1825202584]
+z_index = -2
+offset_left = -475.0
+offset_top = -275.5
+offset_right = 454.5
+offset_bottom = 252.5
+color = Color(0.14901961, 0.14901961, 0.14901961, 1)

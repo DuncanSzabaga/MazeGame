@@ -8,7 +8,12 @@ static var playback_pos = 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	background.play(playback_pos+.11)
+	print(Settings.from_settings)
+	if Settings.from_settings:
+		background.play(playback_pos+.11)
+	else:
+		background.play(0.0)
+	Settings.from_settings = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

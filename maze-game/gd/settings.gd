@@ -71,7 +71,6 @@ func _on_back_pressed() -> void:
 	MainMenu.playback_pos = background.get_playback_position()
 	from_settings = true
 	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
-	from_settings = false
 
 
 func _on_awsd_button_pressed() -> void:

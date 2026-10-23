@@ -13,7 +13,6 @@
 [ext_resource type="Script" uid="uid://b3nvmrdhst738" path="res://gd/tutorial_ui.gd" id="11_kopkk"]
 [ext_resource type="PackedScene" uid="uid://blt4430t34d2k" path="res://Scenes/Goal.tscn" id="12_8lhii"]
 [ext_resource type="PackedScene" uid="uid://ho7lem5t8mcg" path="res://Scenes/pauseMenu.tscn" id="13_uwq88"]
-[ext_resource type="Texture2D" uid="uid://cf1e6b8m34t0g" path="res://backgrounds/background-g.png" id="14_ydue1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uwq88"]
 bg_color = Color(0.12941177, 0.20784314, 0.10980392, 1)
@@ -385,13 +384,5 @@ position = Vector2(-221, -99)
 position = Vector2(162, 159)
 
 [node name="PauseMenu" parent="." unique_id=1356374960 instance=ExtResource("13_uwq88")]
-
-[node name="Background" type="TextureRect" parent="." unique_id=887676264]
-z_index = -1
-offset_left = -821.0
-offset_top = -639.0
-offset_right = 888.0
-offset_bottom = 775.0
-texture = ExtResource("14_ydue1")
 
 [connection signal="pressed" from="tutorialUI/Panel/skipButton" to="tutorialUI" method="_on_skip_pressed"]

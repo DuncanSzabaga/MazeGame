@@ -16,7 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://clus6jx0c3qsp" path="res://Scenes/enemy_rat.tscn" id="12_toa7x"]
 [ext_resource type="PackedScene" uid="uid://bw7t4lt5n1v2x" path="res://Scenes/bat_enemy.tscn" id="13_mnp8s"]
 [ext_resource type="AudioStream" uid="uid://cquoib3y8cm6c" path="res://Music/levelinf_music.mp3" id="15_toa7x"]
-[ext_resource type="Texture2D" uid="uid://cf1e6b8m34t0g" path="res://backgrounds/background-g.png" id="16_mnp8s"]
 [ext_resource type="PackedScene" uid="uid://ho7lem5t8mcg" path="res://Scenes/pauseMenu.tscn" id="19_kwei5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_scpfx"]
@@ -289,14 +288,6 @@ position = Vector2(32, 32)
 stream = ExtResource("15_toa7x")
 volume_db = -20.0
 autoplay = true
-
-[node name="TextureRect" type="TextureRect" parent="." unique_id=861589583]
-z_index = -1
-offset_left = -1168.0
-offset_top = -1024.0
-offset_right = 2073.0
-offset_bottom = 1981.0
-texture = ExtResource("16_mnp8s")
 
 [node name="pauseMenu" parent="." unique_id=1356374960 instance=ExtResource("19_kwei5")]
 visible = false
