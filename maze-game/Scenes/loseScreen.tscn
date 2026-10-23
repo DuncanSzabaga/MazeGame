@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://cco0rusoxlomp"]
+
+[ext_resource type="Texture2D" uid="uid://bicwl18vpd4hp" path="res://backgrounds/lose-screen.png" id="1_25afs"]
+[ext_resource type="Script" uid="uid://ci1gblevsn7ta" path="res://gd/lose_screen.gd" id="1_h2fd5"]
+[ext_resource type="AudioStream" uid="uid://6wn3y1hrvnyn" path="res://Music/gameover.mp3" id="3_f6fyu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xo5bu"]
+bg_color = Color(0.72156864, 0.5764706, 0.27058825, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8jolu"]
+bg_color = Color(0.54901963, 0.38431373, 0.09803922, 1)
+
+[node name="Control" type="Control" unique_id=786839701]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h2fd5")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1321105471]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_25afs")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=483363757]
+stream = ExtResource("3_f6fyu")
+
+[node name="playAgain" type="Button" parent="." unique_id=1096676689]
+layout_mode = 0
+offset_left = 728.0
+offset_top = 448.0
+offset_right = 1304.0
+offset_bottom = 576.0
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_xo5bu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8jolu")
+text = "Play Again"
+
+[node name="mainMenu" type="Button" parent="." unique_id=685899050]
+layout_mode = 0
+offset_left = 728.0
+offset_top = 608.0
+offset_right = 1304.0
+offset_bottom = 736.0
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_xo5bu")
+text = "Return to Main Menu"
+
+[connection signal="pressed" from="playAgain" to="." method="_on_play_again_pressed"]
+[connection signal="pressed" from="mainMenu" to="." method="_on_main_menu_pressed"]
