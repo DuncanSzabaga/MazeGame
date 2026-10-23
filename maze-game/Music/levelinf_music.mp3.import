@@ -12,8 +12,8 @@ dest_files=["res://.godot/imported/levelinf_music.mp3-d04e3969d91abab34c257d5abc
 
 [params]
 
-loop=false
-loop_offset=0
-bpm=0
+loop=true
+loop_offset=3.8
+bpm=0.0
 beat_count=0
 bar_beats=4
