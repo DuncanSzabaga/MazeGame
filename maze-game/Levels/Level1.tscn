@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://d3vso22scea34"]
 
+[ext_resource type="Script" uid="uid://bc70egtqkx4qs" path="res://gd/level_1.gd" id="1_qg0tc"]
 [ext_resource type="PackedScene" uid="uid://blt4430t34d2k" path="res://Scenes/Goal.tscn" id="1_sbm5j"]
 [ext_resource type="PackedScene" uid="uid://bw7t4lt5n1v2x" path="res://Scenes/bat_enemy.tscn" id="1_ufevr"]
 [ext_resource type="PackedScene" uid="uid://b45wx2nog1t4w" path="res://Scenes/player.tscn" id="2_p2sgf"]
@@ -592,6 +593,7 @@ size = Vector2(1091, 66)
 size = Vector2(64, 704)
 
 [node name="Node2D" type="Node2D" unique_id=1598750970]
+script = ExtResource("1_qg0tc")
 
 [node name="bat enemy" parent="." unique_id=452160669 instance=ExtResource("1_ufevr")]
 position = Vector2(544, 800)

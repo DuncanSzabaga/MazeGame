@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://bw7t4lt5n1v2x" path="res://Scenes/bat_enemy.tscn" id="11_dxjb0"]
 [ext_resource type="PackedScene" uid="uid://0wlrkbxy1wa3" path="res://Scenes/powerup.tscn" id="12_hx0pg"]
 [ext_resource type="PackedScene" uid="uid://blt4430t34d2k" path="res://Scenes/Goal.tscn" id="13_uyp6w"]
+[ext_resource type="AudioStream" uid="uid://b8x5epfqqg5v6" path="res://Music/level_music.mp3" id="14_hx0pg"]
+[ext_resource type="Script" uid="uid://dhyaewul7q1bn" path="res://gd/audio_stream_player.gd" id="15_uyp6w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uyp6w"]
 texture = ExtResource("1_twi1l")
@@ -658,3 +660,10 @@ powerup_id = 4
 
 [node name="Goal" parent="." unique_id=2040475863 instance=ExtResource("13_uyp6w")]
 position = Vector2(2336, 1440)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=130864943]
+stream = ExtResource("14_hx0pg")
+volume_db = -20.166
+autoplay = true
+parameters/looping = true
+script = ExtResource("15_uyp6w")

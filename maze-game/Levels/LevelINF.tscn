@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bw0tu73d6dlbi"]
 
 [ext_resource type="Texture2D" uid="uid://bapwek3f8v3ii" path="res://Assets/sprites/tileAsset.png" id="1_5i400"]
+[ext_resource type="Script" uid="uid://qs0dipt7fx40" path="res://gd/level_inf.gd" id="1_mbfhx"]
 [ext_resource type="Texture2D" uid="uid://cgphqvkqyn524" path="res://Assets/floors/wall_test.png" id="2_xx6x8"]
 [ext_resource type="Texture2D" uid="uid://dsq363rc42ncj" path="res://Assets/walls/leftSideWall.png" id="3_s6l42"]
 [ext_resource type="Texture2D" uid="uid://k6hwvbvr66y1" path="res://Assets/walls/rightSideWall.png" id="4_83ic0"]
@@ -268,6 +269,7 @@ sources/13 = SubResource("TileSetAtlasSource_ecoit")
 sources/1 = SubResource("TileSetAtlasSource_sx5ts")
 
 [node name="LevelInf" type="Node2D" unique_id=1789397483]
+script = ExtResource("1_mbfhx")
 
 [node name="MazeLayout" type="TileMapLayer" parent="." unique_id=592470672]
 tile_set = SubResource("TileSet_juxkg")
