@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://c5a5t1bjh66ne" path="res://Scenes/projectile.tscn" id="15_jd565"]
 [ext_resource type="Script" uid="uid://dhyaewul7q1bn" path="res://gd/audio_stream_player.gd" id="15_p2sgf"]
 [ext_resource type="PackedScene" uid="uid://0wlrkbxy1wa3" path="res://Scenes/powerup.tscn" id="16_ruoxf"]
+[ext_resource type="Texture2D" uid="uid://cf1e6b8m34t0g" path="res://backgrounds/background-g.png" id="19_gmnjr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sfcom"]
 texture = ExtResource("5_qg0tc")
@@ -671,3 +672,11 @@ powerup_id = 1
 [node name="Powerup3" parent="PowerUps" unique_id=1430041322 instance=ExtResource("16_ruoxf")]
 position = Vector2(1056, 928)
 powerup_id = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=25945739]
+z_index = -1
+offset_left = -744.0
+offset_top = -216.0
+offset_right = 1824.0
+offset_bottom = 1416.0
+texture = ExtResource("19_gmnjr")

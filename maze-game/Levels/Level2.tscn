@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bw7t4lt5n1v2x" path="res://Scenes/bat_enemy.tscn" id="12_tweqo"]
 [ext_resource type="PackedScene" uid="uid://blt4430t34d2k" path="res://Scenes/Goal.tscn" id="13_mbiy8"]
 [ext_resource type="PackedScene" uid="uid://0wlrkbxy1wa3" path="res://Scenes/powerup.tscn" id="13_mbwna"]
+[ext_resource type="Texture2D" uid="uid://cf1e6b8m34t0g" path="res://backgrounds/background-g.png" id="15_tweqo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v023s"]
 texture = ExtResource("2_vd23k")
@@ -643,3 +644,11 @@ position = Vector2(672, 288)
 [node name="Powerup5" parent="Powerups" unique_id=1178596092 instance=ExtResource("13_mbwna")]
 position = Vector2(1440, 288)
 powerup_id = 3
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1777730310]
+z_index = -1
+offset_left = -423.0
+offset_top = -226.0
+offset_right = 2338.0
+offset_bottom = 2075.0
+texture = ExtResource("15_tweqo")
