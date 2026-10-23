@@ -5,10 +5,12 @@ extends CanvasLayer
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var enemy = get_tree().get_first_node_in_group("enemies")
 @onready var tilemap = get_tree().current_scene.get_node("MazeLayout")
+@onready var audio = $AudioStreamPlayer2D2
 var tutorialSteps := 0
 
 
 func _ready() -> void:
+	audio.play()
 	var enemies = get_tree().get_nodes_in_group("enemies")
 	for enemy in enemies:
 		enemy.tutorialMode = true
