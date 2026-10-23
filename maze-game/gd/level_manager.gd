@@ -20,7 +20,8 @@ func complete_level():
 	if scene == "Tutorial":
 		current_level = 1
 		get_tree().change_scene_to_file("res://Levels/Level1.tscn")
-		
 	elif current_level == 2:
 		get_tree().change_scene_to_file("res://Levels/Level2.tscn")
+	elif current_level == 3:
+		get_tree().change_scene_to_file("res://Levels/Level3.tscn")
 	
