@@ -10,6 +10,8 @@ static var _awsd_keys_active = true
 static var show_tutorial = true
 static var show_cutscene = true
 
+static var from_settings = false
+
 @export
 var bus_name: String = "Master"
 var bus_index: int
@@ -67,7 +69,9 @@ func _on_back_pressed() -> void:
 	await TransitionScreen.on_transition_finished
 	background.get_playback_position()
 	MainMenu.playback_pos = background.get_playback_position()
+	from_settings = true
 	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
+	from_settings = false
 
 
 func _on_awsd_button_pressed() -> void:

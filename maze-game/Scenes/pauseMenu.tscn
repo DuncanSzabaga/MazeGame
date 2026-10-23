@@ -9,12 +9,48 @@ texture = ExtResource("2_hts4r")
 [sub_resource type="FontVariation" id="FontVariation_ib7xr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hts4r"]
-bg_color = Color(0.72944707, 0.5715909, 0.30675006, 1)
+bg_color = Color(0.75686276, 0.54901963, 0.03137255, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_efbdn"]
+bg_color = Color(0.42352942, 0.3019608, 0.011764706, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c5wfb"]
+bg_color = Color(0.42352942, 0.3019608, 0.011764706, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [sub_resource type="FontVariation" id="FontVariation_xgmdk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xps4r"]
-bg_color = Color(0.72226757, 0.57754624, 0.27019802, 1)
+bg_color = Color(0.75686276, 0.54901963, 0.03137255, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lav5v"]
+bg_color = Color(0.42352942, 0.3019608, 0.011764706, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_shfa6"]
+bg_color = Color(0.42352942, 0.3019608, 0.011764706, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [node name="Control" type="CanvasLayer" unique_id=1356374960]
 process_mode = 3
@@ -33,23 +69,27 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_xlnad")
 
 [node name="mainMenu" type="Button" parent="." unique_id=906059002]
-offset_left = 499.0
-offset_top = 401.0
-offset_right = 742.0
-offset_bottom = 552.0
+offset_left = 464.0
+offset_top = 400.0
+offset_right = 768.0
+offset_bottom = 511.0
 theme_override_fonts/font = SubResource("FontVariation_ib7xr")
 theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = SubResource("StyleBoxFlat_hts4r")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_efbdn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_c5wfb")
 text = "Main Menu"
 
 [node name="resume" type="Button" parent="." unique_id=965307561]
-offset_left = 499.0
-offset_top = 229.0
-offset_right = 742.0
-offset_bottom = 380.0
+offset_left = 464.0
+offset_top = 264.0
+offset_right = 768.0
+offset_bottom = 376.0
 theme_override_fonts/font = SubResource("FontVariation_xgmdk")
 theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = SubResource("StyleBoxFlat_xps4r")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lav5v")
+theme_override_styles/hover = SubResource("StyleBoxFlat_shfa6")
 text = "Resume"
 
 [connection signal="pressed" from="mainMenu" to="." method="_on_main_menu_pressed"]
