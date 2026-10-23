@@ -1,6 +1,24 @@
 [gd_scene format=3 uid="uid://b26v2hf7bc021"]
 
 [ext_resource type="Texture2D" uid="uid://bhjnjbsqxetlu" path="res://backgrounds/winScreen.png" id="1_6lw6h"]
+[ext_resource type="Script" uid="uid://cqlidkqhnrkq4" path="res://gd/win_screen.gd" id="2_q3g0u"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1lape"]
+bg_color = Color(0.72156864, 0.5764706, 0.27058825, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o76b5"]
+bg_color = Color(0.54901963, 0.38431373, 0.09803922, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2yg6a"]
+bg_color = Color(0.72156864, 0.5764706, 0.27058825, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [node name="WinScreen" type="Node2D" unique_id=1559342733]
 
@@ -10,3 +28,35 @@ offset_right = 1232.0
 offset_bottom = 706.0
 texture = ExtResource("1_6lw6h")
 metadata/_edit_use_anchors_ = true
+
+[node name="Buttons" type="Control" parent="." unique_id=581764341]
+z_index = 4
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_q3g0u")
+
+[node name="playAgain" type="Button" parent="Buttons" unique_id=1557774551]
+layout_mode = 0
+offset_left = 1224.0
+offset_top = 680.0
+offset_right = 1800.0
+offset_bottom = 808.0
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_1lape")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_o76b5")
+text = "Play Again"
+
+[node name="mainMenu" type="Button" parent="Buttons" unique_id=2060967717]
+layout_mode = 0
+offset_left = 1224.0
+offset_top = 840.0
+offset_right = 1800.0
+offset_bottom = 968.0
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_2yg6a")
+text = "Return to Main Menu"
+
+[connection signal="pressed" from="Buttons/playAgain" to="Buttons" method="_on_play_again_pressed"]
+[connection signal="pressed" from="Buttons/mainMenu" to="Buttons" method="_on_main_menu_pressed"]
