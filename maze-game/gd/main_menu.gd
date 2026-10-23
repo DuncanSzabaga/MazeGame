@@ -38,6 +38,7 @@ func _on_start_button_pressed() -> void:
 	
 func _on_endless_button_pressed() -> void:
 	LevelManager.current_level = 2
+	LevelManager.endless_mode = true
 	TransitionScreen.transition()
 	await TransitionScreen.on_transition_finished
 	get_tree().change_scene_to_file("res://Levels/LevelINF.tscn")

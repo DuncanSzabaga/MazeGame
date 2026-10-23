@@ -14,7 +14,11 @@ func _process(delta: float) -> void:
 func _on_play_again_pressed() -> void:
 	TransitionScreen.transition()
 	await TransitionScreen.on_transition_finished
-	get_tree().change_scene_to_file("res://Levels/Level1.tscn")
+	if LevelManager.endless_mode:
+		get_tree().change_scene_to_file("res://Levels/LevelINF.tscn")
+		return
+	else:
+		get_tree().change_scene_to_file("res://Levels/Level1.tscn")
 
 func _on_main_menu_pressed() -> void:
 	TransitionScreen.transition()

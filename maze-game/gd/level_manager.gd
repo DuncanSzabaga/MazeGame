@@ -2,6 +2,7 @@ extends Node2D
 
 var level_complete: bool = false
 var current_level: int = 1
+var endless_mode: bool = false
 var audio_stream_player = AudioStreamPlayer.new()
 var lvlComplete = preload("res://Music/levelwin.mp3")
 
@@ -29,6 +30,7 @@ func complete_level():
 	if scene == "LevelInf":
 		await get_tree().create_timer(0.01).timeout
 		get_tree().change_scene_to_file("res://Levels/LevelINF.tscn")
+		return
 	if scene == "Tutorial":
 		current_level = 1
 		get_tree().change_scene_to_file("res://Levels/Level1.tscn")

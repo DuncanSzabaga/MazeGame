@@ -87,10 +87,6 @@ func _physics_process(delta: float) -> void:
 			await _ready_attack()
 			waiting = true
 			damaged_this_move = false
-	if HealthManager.current_health == 0:
-		HealthManager.reset_health()
-		get_tree().reload_current_scene()
-		pass
 		
 func _readyAttackAnimation(last_move: AttackDirection):
 	if last_move == AttackDirection.DOWN:
@@ -199,10 +195,6 @@ func _check_enemy_overlap():
 		if global_position.distance_to(enemy.global_position) < 32:
 			if not shield and not attack_ready:
 				HealthManager.take_damage()
-
-			if HealthManager.current_health <= 0:
-				set_global_position(start_pos)
-				HealthManager.reset_health()
 				
 func _flash_red():
 	var tween = create_tween()
