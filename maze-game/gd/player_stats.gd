@@ -7,7 +7,6 @@ extends CanvasLayer
 @onready var steps_text = $steps
 var last_health = 3
 
-
 var full_heart = preload("res://Assets/itemsANDextras/filledHeart.png")
 var empty_heart = preload("res://Assets/itemsANDextras/noHeart.png")
 
@@ -21,33 +20,31 @@ func _process(delta):
 	
 	if player.atkDmg == 2:
 		steps_text.text = "Steps: " + str(player.stepsTaken) + "/15"
+		powerup_text.text = "PowerUp Activated: Attack Up"
 	elif player.shield:
 		steps_text.text = "Steps: " + str(player.stepsTaken) + "/10"
+		powerup_text.text = "PowerUp Activated: Shield"
 	elif player.rangedAtk:
 		steps_text.text = "Shots: " + str(player.num_attacks) + "/2"
+		powerup_text.text = "PowerUp Activated: Ranged Attack"
 	else:
 		steps_text.text = ""
 		powerup_text.text = "PowerUp Activated: None"
 
 func _ready():
-	update_hearts()
+	# use fill_hearts if you want to start each level at full health
+	fill_hearts()
+	# use update_hearts if you want to maintain health across levels
+	# update_hearts()
 
 func update_hearts():
 	heart1.texture = full_heart if HealthManager.current_health >= 1 else empty_heart
 	heart2.texture = full_heart if HealthManager.current_health >= 2 else empty_heart
 	heart3.texture = full_heart if HealthManager.current_health >= 3 else empty_heart
 	
-func show_powerup(powerup_id):
-	match powerup_id:
-		0:
-			powerup_text.text = "PowerUp Activated: Attack Up"
-		1:
-			powerup_text.text = "PowerUp Activated: Full heal"
-		2:
-			powerup_text.text = "PowerUp Activated: Partial heal"
-		3:
-			powerup_text.text = "PowerUp Activated: Ranged Attack"
-		4:
-			powerup_text.text = "PowerUp Activated: Shield"
-	
+func fill_hearts():
+	HealthManager.current_health = 3
+	heart1.texture = full_heart
+	heart2.texture = full_heart
+	heart3.texture = full_heart
 	

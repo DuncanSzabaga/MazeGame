@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dd6ke58xlkla5" path="res://temprary_Assets/player.png" id="3_3smsa"]
 [ext_resource type="AudioStream" uid="uid://dcb6kb5eta82u" path="res://soundEffects/rat_attack.mp3" id="5_f1ek2"]
 [ext_resource type="Texture2D" uid="uid://du647b64cg4h" path="res://Assets/itemsANDextras/gradient.png" id="5_fkybt"]
+[ext_resource type="PackedScene" uid="uid://gj3ka7qsrt17" path="res://Scenes/playerStats.tscn" id="6_x3wgy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hqns4"]
 atlas = ExtResource("2_x3wgy")
@@ -228,10 +229,10 @@ zoom = Vector2(1.25, 1.25)
 position_smoothing_enabled = true
 
 [node name="Vignette" type="TextureRect" parent="Camera2D" unique_id=1763964989]
-offset_left = -300.0
-offset_top = -168.0
-offset_right = 1015.55566
-offset_bottom = 591.3334
+offset_left = -324.0
+offset_top = -192.0
+offset_right = 1080.4446
+offset_bottom = 679.11115
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("5_fkybt")
 
@@ -248,3 +249,6 @@ offset_top = -752.0
 offset_right = 4.0
 offset_bottom = 748.0
 color = Color(0.5176471, 1, 0, 1)
+
+[node name="playerstats" parent="." unique_id=1148783031 instance=ExtResource("6_x3wgy")]
+layer = 3

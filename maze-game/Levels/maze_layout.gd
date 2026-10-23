@@ -9,7 +9,7 @@ const TURN_BIAS = 0
 @export_group("Power-Ups")
 @export var powerup_scene: PackedScene
 @export var powerup_count: int = ceil(LevelManager.current_level/2) + 2
-@export var powerup_ids: Array[int] = [0,1,2,3,4,5]
+@export var powerup_ids: Array[int] = [0,1,2,3,4]
 
 @export_group("Enemy Rats")
 @export var rat_scene: PackedScene
