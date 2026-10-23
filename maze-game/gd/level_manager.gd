@@ -1,12 +1,17 @@
 extends Node2D
 var current_level: int = 1
-@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
-
+var audio_stream_player = AudioStreamPlayer.new()
+var lvlComplete = preload("res://Music/levelwin.mp3")
 func reset_game():
 	current_level = 1
 	
+func _ready():
+	add_child(audio_stream_player)
+	
 func complete_level():
 	current_level += 1
+	audio_stream_player.stream = lvlComplete
+	audio_stream_player.play()
 	TransitionScreen.transition()
 	await TransitionScreen.on_transition_finished
 	var scene = get_tree().current_scene.name

@@ -1,3 +1,12 @@
 [gd_scene format=3 uid="uid://b26v2hf7bc021"]
 
+[ext_resource type="Texture2D" uid="uid://bhjnjbsqxetlu" path="res://backgrounds/winScreen.png" id="1_6lw6h"]
+
 [node name="WinScreen" type="Node2D" unique_id=1559342733]
+
+[node name="Screen1" type="TextureRect" parent="." unique_id=1989552165]
+z_index = 4
+offset_right = 1232.0
+offset_bottom = 706.0
+texture = ExtResource("1_6lw6h")
+metadata/_edit_use_anchors_ = true
