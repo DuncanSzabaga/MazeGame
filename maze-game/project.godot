@@ -10,10 +10,10 @@ config_version=5
 
 [application]
 
-config/name="MazeGame"
+config/name="SewerScurry"
 run/main_scene="uid://dghgdyl36ncdy"
 config/features=PackedStringArray("4.7", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://dbeivq353mavu"
 
 [autoload]
 
@@ -24,6 +24,7 @@ SFXManager="*uid://djpd02q005lo"
 
 [display]
 
+window/size/mode=3
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
