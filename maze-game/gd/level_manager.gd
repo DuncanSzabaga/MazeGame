@@ -17,10 +17,9 @@ func complete_level():
 	
 	current_level += 1
 	
-	await get_tree().create_timer(0.09).timeout
 	get_tree().paused = true
 	SFXManager.play_sound(preload("res://Music/levelwin.mp3"))
-	await get_tree().create_timer(2.0).timeout
+	await get_tree().create_timer(1.7).timeout
 	TransitionScreen.transition()
 	get_tree().paused = false
 	await TransitionScreen.on_transition_finished
@@ -35,4 +34,6 @@ func complete_level():
 		get_tree().change_scene_to_file("res://Levels/Level2.tscn")
 	elif current_level == 3:
 		get_tree().change_scene_to_file("res://Levels/Level3.tscn")
+	elif current_level == 4:
+		get_tree().change_scene_to_file("res://Scenes/winScreen.tscn")
 	

@@ -224,14 +224,14 @@ hit_from_inside = true
 stream = ExtResource("5_f1ek2")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1397340333]
-zoom = Vector2(1.75, 1.75)
+zoom = Vector2(1.25, 1.25)
 position_smoothing_enabled = true
 
-[node name="TextureRect" type="TextureRect" parent="Camera2D" unique_id=1763964989]
-offset_left = -248.0
-offset_top = -132.0
-offset_right = 984.0
-offset_bottom = 574.0
+[node name="Vignette" type="TextureRect" parent="Camera2D" unique_id=1763964989]
+offset_left = -300.0
+offset_top = -168.0
+offset_right = 1015.55566
+offset_bottom = 591.3334
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("5_fkybt")
 
