@@ -36,8 +36,7 @@ func _process(_delta: float) -> void:
 				tutorialSteps = 1
 
 	elif tutorialSteps == 1:
-		instruction_label.text = "Press SPACE to ready an attack, then press the
-		direction you want to attack. PRESS SPACE."
+		instruction_label.text = "Press SPACE to ready an attack, then press the direction you want to attack. PRESS SPACE."
 		if Input.is_action_just_pressed("attack"):
 			tutorialSteps = 2
 			instruction_label.text = "Now press the direction you want to attack."
@@ -45,8 +44,7 @@ func _process(_delta: float) -> void:
 	elif tutorialSteps == 2:
 		if enemy.tutorialTakenDMG:
 			tutorialSteps = 3
-			instruction_label.text = "See how the enemy changed color? That's how you know it got hit! Now go
-			to the next room."
+			instruction_label.text = "See how the enemy changed color? That's how you know it got hit! Now go to the next room."
 	elif tutorialSteps == 3:
 		#var tilemap = get_tree().get_first_node_in_group("tilemap")
 		#var player_tile = tilemap.local_to_map()
