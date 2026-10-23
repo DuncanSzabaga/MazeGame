@@ -13,6 +13,11 @@
 [ext_resource type="Script" uid="uid://b3nvmrdhst738" path="res://gd/tutorial_ui.gd" id="11_kopkk"]
 [ext_resource type="PackedScene" uid="uid://blt4430t34d2k" path="res://Scenes/Goal.tscn" id="12_8lhii"]
 [ext_resource type="PackedScene" uid="uid://ho7lem5t8mcg" path="res://Scenes/pauseMenu.tscn" id="13_uwq88"]
+[ext_resource type="Texture2D" uid="uid://ej7inxw4vxd4" path="res://Assets/powerUps/attackUpPowerUp.png" id="14_20nb6"]
+[ext_resource type="Texture2D" uid="uid://yhqcqodtysu5" path="res://Assets/powerUps/fullApplePowerUp.png" id="15_8c57w"]
+[ext_resource type="Texture2D" uid="uid://cpje1ggxflh4l" path="res://Assets/powerUps/halfApplePowerUp.png" id="16_b3owm"]
+[ext_resource type="Texture2D" uid="uid://cu8iqgspjriko" path="res://Assets/powerUps/rangedPowerUp.png" id="17_kopkk"]
+[ext_resource type="Texture2D" uid="uid://cbd2uvp2mdkg7" path="res://Assets/powerUps/shieldPowerUp.png" id="18_li5ak"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uwq88"]
 bg_color = Color(0.12941177, 0.20784314, 0.10980392, 1)
@@ -374,16 +379,36 @@ rendering_quadrant_size = 64
 
 [node name="enemyRat" parent="MazeLayout" unique_id=1207604234 instance=ExtResource("9_8c57w")]
 z_index = 1
-position = Vector2(-160, 96)
+position = Vector2(162, 31)
 
 [node name="player" parent="." unique_id=515481656 instance=ExtResource("10_b3owm")]
 z_index = 1
 position = Vector2(-221, -99)
 
 [node name="cheese" parent="." unique_id=2040475863 instance=ExtResource("12_8lhii")]
-position = Vector2(722, -99)
+position = Vector2(676, 159)
 
 [node name="PauseMenu" parent="." unique_id=1356374960 instance=ExtResource("13_uwq88")]
 visible = false
+
+[node name="AttackUpPowerUp" type="Sprite2D" parent="." unique_id=796314167]
+position = Vector2(352, 34)
+texture = ExtResource("14_20nb6")
+
+[node name="FullApplePowerUp" type="Sprite2D" parent="." unique_id=215025968]
+position = Vector2(417, 35)
+texture = ExtResource("15_8c57w")
+
+[node name="HalfApplePowerUp" type="Sprite2D" parent="." unique_id=594420754]
+position = Vector2(481, 33)
+texture = ExtResource("16_b3owm")
+
+[node name="RangedPowerUp" type="Sprite2D" parent="." unique_id=2065473529]
+position = Vector2(545, 33)
+texture = ExtResource("17_kopkk")
+
+[node name="ShieldPowerUp" type="Sprite2D" parent="." unique_id=1636578597]
+position = Vector2(610, 36)
+texture = ExtResource("18_li5ak")
 
 [connection signal="pressed" from="tutorialUI/Panel/skipButton" to="tutorialUI" method="_on_skip_pressed"]
