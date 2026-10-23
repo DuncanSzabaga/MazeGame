@@ -12,7 +12,7 @@ func _ready() -> void:
 	var enemies = get_tree().get_nodes_in_group("enemies")
 	for enemy in enemies:
 		enemy.tutorialMode = true
-	instruction_label.text = "Press WASD or arrow keys to move. This can be changed in the settings."
+	instruction_label.text = "Press WASD or arrow keys to move. This can be changed in the settings. PRESS R to restart the level at any time"
 
 
 func _process(_delta: float) -> void:

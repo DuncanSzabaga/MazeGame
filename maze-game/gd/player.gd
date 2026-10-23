@@ -34,6 +34,10 @@ var last_move = AttackDirection.DOWN
 var sibling
 
 func _physics_process(delta: float) -> void:
+	if Input.is_key_pressed(KEY_R):
+		get_tree().reload_current_scene()
+		return
+		
 	if rangedAtk:
 		$AnimatedSprite2D.modulate = Color(0.743, 0.973, 0.0, 1.0)
 	elif shield:
