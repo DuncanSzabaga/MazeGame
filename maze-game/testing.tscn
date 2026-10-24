@@ -662,7 +662,6 @@ position = Vector2(-192, -128)
 
 [node name="Powerup" parent="PowerUps" unique_id=146785696 instance=ExtResource("18_niev3")]
 position = Vector2(159, 96)
-powerup_id = 4
 
 [node name="Powerup2" parent="PowerUps" unique_id=22450924 instance=ExtResource("18_niev3")]
 position = Vector2(32, 1184)

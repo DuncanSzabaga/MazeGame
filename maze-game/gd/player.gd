@@ -23,6 +23,7 @@ var atkDmg = 1
 var stepsTaken = 0
 var num_attacks = 0
 var atkUp = false
+var atkUpHits = 4
 var rangedAtk = false
 var shield = false
 var shieldHits = 4
@@ -298,7 +299,8 @@ func _ready_attack():
 func atkPowerUp():
 	atkUp = true
 	atkDmg = 2;
-	stepsTaken = 0;
+	#stepsTaken = 0;
+	atkUpHits = 4
 	shield = false
 	rangedAtk = false
 
@@ -391,6 +393,12 @@ func _do_attack(dir: AttackDirection):
 		attack_ready = false
 		_set_idle_animation(dir, detector)
 		return
+	if atkUp:
+		atkUpHits -= 1
+		if atkUpHits == 0:
+			atkUp = false
+			atkDmg = 1
+			#atkUpHits = 4
 		
 	SFXManager.play_sound(preload("res://soundEffects/rat_attack.mp3"), 0.0)
 	_attackAnimation(dir)

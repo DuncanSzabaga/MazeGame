@@ -627,7 +627,10 @@ position = Vector2(1824, 1696)
 
 [node name="Powerups" type="Node2D" parent="." unique_id=1943171965]
 
-[node name="Powerup" parent="Powerups" unique_id=146785696 instance=ExtResource("13_mbwna")]
+[node name="Powerup6" parent="Powerups" unique_id=146785696 instance=ExtResource("13_mbwna")]
+position = Vector2(481, 418)
+
+[node name="Powerup" parent="Powerups" unique_id=58290331 instance=ExtResource("13_mbwna")]
 position = Vector2(1824, 1568)
 powerup_id = 1
 
