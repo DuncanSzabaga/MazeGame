@@ -57,7 +57,7 @@ func _process(_delta: float) -> void:
 		if player_tile == Vector2i(34, 1):
 			instruction_label.text = "This is the ranged attack item. With it, you can shoot in any direction no matter the distance. You only get 2 shots with it."
 		if player_tile == Vector2i(38, 1):
-			instruction_label.text = "This is the shield item. Become invincible for 15 steps."
+			instruction_label.text = "This is the shield item. It can take 4 enemy hits before broken"
 		if player_tile == Vector2i(22, 1):
 			instruction_label.text = "This is the attack up item. It gives you a +1 attack boost."
 		if player_tile == Vector2i(26, 1):
