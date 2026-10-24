@@ -25,6 +25,7 @@ var num_attacks = 0
 var atkUp = false
 var rangedAtk = false
 var shield = false
+var shieldHits = 4
 var start_pos: Vector2 = global_position
 var level_finished = false
 const tile_size: Vector2 = Vector2(64, 64)
@@ -322,7 +323,8 @@ func activateShield():
 	shield = true
 	atkDmg = 1
 	rangedAtk = false
-	stepsTaken = 0
+#stepsTaken = 0
+	shieldHits = 4
 	
 func _ranged_attack(dir: AttackDirection):
 	num_attacks += 1

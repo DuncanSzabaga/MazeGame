@@ -71,8 +71,14 @@ func _move_enemy():
 			global_position -= dir * tile_size
 			if not chase_path.is_empty():
 				chase_path.pop_back()
-			if !player.damaged_this_move and not player.shield:
-				HealthManager.take_damage()
+			if !player.damaged_this_move:
+				if player.shield:
+					player.shieldHits -= 1
+					print(player.shieldHits, "/4")
+					if player.shieldHits == 0:
+						player.shield = false
+						player.shieldHits = 0
+				else: HealthManager.take_damage()
 				player.damaged_this_move = true
 				
 		else:
