@@ -15,6 +15,7 @@ func _on_play_again_pressed() -> void:
 	TransitionScreen.transition()
 	await TransitionScreen.on_transition_finished
 	if LevelManager.endless_mode:
+		LevelManager.current_level = 2
 		get_tree().change_scene_to_file("res://Levels/LevelINF.tscn")
 		return
 	else:
