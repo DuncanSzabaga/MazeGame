@@ -19,13 +19,13 @@ func _process(delta):
 	var player = get_tree().current_scene.get_node("player")
 	
 	if player.atkUp:
-		steps_text.text = "Attack up shots " + str(player.atkUpHits) + "/4"
+		steps_text.text = "Powered up attacks left: " + str(player.atkUpHits) + "/4"
 		powerup_text.text = "PowerUp Activated: Attack Up"
 	elif player.shield:
-		steps_text.text = "Shield hits avaliable" + str(player.shieldHits) + "/4"
+		steps_text.text = "Shield hits left: " + str(player.shieldHits) + "/4"
 		powerup_text.text = "PowerUp Activated: Shield"
 	elif player.rangedAtk:
-		steps_text.text = "Shots: " + str(player.num_attacks) + "/2"
+		steps_text.text = "Ranged shots left: " + str(player.num_attacks) + "/2"
 		powerup_text.text = "PowerUp Activated: Ranged Attack"
 	else:
 		steps_text.text = ""
