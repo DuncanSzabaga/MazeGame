@@ -27,6 +27,12 @@ func _move_enemy():
 			if !player.damaged_this_move and !player.shield:
 				HealthManager.take_damage()
 				player.damaged_this_move = true
+			if player.shield:
+					player.shieldHits -= 1
+					print(player.shieldHits, "/4")
+					if player.shieldHits == 0:
+						player.shield = false
+						player.shieldHits = 0
 				
 		else:
 			$Sprite2D.global_position -= dir * tile_size

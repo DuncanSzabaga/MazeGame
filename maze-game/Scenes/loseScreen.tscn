@@ -25,6 +25,20 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1lape"]
+bg_color = Color(0.42352942, 0.3019608, 0.011764706, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o76b5"]
+bg_color = Color(0.42352942, 0.3019608, 0.011764706, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
 [node name="Control2" type="Control" unique_id=786839701]
 layout_mode = 3
 anchors_preset = 15
@@ -66,6 +80,8 @@ offset_right = 1304.0
 offset_bottom = 736.0
 theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_xo5bu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1lape")
+theme_override_styles/hover = SubResource("StyleBoxFlat_o76b5")
 text = "Return to Main Menu"
 
 [connection signal="pressed" from="playAgain" to="." method="_on_play_again_pressed"]
