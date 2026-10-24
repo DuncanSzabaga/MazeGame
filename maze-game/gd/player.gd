@@ -392,6 +392,7 @@ func _do_attack(dir: AttackDirection):
 		_ranged_attack(dir)
 		attack_ready = false
 		_set_idle_animation(dir, detector)
+		SFXManager.play_sound(preload("res://soundEffects/rat_laser.mp3"))
 		return
 	if atkUp:
 		atkUpHits -= 1
