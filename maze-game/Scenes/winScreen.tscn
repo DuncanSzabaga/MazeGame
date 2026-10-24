@@ -93,6 +93,7 @@ text = "Return to Main Menu"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1809963362]
 stream = ExtResource("3_1lape")
+volume_db = -20.0
 autoplay = true
 
 [connection signal="pressed" from="Buttons/playAgain" to="Buttons" method="_on_play_again_pressed"]

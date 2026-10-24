@@ -21,7 +21,7 @@ func complete_level():
 	
 	get_tree().paused = true
 	SFXManager.play_sound(preload("res://Music/levelwin.mp3"))
-	await get_tree().create_timer(1.7).timeout
+	await get_tree().create_timer(3.0).timeout
 	TransitionScreen.transition()
 	get_tree().paused = false
 	await TransitionScreen.on_transition_finished
