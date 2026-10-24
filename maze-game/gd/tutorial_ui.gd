@@ -5,7 +5,7 @@ extends CanvasLayer
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var enemy = get_tree().get_first_node_in_group("enemies")
 @onready var tilemap = get_tree().current_scene.get_node("MazeLayout")
-@onready var audio = $AudioStreamPlayer2D2
+@onready var audio = $AudioStreamPlayer
 var tutorialSteps := 0
 
 
